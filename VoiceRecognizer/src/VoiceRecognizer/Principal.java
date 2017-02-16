@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VoiceRecognizer;
-
+package VoiceRecognizer; 
 import java.io.FileReader;
 import java.util.Locale;
 import javax.speech.Central;
@@ -14,6 +13,7 @@ import javax.speech.recognition.Result;
 import javax.speech.recognition.ResultEvent;
 import javax.speech.recognition.ResultToken;
 import javax.speech.recognition.RuleGrammar;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -26,6 +26,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     /**
@@ -37,22 +38,65 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_CreateAccount = new javax.swing.JDialog();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jb_microphone = new javax.swing.JButton();
+        jt_Username_LogIn = new javax.swing.JTextField();
+        jt_Password_LogIn = new javax.swing.JTextField();
+        jb_SignIn = new javax.swing.JButton();
+        jb_CreateAccount = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jd_CreateAccountLayout = new javax.swing.GroupLayout(jd_CreateAccount.getContentPane());
+        jd_CreateAccount.getContentPane().setLayout(jd_CreateAccountLayout);
+        jd_CreateAccountLayout.setHorizontalGroup(
+            jd_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 520, Short.MAX_VALUE)
+        );
+        jd_CreateAccountLayout.setVerticalGroup(
+            jd_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 401, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("LOG IN/SIGN IN");
+        setResizable(false);
 
-        jButton1.setText("John");
+        jButton1.setText("Martha");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
             }
         });
 
-        jButton2.setText("Imprimir John");
+        jButton2.setText("imprimir Martha");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
+            }
+        });
+
+        jb_microphone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Microphone.png"))); // NOI18N
+        jb_microphone.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_microphoneMouseClicked(evt);
+            }
+        });
+
+        jt_Username_LogIn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jt_Username_LogIn.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jt_Username_LogIn.setText("USERNAME");
+
+        jt_Password_LogIn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jt_Password_LogIn.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jt_Password_LogIn.setText("PASSWORD");
+
+        jb_SignIn.setText("SIGN IN");
+
+        jb_CreateAccount.setText("CREATE ACCOUNT");
+        jb_CreateAccount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_CreateAccountMouseClicked(evt);
             }
         });
 
@@ -61,20 +105,51 @@ public class Principal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(256, 256, 256)
+                .addGap(215, 215, 215)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(273, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jb_SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jt_Password_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Username_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(236, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jButton1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jButton2)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jb_CreateAccount, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jb_microphone, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(209, 209, 209)
-                .addComponent(jButton1)
+                .addContainerGap()
+                .addComponent(jb_microphone)
+                .addGap(68, 68, 68)
+                .addComponent(jt_Username_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addComponent(jt_Password_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jb_SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2))
+                    .addComponent(jb_CreateAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -89,6 +164,27 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("John esta aqui: " + GPalabra.getGst());
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jb_CreateAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CreateAccountMouseClicked
+        // TODO add your handling code here:
+        jd_CreateAccount.setModal(false);
+        jd_CreateAccount.pack();
+        jd_CreateAccount.setLocationRelativeTo(this);
+        jd_CreateAccount.setVisible(true);
+
+        this.setVisible(false);
+    }//GEN-LAST:event_jb_CreateAccountMouseClicked
+
+    private void jb_microphoneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_microphoneMouseClicked
+        // TODO add your handling code here:
+        if (CambiarIconoMicrofono == 0) {
+           jb_microphone.setIcon(new ImageIcon(getClass().getResource("/Iconos/stopMicrophone.png"))); 
+           CambiarIconoMicrofono++;
+        }else if (CambiarIconoMicrofono == 1) {
+            jb_microphone.setIcon(new ImageIcon(getClass().getResource("/Iconos/Microphone.png"))); 
+            CambiarIconoMicrofono--;
+        }
+    }//GEN-LAST:event_jb_microphoneMouseClicked
 
     /**
      * @param args the command line arguments
@@ -128,11 +224,18 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jb_CreateAccount;
+    private javax.swing.JButton jb_SignIn;
+    private javax.swing.JButton jb_microphone;
+    private javax.swing.JDialog jd_CreateAccount;
+    private javax.swing.JTextField jt_Password_LogIn;
+    private javax.swing.JTextField jt_Username_LogIn;
     // End of variables declaration//GEN-END:variables
     Recognizer recognizer;
     String gst = "";
     String Palabra = "";
     Escucha GPalabra = new Escucha(Palabra);
+    int CambiarIconoMicrofono = 0;
 
     public void Recognizer() {
         try {
