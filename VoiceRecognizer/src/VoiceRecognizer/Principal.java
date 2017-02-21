@@ -3,11 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VoiceRecognizer; 
+package VoiceRecognizer;
+
+import static VoiceRecognizer.Escucha.recognizer;
 import java.io.FileReader;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.speech.AudioException;
 import javax.speech.Central;
 import javax.speech.EngineModeDesc;
+import javax.speech.EngineStateError;
 import javax.speech.recognition.Recognizer;
 import javax.speech.recognition.Result;
 import javax.speech.recognition.ResultEvent;
@@ -157,7 +163,6 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        Recognizer();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -178,11 +183,15 @@ public class Principal extends javax.swing.JFrame {
     private void jb_microphoneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_microphoneMouseClicked
         // TODO add your handling code here:
         if (CambiarIconoMicrofono == 0) {
-           jb_microphone.setIcon(new ImageIcon(getClass().getResource("/Iconos/stopMicrophone.png"))); 
-           CambiarIconoMicrofono++;
-        }else if (CambiarIconoMicrofono == 1) {
-            jb_microphone.setIcon(new ImageIcon(getClass().getResource("/Iconos/Microphone.png"))); 
+            jb_microphone.setIcon(new ImageIcon(getClass().getResource("/Iconos/stopMicrophone.png")));
+            CambiarIconoMicrofono++;
+            Recognizer();
+            System.out.println("Inicia");
+        } else if (CambiarIconoMicrofono == 1) {
+            jb_microphone.setIcon(new ImageIcon(getClass().getResource("/Iconos/Microphone.png")));
             CambiarIconoMicrofono--;
+            recognizer.suspend();
+            System.out.println("Termine");
         }
     }//GEN-LAST:event_jb_microphoneMouseClicked
 

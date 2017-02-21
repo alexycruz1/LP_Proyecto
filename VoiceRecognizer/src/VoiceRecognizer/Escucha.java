@@ -41,7 +41,7 @@ public class Escucha extends ResultAdapter {
             for (int i = 0; i < tokens.length; i++) {
                 gst = tokens[i].getSpokenText();
                 args[0] += gst + " ";
-                System.out.print(gst + " si si si");
+                System.out.print(gst);
             }
             
             Temp.setGst(gst);
