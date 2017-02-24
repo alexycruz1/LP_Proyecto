@@ -45,23 +45,192 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jd_CreateAccount = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jt_FirstName_CreateAccount = new javax.swing.JTextField();
+        jt_LastName_CreateAccount = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jt_Username_CreateAccount = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jt_Day_CreateAccount = new javax.swing.JTextField();
+        cb_Month_CreateAccount = new javax.swing.JComboBox<>();
+        jt_Year_CreateAccount = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        cb_Gender_CreateAccount = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        cb_Location_CreateAccount = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jt_PhoneNumber_CreateAccount = new javax.swing.JTextField();
+        jt_Password_CreateAccount = new javax.swing.JPasswordField();
+        jt_ConfirmPassword_CreateAccount = new javax.swing.JPasswordField();
+        jb_CreateAccount_CreateAccount = new javax.swing.JButton();
+        jd_User = new javax.swing.JDialog();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jb_microphone = new javax.swing.JButton();
+        jb_microphone_LogIn = new javax.swing.JButton();
         jt_Username_LogIn = new javax.swing.JTextField();
-        jt_Password_LogIn = new javax.swing.JTextField();
-        jb_SignIn = new javax.swing.JButton();
-        jb_CreateAccount = new javax.swing.JButton();
+        jb_SignIn_LogIn = new javax.swing.JButton();
+        jb_CreateAccount_LogIn = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
+
+        jd_CreateAccount.setTitle("CREATE YOUR ACCOUNT");
+        jd_CreateAccount.setResizable(false);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Create your account");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Name");
+
+        jt_FirstName_CreateAccount.setText("First");
+
+        jt_LastName_CreateAccount.setText("Last");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Choose your username");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Create a password");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Confirm your password");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Birthday");
+
+        jt_Day_CreateAccount.setText("DAY");
+
+        cb_Month_CreateAccount.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+
+        jt_Year_CreateAccount.setText("YEAR");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setText("Gender");
+
+        cb_Gender_CreateAccount.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male", "Other", "Rather not say" }));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setText("Location");
+
+        cb_Location_CreateAccount.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+1 –  Canada", "+1 –  United States", "+1 787 / 939 –  Puerto Rico", "+1 242 –  Bahamas", "+1 246 –  Barbados", "+1 264 –  Anguilla", "+1 268 –  Antigua and Barbuda", "+1 284 –  British Virgin Islands", "+1 345 –  Cayman Islands", "+1 441 –  Bermuda", "+1 473 –  Grenada", "+1 649 –  Turks and Caicos Islands", "+1 664 –  Montserrat", "+1 721 –  Sint Maarten", "+1 758 –  Saint Lucia", "+1 767 –  Dominica", "+1 784 –  Saint Vincent and the Grenadines", "+1 809 / 829 / 849 –  Dominican Republic", "+1 868 –  Trinidad and Tobago", "+1 869 –  Saint Kitts and Nevis", "+1 876 –  Jamaica", "+30 –  Greece", "+31 –  Netherlands", "+32 –  Belgium", "+33 –  France", "+34 –  Spain", "+350 –  Gibraltar", "+351 –  Portugal", "+352 –  Luxembourg", "+353 –  Ireland", "+354 –  Iceland", "+355 –  Albania", "+356 –  Malta", "+357 –  Cyprus", "+358 –  Finland", "+358 18 –  Åland Islands", "+359 –  Bulgaria", "+36 –  Hungary", "+500 –  Falkland Islands", "+500 x –  South Georgia and South Sandwich Islands", "+501 –  Belize", "+502 –  Guatemala", "+503 –  El Salvador", "+504 –  Honduras", "+505 –  Nicaragua", "+506 –  Costa Rica", "+507 –  Panama", "+508 –  Saint-Pierre and Miquelon", "+509 –  Haiti", "+51 –  Peru", "+52 –  Mexico", "+53 –  Cuba", "+54 –  Argentina", "+55 –  Brazil", "+56 –  Chile", "+57 –  Colombia", "+58 –  Venezuela", "+590 –  Guadeloupe", "+591 –  Bolivia", "+592 –  Guyana", "+593 –  Ecuador", "+595 –  Paraguay", "+596 –  Martinique", "+597 –  Suriname", "+598 –  Uruguay" }));
+        cb_Location_CreateAccount.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_Location_CreateAccountItemStateChanged(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Phone number");
+
+        jb_CreateAccount_CreateAccount.setText("CREATE ACCOUNT");
 
         javax.swing.GroupLayout jd_CreateAccountLayout = new javax.swing.GroupLayout(jd_CreateAccount.getContentPane());
         jd_CreateAccount.getContentPane().setLayout(jd_CreateAccountLayout);
         jd_CreateAccountLayout.setHorizontalGroup(
             jd_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGroup(jd_CreateAccountLayout.createSequentialGroup()
+                .addGap(271, 271, 271)
+                .addComponent(jLabel1)
+                .addContainerGap(315, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_CreateAccountLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jd_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(cb_Gender_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(jt_Username_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jd_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jt_ConfirmPassword_CreateAccount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                        .addComponent(jt_Password_CreateAccount, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addGroup(jd_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jd_CreateAccountLayout.createSequentialGroup()
+                            .addComponent(jt_Day_CreateAccount)
+                            .addGap(18, 18, 18)
+                            .addComponent(cb_Month_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jt_Year_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(17, 17, 17))
+                        .addGroup(jd_CreateAccountLayout.createSequentialGroup()
+                            .addComponent(jt_FirstName_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jt_LastName_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jd_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jt_PhoneNumber_CreateAccount, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cb_Location_CreateAccount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_CreateAccountLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jb_CreateAccount_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(113, 113, 113))
         );
+
+        jd_CreateAccountLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jt_FirstName_CreateAccount, jt_LastName_CreateAccount});
+
         jd_CreateAccountLayout.setVerticalGroup(
             jd_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
+            .addGroup(jd_CreateAccountLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addGroup(jd_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jt_FirstName_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_LastName_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jt_Username_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel4)
+                .addGap(27, 27, 27)
+                .addComponent(jt_Password_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(jt_ConfirmPassword_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addGroup(jd_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jt_Day_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_Month_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Year_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cb_Gender_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(cb_Location_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel9)
+                .addGap(18, 18, 18)
+                .addComponent(jt_PhoneNumber_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jb_CreateAccount_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
+        );
+
+        jd_CreateAccountLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jt_FirstName_CreateAccount, jt_LastName_CreateAccount});
+
+        javax.swing.GroupLayout jd_UserLayout = new javax.swing.GroupLayout(jd_User.getContentPane());
+        jd_User.getContentPane().setLayout(jd_UserLayout);
+        jd_UserLayout.setHorizontalGroup(
+            jd_UserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_UserLayout.setVerticalGroup(
+            jd_UserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,10 +251,10 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jb_microphone.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Microphone.png"))); // NOI18N
-        jb_microphone.addMouseListener(new java.awt.event.MouseAdapter() {
+        jb_microphone_LogIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Microphone.png"))); // NOI18N
+        jb_microphone_LogIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_microphoneMouseClicked(evt);
+                jb_microphone_LogInMouseClicked(evt);
             }
         });
 
@@ -93,32 +262,23 @@ public class Principal extends javax.swing.JFrame {
         jt_Username_LogIn.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jt_Username_LogIn.setText("USERNAME");
 
-        jt_Password_LogIn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jt_Password_LogIn.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jt_Password_LogIn.setText("PASSWORD");
+        jb_SignIn_LogIn.setText("SIGN IN");
 
-        jb_SignIn.setText("SIGN IN");
-
-        jb_CreateAccount.setText("CREATE ACCOUNT");
-        jb_CreateAccount.addMouseListener(new java.awt.event.MouseAdapter() {
+        jb_CreateAccount_LogIn.setText("CREATE ACCOUNT");
+        jb_CreateAccount_LogIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_CreateAccountMouseClicked(evt);
+                jb_CreateAccount_LogInMouseClicked(evt);
             }
         });
+
+        jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPasswordField1.setText("PASSWORD");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jb_SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jt_Password_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jt_Username_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(236, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -133,30 +293,44 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jb_CreateAccount, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jb_microphone, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(jb_microphone_LogIn, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jb_CreateAccount_LogIn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(215, 215, 215)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPasswordField1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jb_SignIn_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jt_Username_LogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPasswordField1, jt_Username_LogIn});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jb_microphone)
+                .addComponent(jb_microphone_LogIn)
                 .addGap(68, 68, 68)
                 .addComponent(jt_Username_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jt_Password_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jb_SignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jb_SignIn_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2))
-                    .addComponent(jb_CreateAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jb_CreateAccount_LogIn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPasswordField1, jt_Username_LogIn});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -170,7 +344,7 @@ public class Principal extends javax.swing.JFrame {
         System.out.println("John esta aqui: " + GPalabra.getGst());
     }//GEN-LAST:event_jButton2MouseClicked
 
-    private void jb_CreateAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CreateAccountMouseClicked
+    private void jb_CreateAccount_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CreateAccount_LogInMouseClicked
         // TODO add your handling code here:
         jd_CreateAccount.setModal(false);
         jd_CreateAccount.pack();
@@ -178,22 +352,41 @@ public class Principal extends javax.swing.JFrame {
         jd_CreateAccount.setVisible(true);
 
         this.setVisible(false);
-    }//GEN-LAST:event_jb_CreateAccountMouseClicked
+    }//GEN-LAST:event_jb_CreateAccount_LogInMouseClicked
 
-    private void jb_microphoneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_microphoneMouseClicked
+    private void jb_microphone_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_microphone_LogInMouseClicked
         // TODO add your handling code here:
         if (CambiarIconoMicrofono == 0) {
-            jb_microphone.setIcon(new ImageIcon(getClass().getResource("/Iconos/stopMicrophone.png")));
+            jb_microphone_LogIn.setIcon(new ImageIcon(getClass().getResource("/Iconos/stopMicrophone.png")));
             CambiarIconoMicrofono++;
             Recognizer();
             System.out.println("Inicia");
         } else if (CambiarIconoMicrofono == 1) {
-            jb_microphone.setIcon(new ImageIcon(getClass().getResource("/Iconos/Microphone.png")));
+            jb_microphone_LogIn.setIcon(new ImageIcon(getClass().getResource("/Iconos/Microphone.png")));
             CambiarIconoMicrofono--;
             recognizer.suspend();
             System.out.println("Termine");
         }
-    }//GEN-LAST:event_jb_microphoneMouseClicked
+    }//GEN-LAST:event_jb_microphone_LogInMouseClicked
+
+    private void cb_Location_CreateAccountItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Location_CreateAccountItemStateChanged
+        // TODO add your handling code here:
+        String CutPhoneCode = cb_Location_CreateAccount.getSelectedItem().toString();
+        int BeginIndex = 0, EndIndex = CutPhoneCode.length();
+        
+        for (int i = 0; i < CutPhoneCode.length(); i++) {
+            char Revisar = CutPhoneCode.charAt(i);
+            if (Revisar == '+') {
+                BeginIndex = i;
+            }
+            if (Revisar == '/' || Revisar == '–') {
+                EndIndex = i;
+            }
+        }
+        
+        String PhoneCode = CutPhoneCode.substring(BeginIndex, EndIndex);
+        jt_PhoneNumber_CreateAccount.setText(PhoneCode);
+    }//GEN-LAST:event_cb_Location_CreateAccountItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -231,14 +424,36 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cb_Gender_CreateAccount;
+    private javax.swing.JComboBox<String> cb_Location_CreateAccount;
+    private javax.swing.JComboBox<String> cb_Month_CreateAccount;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jb_CreateAccount;
-    private javax.swing.JButton jb_SignIn;
-    private javax.swing.JButton jb_microphone;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JButton jb_CreateAccount_CreateAccount;
+    private javax.swing.JButton jb_CreateAccount_LogIn;
+    private javax.swing.JButton jb_SignIn_LogIn;
+    private javax.swing.JButton jb_microphone_LogIn;
     private javax.swing.JDialog jd_CreateAccount;
-    private javax.swing.JTextField jt_Password_LogIn;
+    private javax.swing.JDialog jd_User;
+    private javax.swing.JPasswordField jt_ConfirmPassword_CreateAccount;
+    private javax.swing.JTextField jt_Day_CreateAccount;
+    private javax.swing.JTextField jt_FirstName_CreateAccount;
+    private javax.swing.JTextField jt_LastName_CreateAccount;
+    private javax.swing.JPasswordField jt_Password_CreateAccount;
+    private javax.swing.JTextField jt_PhoneNumber_CreateAccount;
+    private javax.swing.JTextField jt_Username_CreateAccount;
     private javax.swing.JTextField jt_Username_LogIn;
+    private javax.swing.JTextField jt_Year_CreateAccount;
     // End of variables declaration//GEN-END:variables
     Recognizer recognizer;
     String gst = "";

@@ -17,7 +17,7 @@ public class Contacto {
     String Phone;
     String PhonePlace;
     String Email;
-    String BirthDate;
+    String BirthDay;
 
     public Contacto() {
     }
@@ -30,7 +30,7 @@ public class Contacto {
         this.Phone = Phone;
         this.PhonePlace = PhonePlace;
         this.Email = Email;
-        this.BirthDate = BirthDate;
+        this.BirthDay = BirthDate;
     }
 
     public String getName() {
@@ -89,12 +89,12 @@ public class Contacto {
         this.Email = Email;
     }
 
-    public String getBirthDate() {
-        return BirthDate;
+    public String getBirthDay() {
+        return BirthDay;
     }
 
-    public void setBirthDate(String BirthDate) {
-        this.BirthDate = BirthDate;
+    public void setBirthDay(String BirthDay) {
+        this.BirthDay = BirthDay;
     }
 
     @Override

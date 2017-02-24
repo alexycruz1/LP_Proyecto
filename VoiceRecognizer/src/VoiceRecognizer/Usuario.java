@@ -13,21 +13,24 @@ public class Usuario {
     String Nombre;
     String UserName;
     String Contraseña;
-    String BirthDate;
+    String BirthDay;
     String Phone;
     String Country;
+    String Genero;
 
     public Usuario() {
     }
 
-    public Usuario(String Nombre, String UserName, String Contraseña, String BirthDate, String Phone, String Country) {
+    public Usuario(String Nombre, String UserName, String Contraseña, String BirthDate, String Phone, String Country, String Genero) {
         this.Nombre = Nombre;
         this.UserName = UserName;
         this.Contraseña = Contraseña;
-        this.BirthDate = BirthDate;
+        this.BirthDay = BirthDate;
         this.Phone = Phone;
         this.Country = Country;
+        this.Genero = Genero;
     }
+
 
     public String getNombre() {
         return Nombre;
@@ -53,12 +56,12 @@ public class Usuario {
         this.Contraseña = Contraseña;
     }
 
-    public String getBirthDate() {
-        return BirthDate;
+    public String getBirthDay() {
+        return BirthDay;
     }
 
-    public void setBirthDate(String BirthDate) {
-        this.BirthDate = BirthDate;
+    public void setBirthDay(String BirthDay) {
+        this.BirthDay = BirthDay;
     }
 
     public String getPhone() {
@@ -76,6 +79,15 @@ public class Usuario {
     public void setCountry(String Country) {
         this.Country = Country;
     }
+
+    public String getGenero() {
+        return Genero;
+    }
+
+    public void setGenero(String Genero) {
+        this.Genero = Genero;
+    }
+    
 
     @Override
     public String toString() {
