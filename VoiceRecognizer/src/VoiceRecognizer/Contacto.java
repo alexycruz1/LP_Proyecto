@@ -18,19 +18,21 @@ public class Contacto {
     String PhonePlace;
     String Email;
     String BirthDay;
+    String NombreUsuarioPertenece;
 
     public Contacto() {
     }
 
-    public Contacto(String Nombre, String PhoneticName, String NickName, String RutaImagen, String Phone, String PhonePlace, String Email, String BirthDate) {
-        this.Name = Nombre;
+    public Contacto(String Name, String PhoneticName, String NickName, String RutaImagen, String Phone, String PhonePlace, String Email, String BirthDay, String NombreUsuarioPertenece) {
+        this.Name = Name;
         this.PhoneticName = PhoneticName;
         this.NickName = NickName;
         this.RutaImagen = RutaImagen;
         this.Phone = Phone;
         this.PhonePlace = PhonePlace;
         this.Email = Email;
-        this.BirthDay = BirthDate;
+        this.BirthDay = BirthDay;
+        this.NombreUsuarioPertenece = NombreUsuarioPertenece;
     }
 
     public String getName() {
@@ -95,6 +97,14 @@ public class Contacto {
 
     public void setBirthDay(String BirthDay) {
         this.BirthDay = BirthDay;
+    }
+
+    public String getNombreUsuarioPertenece() {
+        return NombreUsuarioPertenece;
+    }
+
+    public void setNombreUsuarioPertenece(String NombreUsuarioPertenece) {
+        this.NombreUsuarioPertenece = NombreUsuarioPertenece;
     }
 
     @Override

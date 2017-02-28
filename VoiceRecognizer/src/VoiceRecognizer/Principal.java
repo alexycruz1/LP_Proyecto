@@ -7,6 +7,9 @@ package VoiceRecognizer;
 
 import static VoiceRecognizer.Escucha.recognizer;
 import java.io.FileReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -226,11 +229,11 @@ public class Principal extends javax.swing.JFrame {
         jd_User.getContentPane().setLayout(jd_UserLayout);
         jd_UserLayout.setHorizontalGroup(
             jd_UserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 598, Short.MAX_VALUE)
         );
         jd_UserLayout.setVerticalGroup(
             jd_UserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 521, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -263,6 +266,11 @@ public class Principal extends javax.swing.JFrame {
         jt_Username_LogIn.setText("USERNAME");
 
         jb_SignIn_LogIn.setText("SIGN IN");
+        jb_SignIn_LogIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_SignIn_LogInMouseClicked(evt);
+            }
+        });
 
         jb_CreateAccount_LogIn.setText("CREATE ACCOUNT");
         jb_CreateAccount_LogIn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -281,6 +289,11 @@ public class Principal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jb_microphone_LogIn, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jb_CreateAccount_LogIn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -288,23 +301,17 @@ public class Principal extends javax.swing.JFrame {
                                 .addComponent(jButton1))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jButton2)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jb_microphone_LogIn, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jb_CreateAccount_LogIn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jButton2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(215, 215, 215)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jPasswordField1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addComponent(jb_SignIn_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jt_Username_LogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))))
+                        .addGap(0, 224, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPasswordField1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jb_SignIn_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jt_Username_LogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
-                .addContainerGap(236, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPasswordField1, jt_Username_LogIn});
@@ -350,8 +357,6 @@ public class Principal extends javax.swing.JFrame {
         jd_CreateAccount.pack();
         jd_CreateAccount.setLocationRelativeTo(this);
         jd_CreateAccount.setVisible(true);
-
-        this.setVisible(false);
     }//GEN-LAST:event_jb_CreateAccount_LogInMouseClicked
 
     private void jb_microphone_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_microphone_LogInMouseClicked
@@ -373,7 +378,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         String CutPhoneCode = cb_Location_CreateAccount.getSelectedItem().toString();
         int BeginIndex = 0, EndIndex = CutPhoneCode.length();
-        
+
         for (int i = 0; i < CutPhoneCode.length(); i++) {
             char Revisar = CutPhoneCode.charAt(i);
             if (Revisar == '+') {
@@ -383,10 +388,18 @@ public class Principal extends javax.swing.JFrame {
                 EndIndex = i;
             }
         }
-        
+
         String PhoneCode = CutPhoneCode.substring(BeginIndex, EndIndex);
         jt_PhoneNumber_CreateAccount.setText(PhoneCode);
     }//GEN-LAST:event_cb_Location_CreateAccountItemStateChanged
+
+    private void jb_SignIn_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_SignIn_LogInMouseClicked
+        // TODO add your handling code here:
+        jd_User.setModal(false);
+        jd_User.pack();
+        jd_User.setLocationRelativeTo(this);
+        jd_User.setVisible(true);
+    }//GEN-LAST:event_jb_SignIn_LogInMouseClicked
 
     /**
      * @param args the command line arguments
@@ -460,6 +473,7 @@ public class Principal extends javax.swing.JFrame {
     String Palabra = "";
     Escucha GPalabra = new Escucha(Palabra);
     int CambiarIconoMicrofono = 0;
+    Connection Conect = null;
 
     public void Recognizer() {
         try {
@@ -483,6 +497,16 @@ public class Principal extends javax.swing.JFrame {
             System.out.println("Exception en " + e.toString());
             e.printStackTrace();
             System.exit(0);
+        }
+    }
+
+    public void ConectarDB() {
+        try {
+            String connectionUrl = "jdbc:sqlserver://;database=Northwind;integratedSecurity=true;";
+            Conect = DriverManager.getConnection(connectionUrl);
+            System.out.println("Conectado.");
+        } catch (SQLException ex) {
+            System.out.println("Error.");
         }
     }
 }
