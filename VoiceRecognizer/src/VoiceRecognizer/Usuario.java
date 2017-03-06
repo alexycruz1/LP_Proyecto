@@ -10,34 +10,46 @@ package VoiceRecognizer;
  * @author xyto_
  */
 public class Usuario {
-    String Nombre;
+    String FirstName;
+    String LastName;
     String UserName;
     String Contraseña;
     String BirthDay;
     String Phone;
     String Country;
     String Genero;
+    boolean Estado;
 
     public Usuario() {
     }
 
-    public Usuario(String Nombre, String UserName, String Contraseña, String BirthDate, String Phone, String Country, String Genero) {
-        this.Nombre = Nombre;
+    public Usuario(String FirstName, String LastName, String UserName, String Contraseña, String BirthDay, String Phone, String Country, String Genero, boolean Estado) {
+        this.FirstName = FirstName;
+        this.LastName = LastName;
         this.UserName = UserName;
         this.Contraseña = Contraseña;
-        this.BirthDay = BirthDate;
+        this.BirthDay = BirthDay;
         this.Phone = Phone;
         this.Country = Country;
         this.Genero = Genero;
+        this.Estado = Estado;
     }
 
 
-    public String getNombre() {
-        return Nombre;
+    public String getFirstName() {
+        return FirstName;
     }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public void setFirstName(String FirstName) {
+        this.FirstName = FirstName;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String LastName) {
+        this.LastName = LastName;
     }
 
     public String getUserName() {
@@ -86,6 +98,14 @@ public class Usuario {
 
     public void setGenero(String Genero) {
         this.Genero = Genero;
+    }
+
+    public boolean isEstado() {
+        return Estado;
+    }
+
+    public void setEstado(boolean Estado) {
+        this.Estado = Estado;
     }
     
 

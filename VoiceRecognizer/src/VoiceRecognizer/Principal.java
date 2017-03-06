@@ -5,11 +5,13 @@
  */
 package VoiceRecognizer;
 
+import java.sql.*;
 import static VoiceRecognizer.Escucha.recognizer;
 import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +25,7 @@ import javax.speech.recognition.ResultEvent;
 import javax.speech.recognition.ResultToken;
 import javax.speech.recognition.RuleGrammar;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,6 +39,7 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(this);
+        ConectarDB();
     }
 
     /**
@@ -128,6 +132,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel9.setText("Phone number");
 
         jb_CreateAccount_CreateAccount.setText("CREATE ACCOUNT");
+        jb_CreateAccount_CreateAccount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_CreateAccount_CreateAccountMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_CreateAccountLayout = new javax.swing.GroupLayout(jd_CreateAccount.getContentPane());
         jd_CreateAccount.getContentPane().setLayout(jd_CreateAccountLayout);
@@ -401,6 +410,26 @@ public class Principal extends javax.swing.JFrame {
         jd_User.setVisible(true);
     }//GEN-LAST:event_jb_SignIn_LogInMouseClicked
 
+    private void jb_CreateAccount_CreateAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CreateAccount_CreateAccountMouseClicked
+        // TODO add your handling code here:
+        String FirstName, LastName, UserName, Contraseña, ConfirmPassword, BirthDay, Phone, Country, Genero;
+        
+        FirstName = jt_FirstName_CreateAccount.getText();
+        LastName = jt_LastName_CreateAccount.getText();
+        UserName = jt_Username_CreateAccount.getText();
+        Contraseña = jt_Password_CreateAccount.getText();
+        ConfirmPassword = jt_ConfirmPassword_CreateAccount.getText();
+        BirthDay = jt_Day_CreateAccount.getText() + cb_Month_CreateAccount.getSelectedItem().toString() + jt_Year_CreateAccount.getText();
+        Phone = jt_PhoneNumber_CreateAccount.getText();
+        Country = cb_Location_CreateAccount.getSelectedItem().toString();
+        Genero = cb_Gender_CreateAccount.getSelectedItem().toString();
+        
+        Usuario NuevoUsuario = new Usuario(FirstName, LastName, UserName, Contraseña, BirthDay, Phone, Country, Genero, true);
+        InsertarUsuarioEnDB(FirstName, LastName, UserName, Contraseña, BirthDay, Phone, Country, Genero, true);
+        
+        JOptionPane.showMessageDialog(this, "Usuario creado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jb_CreateAccount_CreateAccountMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -474,6 +503,89 @@ public class Principal extends javax.swing.JFrame {
     Escucha GPalabra = new Escucha(Palabra);
     int CambiarIconoMicrofono = 0;
     Connection Conect = null;
+    ArrayList<Usuario> ListaUsuarios = new ArrayList();
+    ArrayList<Contacto> ListaContactos = new ArrayList();
+    
+    public void InsertarUsuarioEnDB(String FirstName, String LastName, String UserName, String Contraseña, String BirthDay, String Phone, String Country, String Genero, boolean Estado){
+        CallableStatement CT = null;
+        boolean Resp = true;
+        try {
+            Conect.setAutoCommit(false);
+            CT = Conect.prepareCall("{Call AgregarUsuario(?, ?, ?, ?, ?, ?, ?, ?)}");
+            CT.setString(1, UserName);
+            CT.setString(2, FirstName);
+            CT.setString(3, LastName);
+            CT.setString(4, Contraseña);
+            CT.setString(5, BirthDay);
+            CT.setString(6, Phone);
+            CT.setString(7, Country);
+            CT.setString(8, Genero);
+            Resp = CT.execute();
+            Conect.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void ActualizarUsuarioEnDB(String FirstName, String LastName, String UserName, String Contraseña, String BirthDay, String Phone, String Country, String Genero, boolean Estado){
+        CallableStatement CT = null;
+        boolean Resp = true;
+        try {
+            Conect.setAutoCommit(false);
+            CT = Conect.prepareCall("{Call ActualizarUsuario(?, ?, ?, ?, ?, ?, ?, ?)}");
+            CT.setString(1, UserName);
+            CT.setString(2, FirstName);
+            CT.setString(3, LastName);
+            CT.setString(4, Contraseña);
+            CT.setString(5, BirthDay);
+            CT.setString(6, Phone);
+            CT.setString(7, Country);
+            CT.setString(8, Genero);
+            Resp = CT.execute();
+            Conect.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void EliminarUsuarioEnDB(String UserName){
+        CallableStatement CT = null;
+        boolean Resp = true;
+        try {
+            Conect.setAutoCommit(false);
+            CT = Conect.prepareCall("{Call EliminarUsuario(?)}");
+            CT.setString(1, UserName);
+            Resp = CT.execute();
+            Conect.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public ArrayList<Usuario> ListaUsuarios(){
+        CallableStatement CT = null;
+        ResultSet RS = null;
+        try {
+            CT = Conect.prepareCall("{Call ListarUsuario}");
+            RS = CT.executeQuery();
+            Usuario NuevoUsuario = null;
+            while(RS.next()){
+                NuevoUsuario = new Usuario();
+                NuevoUsuario.setUserName(RS.getString("UserName"));
+                NuevoUsuario.setFirstName(RS.getString("FirstName"));
+                NuevoUsuario.setLastName(RS.getString("LastName"));
+                NuevoUsuario.setContraseña(RS.getString("Contraseña"));
+                NuevoUsuario.setBirthDay(RS.getString("BirthDay"));
+                NuevoUsuario.setPhone(RS.getString("Phone"));
+                NuevoUsuario.setCountry(RS.getString("Country"));
+                NuevoUsuario.setGenero(RS.getString("Genero"));
+                ListaUsuarios.add(NuevoUsuario);
+            }
+        } catch (Exception e) {
+        }
+        return ListaUsuarios;
+    }
+    
 
     public void Recognizer() {
         try {
@@ -502,7 +614,7 @@ public class Principal extends javax.swing.JFrame {
 
     public void ConectarDB() {
         try {
-            String connectionUrl = "jdbc:sqlserver://;database=Northwind;integratedSecurity=true;";
+            String connectionUrl = "jdbc:sqlserver://;database=VoiceRecognizer;integratedSecurity=true;";
             Conect = DriverManager.getConnection(connectionUrl);
             System.out.println("Conectado.");
         } catch (SQLException ex) {

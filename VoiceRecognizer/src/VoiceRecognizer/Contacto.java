@@ -19,11 +19,12 @@ public class Contacto {
     String Email;
     String BirthDay;
     String NombreUsuarioPertenece;
+    boolean Estado;
 
     public Contacto() {
     }
 
-    public Contacto(String Name, String PhoneticName, String NickName, String RutaImagen, String Phone, String PhonePlace, String Email, String BirthDay, String NombreUsuarioPertenece) {
+    public Contacto(String Name, String PhoneticName, String NickName, String RutaImagen, String Phone, String PhonePlace, String Email, String BirthDay, String NombreUsuarioPertenece, boolean Estado) {
         this.Name = Name;
         this.PhoneticName = PhoneticName;
         this.NickName = NickName;
@@ -33,6 +34,7 @@ public class Contacto {
         this.Email = Email;
         this.BirthDay = BirthDay;
         this.NombreUsuarioPertenece = NombreUsuarioPertenece;
+        this.Estado = Estado;
     }
 
     public String getName() {
@@ -105,6 +107,14 @@ public class Contacto {
 
     public void setNombreUsuarioPertenece(String NombreUsuarioPertenece) {
         this.NombreUsuarioPertenece = NombreUsuarioPertenece;
+    }
+
+    public boolean isEstado() {
+        return Estado;
+    }
+
+    public void setEstado(boolean Estado) {
+        this.Estado = Estado;
     }
 
     @Override

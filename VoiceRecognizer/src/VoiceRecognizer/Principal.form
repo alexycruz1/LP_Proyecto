@@ -334,6 +334,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="CREATE ACCOUNT"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_CreateAccount_CreateAccountMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
