@@ -345,15 +345,741 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="598" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jTabbedPane1" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="521" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jTabbedPane1" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel1">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Profile">
+                    <Property name="tabTitle" type="java.lang.String" value="Profile"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="cb_Gender_Profile" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                              <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jt_Username_Profile" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jt_ConfirmPassword_Profile" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jt_Password_Profile" alignment="0" min="-2" pref="245" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jt_Day_Profile" max="32767" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="cb_Month_Profile" min="-2" pref="103" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jt_Year_Profile" min="-2" pref="91" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jt_FirstName_Profile" min="-2" pref="141" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jt_LastName_Profile" min="-2" pref="133" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+                                  <Component id="jButton3" min="-2" pref="147" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jt_PhoneNumber_Profile" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cb_Location_Profile" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="95" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jt_FirstName_Profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jt_LastName_Profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton3" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jt_Username_Profile" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="jt_Password_Profile" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jt_ConfirmPassword_Profile" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jt_Day_Profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cb_Month_Profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jt_Year_Profile" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="cb_Gender_Profile" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="cb_Location_Profile" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jt_PhoneNumber_Profile" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel10">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Name"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jt_FirstName_Profile">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="First"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jt_LastName_Profile">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Last"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel11">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Choose your username"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jt_Username_Profile">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel12">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Create a password"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JPasswordField" name="jt_Password_Profile">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel13">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Confirm your password"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JPasswordField" name="jt_ConfirmPassword_Profile">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel14">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Birthday"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jt_Day_Profile">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="DAY"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cb_Month_Profile">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="12">
+                        <StringItem index="0" value="January"/>
+                        <StringItem index="1" value="February"/>
+                        <StringItem index="2" value="March"/>
+                        <StringItem index="3" value="April"/>
+                        <StringItem index="4" value="May"/>
+                        <StringItem index="5" value="June"/>
+                        <StringItem index="6" value="July"/>
+                        <StringItem index="7" value="August"/>
+                        <StringItem index="8" value="September"/>
+                        <StringItem index="9" value="October"/>
+                        <StringItem index="10" value="November"/>
+                        <StringItem index="11" value="December"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jt_Year_Profile">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="YEAR"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel15">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Gender"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cb_Gender_Profile">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="4">
+                        <StringItem index="0" value="Female"/>
+                        <StringItem index="1" value="Male"/>
+                        <StringItem index="2" value="Other"/>
+                        <StringItem index="3" value="Rather not say"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel16">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Location"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cb_Location_Profile">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="65">
+                        <StringItem index="0" value="+1 &#x2013;  Canada"/>
+                        <StringItem index="1" value="+1 &#x2013;  United States"/>
+                        <StringItem index="2" value="+1 787 / 939 &#x2013;  Puerto Rico"/>
+                        <StringItem index="3" value="+1 242 &#x2013;  Bahamas"/>
+                        <StringItem index="4" value="+1 246 &#x2013;  Barbados"/>
+                        <StringItem index="5" value="+1 264 &#x2013;  Anguilla"/>
+                        <StringItem index="6" value="+1 268 &#x2013;  Antigua and Barbuda"/>
+                        <StringItem index="7" value="+1 284 &#x2013;  British Virgin Islands"/>
+                        <StringItem index="8" value="+1 345 &#x2013;  Cayman Islands"/>
+                        <StringItem index="9" value="+1 441 &#x2013;  Bermuda"/>
+                        <StringItem index="10" value="+1 473 &#x2013;  Grenada"/>
+                        <StringItem index="11" value="+1 649 &#x2013;  Turks and Caicos Islands"/>
+                        <StringItem index="12" value="+1 664 &#x2013;  Montserrat"/>
+                        <StringItem index="13" value="+1 721 &#x2013;  Sint Maarten"/>
+                        <StringItem index="14" value="+1 758 &#x2013;  Saint Lucia"/>
+                        <StringItem index="15" value="+1 767 &#x2013;  Dominica"/>
+                        <StringItem index="16" value="+1 784 &#x2013;  Saint Vincent and the Grenadines"/>
+                        <StringItem index="17" value="+1 809 / 829 / 849 &#x2013;  Dominican Republic"/>
+                        <StringItem index="18" value="+1 868 &#x2013;  Trinidad and Tobago"/>
+                        <StringItem index="19" value="+1 869 &#x2013;  Saint Kitts and Nevis"/>
+                        <StringItem index="20" value="+1 876 &#x2013;  Jamaica"/>
+                        <StringItem index="21" value="+30 &#x2013;  Greece"/>
+                        <StringItem index="22" value="+31 &#x2013;  Netherlands"/>
+                        <StringItem index="23" value="+32 &#x2013;  Belgium"/>
+                        <StringItem index="24" value="+33 &#x2013;  France"/>
+                        <StringItem index="25" value="+34 &#x2013;  Spain"/>
+                        <StringItem index="26" value="+350 &#x2013;  Gibraltar"/>
+                        <StringItem index="27" value="+351 &#x2013;  Portugal"/>
+                        <StringItem index="28" value="+352 &#x2013;  Luxembourg"/>
+                        <StringItem index="29" value="+353 &#x2013;  Ireland"/>
+                        <StringItem index="30" value="+354 &#x2013;  Iceland"/>
+                        <StringItem index="31" value="+355 &#x2013;  Albania"/>
+                        <StringItem index="32" value="+356 &#x2013;  Malta"/>
+                        <StringItem index="33" value="+357 &#x2013;  Cyprus"/>
+                        <StringItem index="34" value="+358 &#x2013;  Finland"/>
+                        <StringItem index="35" value="+358 18 &#x2013;  &#xc5;land Islands"/>
+                        <StringItem index="36" value="+359 &#x2013;  Bulgaria"/>
+                        <StringItem index="37" value="+36 &#x2013;  Hungary"/>
+                        <StringItem index="38" value="+500 &#x2013;  Falkland Islands"/>
+                        <StringItem index="39" value="+500 x &#x2013;  South Georgia and South Sandwich Islands"/>
+                        <StringItem index="40" value="+501 &#x2013;  Belize"/>
+                        <StringItem index="41" value="+502 &#x2013;  Guatemala"/>
+                        <StringItem index="42" value="+503 &#x2013;  El Salvador"/>
+                        <StringItem index="43" value="+504 &#x2013;  Honduras"/>
+                        <StringItem index="44" value="+505 &#x2013;  Nicaragua"/>
+                        <StringItem index="45" value="+506 &#x2013;  Costa Rica"/>
+                        <StringItem index="46" value="+507 &#x2013;  Panama"/>
+                        <StringItem index="47" value="+508 &#x2013;  Saint-Pierre and Miquelon"/>
+                        <StringItem index="48" value="+509 &#x2013;  Haiti"/>
+                        <StringItem index="49" value="+51 &#x2013;  Peru"/>
+                        <StringItem index="50" value="+52 &#x2013;  Mexico"/>
+                        <StringItem index="51" value="+53 &#x2013;  Cuba"/>
+                        <StringItem index="52" value="+54 &#x2013;  Argentina"/>
+                        <StringItem index="53" value="+55 &#x2013;  Brazil"/>
+                        <StringItem index="54" value="+56 &#x2013;  Chile"/>
+                        <StringItem index="55" value="+57 &#x2013;  Colombia"/>
+                        <StringItem index="56" value="+58 &#x2013;  Venezuela"/>
+                        <StringItem index="57" value="+590 &#x2013;  Guadeloupe"/>
+                        <StringItem index="58" value="+591 &#x2013;  Bolivia"/>
+                        <StringItem index="59" value="+592 &#x2013;  Guyana"/>
+                        <StringItem index="60" value="+593 &#x2013;  Ecuador"/>
+                        <StringItem index="61" value="+595 &#x2013;  Paraguay"/>
+                        <StringItem index="62" value="+596 &#x2013;  Martinique"/>
+                        <StringItem index="63" value="+597 &#x2013;  Suriname"/>
+                        <StringItem index="64" value="+598 &#x2013;  Uruguay"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cb_Location_ProfileItemStateChanged"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel17">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Phone number"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jt_PhoneNumber_Profile">
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="SAVE CHANGES"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel2">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Contacts">
+                    <Property name="tabTitle" type="java.lang.String" value="Contacts"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="228" max="-2" attributes="0"/>
+                          <Component id="jLabel18" min="-2" pref="213" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jTextField1" max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextField2" max="32767" attributes="0"/>
+                                      <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextField4" alignment="0" pref="197" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cb_Location_CreateAccount1" alignment="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jt_PhoneNumber_CreateAccount1" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
+                                      <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jt_Day_CreateAccount1" max="32767" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="cb_Month_CreateAccount1" min="-2" pref="103" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jt_Year_CreateAccount1" min="-2" pref="91" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jButton7" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jButton8" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace pref="29" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel18" min="-2" pref="237" max="-2" attributes="0"/>
+                                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                                  <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="cb_Location_CreateAccount1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                  <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jt_PhoneNumber_CreateAccount1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jt_Day_CreateAccount1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cb_Month_CreateAccount1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jt_Year_CreateAccount1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel18">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="33" green="33" red="33" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="text" type="java.lang.String" value="Imagen"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel19">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Name"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextField1">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel20">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Phonetic name"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextField2">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel21">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Nickname"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextField3">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel22">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Location"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cb_Location_CreateAccount1">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="65">
+                        <StringItem index="0" value="+1 &#x2013;  Canada"/>
+                        <StringItem index="1" value="+1 &#x2013;  United States"/>
+                        <StringItem index="2" value="+1 787 / 939 &#x2013;  Puerto Rico"/>
+                        <StringItem index="3" value="+1 242 &#x2013;  Bahamas"/>
+                        <StringItem index="4" value="+1 246 &#x2013;  Barbados"/>
+                        <StringItem index="5" value="+1 264 &#x2013;  Anguilla"/>
+                        <StringItem index="6" value="+1 268 &#x2013;  Antigua and Barbuda"/>
+                        <StringItem index="7" value="+1 284 &#x2013;  British Virgin Islands"/>
+                        <StringItem index="8" value="+1 345 &#x2013;  Cayman Islands"/>
+                        <StringItem index="9" value="+1 441 &#x2013;  Bermuda"/>
+                        <StringItem index="10" value="+1 473 &#x2013;  Grenada"/>
+                        <StringItem index="11" value="+1 649 &#x2013;  Turks and Caicos Islands"/>
+                        <StringItem index="12" value="+1 664 &#x2013;  Montserrat"/>
+                        <StringItem index="13" value="+1 721 &#x2013;  Sint Maarten"/>
+                        <StringItem index="14" value="+1 758 &#x2013;  Saint Lucia"/>
+                        <StringItem index="15" value="+1 767 &#x2013;  Dominica"/>
+                        <StringItem index="16" value="+1 784 &#x2013;  Saint Vincent and the Grenadines"/>
+                        <StringItem index="17" value="+1 809 / 829 / 849 &#x2013;  Dominican Republic"/>
+                        <StringItem index="18" value="+1 868 &#x2013;  Trinidad and Tobago"/>
+                        <StringItem index="19" value="+1 869 &#x2013;  Saint Kitts and Nevis"/>
+                        <StringItem index="20" value="+1 876 &#x2013;  Jamaica"/>
+                        <StringItem index="21" value="+30 &#x2013;  Greece"/>
+                        <StringItem index="22" value="+31 &#x2013;  Netherlands"/>
+                        <StringItem index="23" value="+32 &#x2013;  Belgium"/>
+                        <StringItem index="24" value="+33 &#x2013;  France"/>
+                        <StringItem index="25" value="+34 &#x2013;  Spain"/>
+                        <StringItem index="26" value="+350 &#x2013;  Gibraltar"/>
+                        <StringItem index="27" value="+351 &#x2013;  Portugal"/>
+                        <StringItem index="28" value="+352 &#x2013;  Luxembourg"/>
+                        <StringItem index="29" value="+353 &#x2013;  Ireland"/>
+                        <StringItem index="30" value="+354 &#x2013;  Iceland"/>
+                        <StringItem index="31" value="+355 &#x2013;  Albania"/>
+                        <StringItem index="32" value="+356 &#x2013;  Malta"/>
+                        <StringItem index="33" value="+357 &#x2013;  Cyprus"/>
+                        <StringItem index="34" value="+358 &#x2013;  Finland"/>
+                        <StringItem index="35" value="+358 18 &#x2013;  &#xc5;land Islands"/>
+                        <StringItem index="36" value="+359 &#x2013;  Bulgaria"/>
+                        <StringItem index="37" value="+36 &#x2013;  Hungary"/>
+                        <StringItem index="38" value="+500 &#x2013;  Falkland Islands"/>
+                        <StringItem index="39" value="+500 x &#x2013;  South Georgia and South Sandwich Islands"/>
+                        <StringItem index="40" value="+501 &#x2013;  Belize"/>
+                        <StringItem index="41" value="+502 &#x2013;  Guatemala"/>
+                        <StringItem index="42" value="+503 &#x2013;  El Salvador"/>
+                        <StringItem index="43" value="+504 &#x2013;  Honduras"/>
+                        <StringItem index="44" value="+505 &#x2013;  Nicaragua"/>
+                        <StringItem index="45" value="+506 &#x2013;  Costa Rica"/>
+                        <StringItem index="46" value="+507 &#x2013;  Panama"/>
+                        <StringItem index="47" value="+508 &#x2013;  Saint-Pierre and Miquelon"/>
+                        <StringItem index="48" value="+509 &#x2013;  Haiti"/>
+                        <StringItem index="49" value="+51 &#x2013;  Peru"/>
+                        <StringItem index="50" value="+52 &#x2013;  Mexico"/>
+                        <StringItem index="51" value="+53 &#x2013;  Cuba"/>
+                        <StringItem index="52" value="+54 &#x2013;  Argentina"/>
+                        <StringItem index="53" value="+55 &#x2013;  Brazil"/>
+                        <StringItem index="54" value="+56 &#x2013;  Chile"/>
+                        <StringItem index="55" value="+57 &#x2013;  Colombia"/>
+                        <StringItem index="56" value="+58 &#x2013;  Venezuela"/>
+                        <StringItem index="57" value="+590 &#x2013;  Guadeloupe"/>
+                        <StringItem index="58" value="+591 &#x2013;  Bolivia"/>
+                        <StringItem index="59" value="+592 &#x2013;  Guyana"/>
+                        <StringItem index="60" value="+593 &#x2013;  Ecuador"/>
+                        <StringItem index="61" value="+595 &#x2013;  Paraguay"/>
+                        <StringItem index="62" value="+596 &#x2013;  Martinique"/>
+                        <StringItem index="63" value="+597 &#x2013;  Suriname"/>
+                        <StringItem index="64" value="+598 &#x2013;  Uruguay"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cb_Location_CreateAccount1ItemStateChanged"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel23">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Phone number"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jt_PhoneNumber_CreateAccount1">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel24">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Birthday"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jt_Day_CreateAccount1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="DAY"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cb_Month_CreateAccount1">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="12">
+                        <StringItem index="0" value="January"/>
+                        <StringItem index="1" value="February"/>
+                        <StringItem index="2" value="March"/>
+                        <StringItem index="3" value="April"/>
+                        <StringItem index="4" value="May"/>
+                        <StringItem index="5" value="June"/>
+                        <StringItem index="6" value="July"/>
+                        <StringItem index="7" value="August"/>
+                        <StringItem index="8" value="September"/>
+                        <StringItem index="9" value="October"/>
+                        <StringItem index="10" value="November"/>
+                        <StringItem index="11" value="December"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jt_Year_CreateAccount1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="YEAR"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel25">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Email"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextField4">
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Add"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton5">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Save contact"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton6">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Delete"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton7">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Update"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton8">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Voice Call"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton9">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Video Call"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel3">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Inbox">
+                    <Property name="tabTitle" type="java.lang.String" value="Inbox"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="694" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <EmptySpace min="0" pref="749" max="32767" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+            </Container>
+          </SubComponents>
+        </Container>
+      </SubComponents>
     </Container>
   </NonVisualComponents>
   <Properties>

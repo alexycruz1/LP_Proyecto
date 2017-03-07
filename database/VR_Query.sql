@@ -1,3 +1,4 @@
+--PROCEDIMIENTOS DE USUARIO
 GO
 CREATE PROCEDURE AgregarUsuario(
 @UserName varchar(50),
@@ -38,3 +39,46 @@ GO
 CREATE PROCEDURE ListarUsuario
 AS
 SELECT* FROM Usuario WHERE Estado = 1
+
+--PROCEDIMIENTOS DE CONTACTO
+GO
+CREATE PROCEDURE AgregarContacto(
+@Nombre varchar(max),
+@PhoneticName varchar(max),
+@NickName varchar(max),
+@RutaImagen varchar(max),
+@Phone varchar(50),
+@PhonePlace varchar(max),
+@BirthDay varchar(max),
+@NombreUsuarioPertenece varchar(50))
+AS
+INSERT INTO 
+Contacto(Nombre, PhoneticName, NickName, RutaImagen, Phone, PhonePlace, BirthDay, NombreUsuarioPertenece)
+VALUES (@Nombre, @PhoneticName, @NickName, @RutaImagen, @Phone, @PhonePlace, @BirthDay, @NombreUsuarioPertenece)
+
+GO
+CREATE PROCEDURE ActualizarContacto(
+@Nombre varchar(max),
+@PhoneticName varchar(max),
+@NickName varchar(max),
+@RutaImagen varchar(max),
+@Phone varchar(50),
+@PhonePlace varchar(max),
+@BirthDay varchar(max),
+@NombreUsuarioPertenece varchar(50))
+AS
+UPDATE Contacto SET Nombre = @Nombre, PhoneticName = @PhoneticName, NickName = @NickName,
+					RutaImagen = @RutaImagen, Phone = @Phone, PhonePlace = @PhonePlace,
+					BirthDay = @BirthDay, NombreUsuarioPertenece = @NombreUsuarioPertenece   
+					WHERE Phone = @Phone
+
+GO 
+CREATE PROCEDURE EliminarContacto(
+@Phone varchar(50))
+AS
+UPDATE Contacto SET Estado = 0 WHERE Phone = @Phone
+
+GO
+CREATE PROCEDURE ListarContacto
+AS
+SELECT* FROM Contacto WHERE Estado = 1

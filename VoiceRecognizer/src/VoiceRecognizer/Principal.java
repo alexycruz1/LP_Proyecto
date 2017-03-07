@@ -74,6 +74,53 @@ public class Principal extends javax.swing.JFrame {
         jt_ConfirmPassword_CreateAccount = new javax.swing.JPasswordField();
         jb_CreateAccount_CreateAccount = new javax.swing.JButton();
         jd_User = new javax.swing.JDialog();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jt_FirstName_Profile = new javax.swing.JTextField();
+        jt_LastName_Profile = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jt_Username_Profile = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jt_Password_Profile = new javax.swing.JPasswordField();
+        jLabel13 = new javax.swing.JLabel();
+        jt_ConfirmPassword_Profile = new javax.swing.JPasswordField();
+        jLabel14 = new javax.swing.JLabel();
+        jt_Day_Profile = new javax.swing.JTextField();
+        cb_Month_Profile = new javax.swing.JComboBox<>();
+        jt_Year_Profile = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        cb_Gender_Profile = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        cb_Location_Profile = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        jt_PhoneNumber_Profile = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        cb_Location_CreateAccount1 = new javax.swing.JComboBox<>();
+        jLabel23 = new javax.swing.JLabel();
+        jt_PhoneNumber_CreateAccount1 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jt_Day_CreateAccount1 = new javax.swing.JTextField();
+        cb_Month_CreateAccount1 = new javax.swing.JComboBox<>();
+        jt_Year_CreateAccount1 = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jb_microphone_LogIn = new javax.swing.JButton();
@@ -234,15 +281,325 @@ public class Principal extends javax.swing.JFrame {
 
         jd_CreateAccountLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jt_FirstName_CreateAccount, jt_LastName_CreateAccount});
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setText("Name");
+
+        jt_FirstName_Profile.setText("First");
+
+        jt_LastName_Profile.setText("Last");
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel11.setText("Choose your username");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel12.setText("Create a password");
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel13.setText("Confirm your password");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setText("Birthday");
+
+        jt_Day_Profile.setText("DAY");
+
+        cb_Month_Profile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+
+        jt_Year_Profile.setText("YEAR");
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setText("Gender");
+
+        cb_Gender_Profile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male", "Other", "Rather not say" }));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel16.setText("Location");
+
+        cb_Location_Profile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+1 –  Canada", "+1 –  United States", "+1 787 / 939 –  Puerto Rico", "+1 242 –  Bahamas", "+1 246 –  Barbados", "+1 264 –  Anguilla", "+1 268 –  Antigua and Barbuda", "+1 284 –  British Virgin Islands", "+1 345 –  Cayman Islands", "+1 441 –  Bermuda", "+1 473 –  Grenada", "+1 649 –  Turks and Caicos Islands", "+1 664 –  Montserrat", "+1 721 –  Sint Maarten", "+1 758 –  Saint Lucia", "+1 767 –  Dominica", "+1 784 –  Saint Vincent and the Grenadines", "+1 809 / 829 / 849 –  Dominican Republic", "+1 868 –  Trinidad and Tobago", "+1 869 –  Saint Kitts and Nevis", "+1 876 –  Jamaica", "+30 –  Greece", "+31 –  Netherlands", "+32 –  Belgium", "+33 –  France", "+34 –  Spain", "+350 –  Gibraltar", "+351 –  Portugal", "+352 –  Luxembourg", "+353 –  Ireland", "+354 –  Iceland", "+355 –  Albania", "+356 –  Malta", "+357 –  Cyprus", "+358 –  Finland", "+358 18 –  Åland Islands", "+359 –  Bulgaria", "+36 –  Hungary", "+500 –  Falkland Islands", "+500 x –  South Georgia and South Sandwich Islands", "+501 –  Belize", "+502 –  Guatemala", "+503 –  El Salvador", "+504 –  Honduras", "+505 –  Nicaragua", "+506 –  Costa Rica", "+507 –  Panama", "+508 –  Saint-Pierre and Miquelon", "+509 –  Haiti", "+51 –  Peru", "+52 –  Mexico", "+53 –  Cuba", "+54 –  Argentina", "+55 –  Brazil", "+56 –  Chile", "+57 –  Colombia", "+58 –  Venezuela", "+590 –  Guadeloupe", "+591 –  Bolivia", "+592 –  Guyana", "+593 –  Ecuador", "+595 –  Paraguay", "+596 –  Martinique", "+597 –  Suriname", "+598 –  Uruguay" }));
+        cb_Location_Profile.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_Location_ProfileItemStateChanged(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel17.setText("Phone number");
+
+        jButton3.setText("SAVE CHANGES");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16)
+                    .addComponent(cb_Gender_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(jt_Username_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jt_ConfirmPassword_Profile, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jt_Password_Profile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jt_Day_Profile)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_Month_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jt_Year_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jt_FirstName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jt_LastName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(137, 137, 137)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jt_PhoneNumber_Profile, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cb_Location_Profile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(95, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jt_FirstName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_LastName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
+                .addComponent(jt_Username_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel12)
+                .addGap(27, 27, 27)
+                .addComponent(jt_Password_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
+                .addComponent(jt_ConfirmPassword_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel14)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jt_Day_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_Month_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Year_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cb_Gender_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel16)
+                .addGap(18, 18, 18)
+                .addComponent(cb_Location_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addComponent(jt_PhoneNumber_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Profile", jPanel1);
+
+        jLabel18.setBackground(new java.awt.Color(51, 51, 51));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("Imagen");
+        jLabel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel19.setText("Name");
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel20.setText("Phonetic name");
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel21.setText("Nickname");
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel22.setText("Location");
+
+        cb_Location_CreateAccount1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+1 –  Canada", "+1 –  United States", "+1 787 / 939 –  Puerto Rico", "+1 242 –  Bahamas", "+1 246 –  Barbados", "+1 264 –  Anguilla", "+1 268 –  Antigua and Barbuda", "+1 284 –  British Virgin Islands", "+1 345 –  Cayman Islands", "+1 441 –  Bermuda", "+1 473 –  Grenada", "+1 649 –  Turks and Caicos Islands", "+1 664 –  Montserrat", "+1 721 –  Sint Maarten", "+1 758 –  Saint Lucia", "+1 767 –  Dominica", "+1 784 –  Saint Vincent and the Grenadines", "+1 809 / 829 / 849 –  Dominican Republic", "+1 868 –  Trinidad and Tobago", "+1 869 –  Saint Kitts and Nevis", "+1 876 –  Jamaica", "+30 –  Greece", "+31 –  Netherlands", "+32 –  Belgium", "+33 –  France", "+34 –  Spain", "+350 –  Gibraltar", "+351 –  Portugal", "+352 –  Luxembourg", "+353 –  Ireland", "+354 –  Iceland", "+355 –  Albania", "+356 –  Malta", "+357 –  Cyprus", "+358 –  Finland", "+358 18 –  Åland Islands", "+359 –  Bulgaria", "+36 –  Hungary", "+500 –  Falkland Islands", "+500 x –  South Georgia and South Sandwich Islands", "+501 –  Belize", "+502 –  Guatemala", "+503 –  El Salvador", "+504 –  Honduras", "+505 –  Nicaragua", "+506 –  Costa Rica", "+507 –  Panama", "+508 –  Saint-Pierre and Miquelon", "+509 –  Haiti", "+51 –  Peru", "+52 –  Mexico", "+53 –  Cuba", "+54 –  Argentina", "+55 –  Brazil", "+56 –  Chile", "+57 –  Colombia", "+58 –  Venezuela", "+590 –  Guadeloupe", "+591 –  Bolivia", "+592 –  Guyana", "+593 –  Ecuador", "+595 –  Paraguay", "+596 –  Martinique", "+597 –  Suriname", "+598 –  Uruguay" }));
+        cb_Location_CreateAccount1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_Location_CreateAccount1ItemStateChanged(evt);
+            }
+        });
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel23.setText("Phone number");
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel24.setText("Birthday");
+
+        jt_Day_CreateAccount1.setText("DAY");
+
+        cb_Month_CreateAccount1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+
+        jt_Year_CreateAccount1.setText("YEAR");
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel25.setText("Email");
+
+        jButton4.setText("Add");
+
+        jButton5.setText("Save contact");
+
+        jButton6.setText("Delete");
+
+        jButton7.setText("Update");
+
+        jButton8.setText("Voice Call");
+
+        jButton9.setText("Video Call");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(228, 228, 228)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jTextField1)
+                                .addGap(113, 113, 113)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel20)
+                            .addComponent(jTextField2)
+                            .addComponent(jLabel25)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
+                        .addGap(92, 92, 92))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel21)
+                            .addComponent(cb_Location_CreateAccount1, 0, 1, Short.MAX_VALUE)
+                            .addComponent(jTextField3)
+                            .addComponent(jt_PhoneNumber_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel24)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jt_Day_CreateAccount1)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_Month_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jt_Year_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(60, 60, 60)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton7))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jButton8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton9)))
+                        .addContainerGap(29, Short.MAX_VALUE))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel25))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(jLabel22)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_Location_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton4)
+                        .addComponent(jButton5)
+                        .addComponent(jButton6)
+                        .addComponent(jButton7)))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jButton8)
+                    .addComponent(jButton9))
+                .addGap(18, 18, 18)
+                .addComponent(jt_PhoneNumber_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel24)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jt_Day_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_Month_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Year_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56))
+        );
+
+        jTabbedPane1.addTab("Contacts", jPanel2);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 694, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 749, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Inbox", jPanel3);
+
         javax.swing.GroupLayout jd_UserLayout = new javax.swing.GroupLayout(jd_User.getContentPane());
         jd_User.getContentPane().setLayout(jd_UserLayout);
         jd_UserLayout.setHorizontalGroup(
             jd_UserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 598, Short.MAX_VALUE)
+            .addGroup(jd_UserLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
         jd_UserLayout.setVerticalGroup(
             jd_UserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 521, Short.MAX_VALUE)
+            .addGroup(jd_UserLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -430,6 +787,14 @@ public class Principal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Usuario creado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jb_CreateAccount_CreateAccountMouseClicked
 
+    private void cb_Location_ProfileItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Location_ProfileItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_Location_ProfileItemStateChanged
+
+    private void cb_Location_CreateAccount1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Location_CreateAccount1ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_Location_CreateAccount1ItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -467,12 +832,40 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cb_Gender_CreateAccount;
+    private javax.swing.JComboBox<String> cb_Gender_Profile;
     private javax.swing.JComboBox<String> cb_Location_CreateAccount;
+    private javax.swing.JComboBox<String> cb_Location_CreateAccount1;
+    private javax.swing.JComboBox<String> cb_Location_Profile;
     private javax.swing.JComboBox<String> cb_Month_CreateAccount;
+    private javax.swing.JComboBox<String> cb_Month_CreateAccount1;
+    private javax.swing.JComboBox<String> cb_Month_Profile;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -480,7 +873,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JButton jb_CreateAccount_CreateAccount;
     private javax.swing.JButton jb_CreateAccount_LogIn;
     private javax.swing.JButton jb_SignIn_LogIn;
@@ -488,14 +889,25 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_CreateAccount;
     private javax.swing.JDialog jd_User;
     private javax.swing.JPasswordField jt_ConfirmPassword_CreateAccount;
+    private javax.swing.JPasswordField jt_ConfirmPassword_Profile;
     private javax.swing.JTextField jt_Day_CreateAccount;
+    private javax.swing.JTextField jt_Day_CreateAccount1;
+    private javax.swing.JTextField jt_Day_Profile;
     private javax.swing.JTextField jt_FirstName_CreateAccount;
+    private javax.swing.JTextField jt_FirstName_Profile;
     private javax.swing.JTextField jt_LastName_CreateAccount;
+    private javax.swing.JTextField jt_LastName_Profile;
     private javax.swing.JPasswordField jt_Password_CreateAccount;
+    private javax.swing.JPasswordField jt_Password_Profile;
     private javax.swing.JTextField jt_PhoneNumber_CreateAccount;
+    private javax.swing.JTextField jt_PhoneNumber_CreateAccount1;
+    private javax.swing.JTextField jt_PhoneNumber_Profile;
     private javax.swing.JTextField jt_Username_CreateAccount;
     private javax.swing.JTextField jt_Username_LogIn;
+    private javax.swing.JTextField jt_Username_Profile;
     private javax.swing.JTextField jt_Year_CreateAccount;
+    private javax.swing.JTextField jt_Year_CreateAccount1;
+    private javax.swing.JTextField jt_Year_Profile;
     // End of variables declaration//GEN-END:variables
     Recognizer recognizer;
     String gst = "";
