@@ -40,6 +40,9 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         ConectarDB();
+        
+        ListaUsuarios();
+        ListaContactos();
     }
 
     /**
@@ -127,7 +130,7 @@ public class Principal extends javax.swing.JFrame {
         jt_Username_LogIn = new javax.swing.JTextField();
         jb_SignIn_LogIn = new javax.swing.JButton();
         jb_CreateAccount_LogIn = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jt_Password_LogIn = new javax.swing.JPasswordField();
 
         jd_CreateAccount.setTitle("CREATE YOUR ACCOUNT");
         jd_CreateAccount.setResizable(false);
@@ -546,13 +549,14 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel22)
                 .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cb_Location_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton4)
                         .addComponent(jButton5)
                         .addComponent(jButton6)
-                        .addComponent(jButton7)))
+                        .addComponent(jButton7))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cb_Location_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
@@ -645,9 +649,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField1.setText("PASSWORD");
+        jt_Password_LogIn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jt_Password_LogIn.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jt_Password_LogIn.setText("PASSWORD");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -671,7 +675,7 @@ public class Principal extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(215, 215, 215)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPasswordField1)
+                                    .addComponent(jt_Password_LogIn)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(50, 50, 50)
                                         .addComponent(jb_SignIn_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -680,7 +684,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPasswordField1, jt_Username_LogIn});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jt_Password_LogIn, jt_Username_LogIn});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -690,7 +694,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(68, 68, 68)
                 .addComponent(jt_Username_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jt_Password_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jb_SignIn_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
@@ -703,7 +707,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPasswordField1, jt_Username_LogIn});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jt_Password_LogIn, jt_Username_LogIn});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -782,9 +786,9 @@ public class Principal extends javax.swing.JFrame {
         Genero = cb_Gender_CreateAccount.getSelectedItem().toString();
         
         Usuario NuevoUsuario = new Usuario(FirstName, LastName, UserName, Contraseña, BirthDay, Phone, Country, Genero, true);
-        InsertarUsuarioEnDB(FirstName, LastName, UserName, Contraseña, BirthDay, Phone, Country, Genero, true);
+        InsertarUsuarioEnDB(FirstName, LastName, UserName, Contraseña, BirthDay, Phone, Country, Genero);
         
-        JOptionPane.showMessageDialog(this, "Usuario creado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Usuario creado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jb_CreateAccount_CreateAccountMouseClicked
 
     private void cb_Location_ProfileItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Location_ProfileItemStateChanged
@@ -876,7 +880,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -898,6 +901,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jt_LastName_CreateAccount;
     private javax.swing.JTextField jt_LastName_Profile;
     private javax.swing.JPasswordField jt_Password_CreateAccount;
+    private javax.swing.JPasswordField jt_Password_LogIn;
     private javax.swing.JPasswordField jt_Password_Profile;
     private javax.swing.JTextField jt_PhoneNumber_CreateAccount;
     private javax.swing.JTextField jt_PhoneNumber_CreateAccount1;
@@ -918,7 +922,7 @@ public class Principal extends javax.swing.JFrame {
     ArrayList<Usuario> ListaUsuarios = new ArrayList();
     ArrayList<Contacto> ListaContactos = new ArrayList();
     
-    public void InsertarUsuarioEnDB(String FirstName, String LastName, String UserName, String Contraseña, String BirthDay, String Phone, String Country, String Genero, boolean Estado){
+    public void InsertarUsuarioEnDB(String FirstName, String LastName, String UserName, String Contraseña, String BirthDay, String Phone, String Country, String Genero){
         CallableStatement CT = null;
         boolean Resp = true;
         try {
@@ -939,7 +943,7 @@ public class Principal extends javax.swing.JFrame {
         }
     }
     
-    public void ActualizarUsuarioEnDB(String FirstName, String LastName, String UserName, String Contraseña, String BirthDay, String Phone, String Country, String Genero, boolean Estado){
+    public void ActualizarUsuarioEnDB(String FirstName, String LastName, String UserName, String Contraseña, String BirthDay, String Phone, String Country, String Genero){
         CallableStatement CT = null;
         boolean Resp = true;
         try {
@@ -997,6 +1001,149 @@ public class Principal extends javax.swing.JFrame {
         }
         return ListaUsuarios;
     }
+    
+    //---------------------------------------------------------------------------------------------------------
+    public void InsertarContactoEnDB(String Name, String PhoneticName, String NickName, String RutaImagen, String Phone, String PhonePlace, String BirthDay, String NombreUsuarioPertenece, String Email){
+        CallableStatement CT = null;
+        boolean Resp = true;
+        try {
+            Conect.setAutoCommit(false);
+            CT = Conect.prepareCall("{Call AgregarContacto(?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            CT.setString(1, Name);
+            CT.setString(2, PhoneticName);
+            CT.setString(3, NickName);
+            CT.setString(4, RutaImagen);
+            CT.setString(5, Phone);
+            CT.setString(6, PhonePlace);
+            CT.setString(7, BirthDay);
+            CT.setString(8, NombreUsuarioPertenece);
+            CT.setString(9, Email);
+            Resp = CT.execute();
+            Conect.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void ActualizarContactoEnDB(String Name, String PhoneticName, String NickName, String RutaImagen, String Phone, String PhonePlace, String BirthDay, String NombreUsuarioPertenece, String Email){
+        CallableStatement CT = null;
+        boolean Resp = true;
+        try {
+            Conect.setAutoCommit(false);
+            CT = Conect.prepareCall("{Call ActualizarContacto(?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            CT.setString(1, Name);
+            CT.setString(2, PhoneticName);
+            CT.setString(3, NickName);
+            CT.setString(4, RutaImagen);
+            CT.setString(5, Phone);
+            CT.setString(6, PhonePlace);
+            CT.setString(7, BirthDay);
+            CT.setString(8, NombreUsuarioPertenece);
+            CT.setString(9, Email);
+            Resp = CT.execute();
+            Conect.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void EliminarContactoEnDB(String Phone){
+        CallableStatement CT = null;
+        boolean Resp = true;
+        try {
+            Conect.setAutoCommit(false);
+            CT = Conect.prepareCall("{Call EliminarContacto(?)}");
+            CT.setString(1, Phone);
+            Resp = CT.execute();
+            Conect.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public ArrayList<Usuario> ListaContactos(){
+        CallableStatement CT = null;
+        ResultSet RS = null;
+        try {
+            CT = Conect.prepareCall("{Call ListarContacto}");
+            RS = CT.executeQuery();
+            Contacto NuevoContacto;
+            while(RS.next()){
+                NuevoContacto = new Contacto();
+                NuevoContacto.setName(RS.getString("Nombre"));
+                NuevoContacto.setPhoneticName(RS.getString("PhoneticName"));
+                NuevoContacto.setNickName(RS.getString("NickName"));
+                NuevoContacto.setRutaImagen(RS.getString("RutaImagen"));
+                NuevoContacto.setPhone(RS.getString("Phone"));
+                NuevoContacto.setPhonePlace(RS.getString("PhonePlace"));
+                NuevoContacto.setBirthDay(RS.getString("BithDay"));
+                NuevoContacto.setNombreUsuarioPertenece(RS.getString("NombreUsuarioPertenece"));
+                NuevoContacto.setEmail(RS.getString("Email"));
+                ListaContactos.add(NuevoContacto);
+            }
+        } catch (Exception e) {
+        }
+        return ListaUsuarios;
+    }
+    //----------------------------------------------------------------------------------------------------------
+    
+    public boolean RevisarContraseña(String Contraseña, String Confirmar){
+        if (Contraseña.equals(Confirmar)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public boolean UsuarioExistente(String Username){
+        int NumeroRepetidos = 0;
+        for (int i = 0; i < ListaUsuarios.size(); i++) {
+            if (ListaUsuarios.get(i).getUserName().equals(Username)) {
+                NumeroRepetidos++;
+            }
+        }
+        
+        if (NumeroRepetidos == 0) {
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
+    public boolean TelefonoExistente(String Phone){
+        int NumeroRepetidos = 0;
+        
+        for (int i = 0; i < ListaContactos.size(); i++) {
+            if (ListaContactos.get(i).getPhone().equals(Phone)) {
+                NumeroRepetidos++;
+            }
+        }
+        
+        if (NumeroRepetidos == 0) {
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
+    public boolean CamposLlenosLogIn(){
+        if (!jt_Username_LogIn.getText().equals("") && !jt_Password_LogIn.getText().equals("")) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public boolean CamposLlenosCreateAccount(){
+        
+        return true;
+    }
+    
+    public boolean CamposLlenosAddContact(){
+        
+        return true;
+    }
+    //----------------------------------------------------------------------------------------------------------
     
 
     public void Recognizer() {
