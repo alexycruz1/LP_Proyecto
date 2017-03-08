@@ -40,9 +40,11 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         ConectarDB();
-        
+
         ListaUsuarios();
         ListaContactos();
+        ListaMensajes();
+        ListaBitacoras();
     }
 
     /**
@@ -100,30 +102,40 @@ public class Principal extends javax.swing.JFrame {
         jt_PhoneNumber_Profile = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
+        jl_Imagen_Contacts = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jt_Name_Contacts = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jt_PhoneticName_Contacts = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jt_NickName_Contacts = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        cb_Location_CreateAccount1 = new javax.swing.JComboBox<>();
+        cb_Location_Contacts = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
-        jt_PhoneNumber_CreateAccount1 = new javax.swing.JTextField();
+        jt_PhoneNumber_Contacts = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        jt_Day_CreateAccount1 = new javax.swing.JTextField();
-        cb_Month_CreateAccount1 = new javax.swing.JComboBox<>();
-        jt_Year_CreateAccount1 = new javax.swing.JTextField();
+        jt_Day_Contacts = new javax.swing.JTextField();
+        cb_Month_Contacts = new javax.swing.JComboBox<>();
+        jt_Year_Contacts = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jt_Email_Contacts = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        cb_Recipients_Inbox = new javax.swing.JComboBox<>();
+        jLabel27 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jta_Subject_Inbox = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtable_Inbox_Inbox = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jta_History_History = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jb_microphone_LogIn = new javax.swing.JButton();
@@ -336,19 +348,25 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16)
-                    .addComponent(cb_Gender_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17)
-                    .addComponent(jt_Username_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jt_ConfirmPassword_Profile, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jt_Password_Profile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17)
+                            .addComponent(jt_Username_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jt_ConfirmPassword_Profile, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jt_Password_Profile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jt_PhoneNumber_Profile, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cb_Location_Profile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cb_Gender_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(402, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -362,12 +380,9 @@ public class Principal extends javax.swing.JFrame {
                                 .addComponent(jt_FirstName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jt_LastName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(137, 137, 137)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jt_PhoneNumber_Profile, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(cb_Location_Profile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(95, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(105, 105, 105))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -415,10 +430,10 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Profile", jPanel1);
 
-        jLabel18.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("Imagen");
-        jLabel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jl_Imagen_Contacts.setBackground(new java.awt.Color(51, 51, 51));
+        jl_Imagen_Contacts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Imagen_Contacts.setText("Imagen");
+        jl_Imagen_Contacts.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel19.setText("Name");
@@ -432,10 +447,10 @@ public class Principal extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel22.setText("Location");
 
-        cb_Location_CreateAccount1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+1 –  Canada", "+1 –  United States", "+1 787 / 939 –  Puerto Rico", "+1 242 –  Bahamas", "+1 246 –  Barbados", "+1 264 –  Anguilla", "+1 268 –  Antigua and Barbuda", "+1 284 –  British Virgin Islands", "+1 345 –  Cayman Islands", "+1 441 –  Bermuda", "+1 473 –  Grenada", "+1 649 –  Turks and Caicos Islands", "+1 664 –  Montserrat", "+1 721 –  Sint Maarten", "+1 758 –  Saint Lucia", "+1 767 –  Dominica", "+1 784 –  Saint Vincent and the Grenadines", "+1 809 / 829 / 849 –  Dominican Republic", "+1 868 –  Trinidad and Tobago", "+1 869 –  Saint Kitts and Nevis", "+1 876 –  Jamaica", "+30 –  Greece", "+31 –  Netherlands", "+32 –  Belgium", "+33 –  France", "+34 –  Spain", "+350 –  Gibraltar", "+351 –  Portugal", "+352 –  Luxembourg", "+353 –  Ireland", "+354 –  Iceland", "+355 –  Albania", "+356 –  Malta", "+357 –  Cyprus", "+358 –  Finland", "+358 18 –  Åland Islands", "+359 –  Bulgaria", "+36 –  Hungary", "+500 –  Falkland Islands", "+500 x –  South Georgia and South Sandwich Islands", "+501 –  Belize", "+502 –  Guatemala", "+503 –  El Salvador", "+504 –  Honduras", "+505 –  Nicaragua", "+506 –  Costa Rica", "+507 –  Panama", "+508 –  Saint-Pierre and Miquelon", "+509 –  Haiti", "+51 –  Peru", "+52 –  Mexico", "+53 –  Cuba", "+54 –  Argentina", "+55 –  Brazil", "+56 –  Chile", "+57 –  Colombia", "+58 –  Venezuela", "+590 –  Guadeloupe", "+591 –  Bolivia", "+592 –  Guyana", "+593 –  Ecuador", "+595 –  Paraguay", "+596 –  Martinique", "+597 –  Suriname", "+598 –  Uruguay" }));
-        cb_Location_CreateAccount1.addItemListener(new java.awt.event.ItemListener() {
+        cb_Location_Contacts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+1 –  Canada", "+1 –  United States", "+1 787 / 939 –  Puerto Rico", "+1 242 –  Bahamas", "+1 246 –  Barbados", "+1 264 –  Anguilla", "+1 268 –  Antigua and Barbuda", "+1 284 –  British Virgin Islands", "+1 345 –  Cayman Islands", "+1 441 –  Bermuda", "+1 473 –  Grenada", "+1 649 –  Turks and Caicos Islands", "+1 664 –  Montserrat", "+1 721 –  Sint Maarten", "+1 758 –  Saint Lucia", "+1 767 –  Dominica", "+1 784 –  Saint Vincent and the Grenadines", "+1 809 / 829 / 849 –  Dominican Republic", "+1 868 –  Trinidad and Tobago", "+1 869 –  Saint Kitts and Nevis", "+1 876 –  Jamaica", "+30 –  Greece", "+31 –  Netherlands", "+32 –  Belgium", "+33 –  France", "+34 –  Spain", "+350 –  Gibraltar", "+351 –  Portugal", "+352 –  Luxembourg", "+353 –  Ireland", "+354 –  Iceland", "+355 –  Albania", "+356 –  Malta", "+357 –  Cyprus", "+358 –  Finland", "+358 18 –  Åland Islands", "+359 –  Bulgaria", "+36 –  Hungary", "+500 –  Falkland Islands", "+500 x –  South Georgia and South Sandwich Islands", "+501 –  Belize", "+502 –  Guatemala", "+503 –  El Salvador", "+504 –  Honduras", "+505 –  Nicaragua", "+506 –  Costa Rica", "+507 –  Panama", "+508 –  Saint-Pierre and Miquelon", "+509 –  Haiti", "+51 –  Peru", "+52 –  Mexico", "+53 –  Cuba", "+54 –  Argentina", "+55 –  Brazil", "+56 –  Chile", "+57 –  Colombia", "+58 –  Venezuela", "+590 –  Guadeloupe", "+591 –  Bolivia", "+592 –  Guyana", "+593 –  Ecuador", "+595 –  Paraguay", "+596 –  Martinique", "+597 –  Suriname", "+598 –  Uruguay" }));
+        cb_Location_Contacts.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cb_Location_CreateAccount1ItemStateChanged(evt);
+                cb_Location_ContactsItemStateChanged(evt);
             }
         });
 
@@ -445,18 +460,16 @@ public class Principal extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel24.setText("Birthday");
 
-        jt_Day_CreateAccount1.setText("DAY");
+        jt_Day_Contacts.setText("DAY");
 
-        cb_Month_CreateAccount1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        cb_Month_Contacts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
 
-        jt_Year_CreateAccount1.setText("YEAR");
+        jt_Year_Contacts.setText("YEAR");
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel25.setText("Email");
 
         jButton4.setText("Add");
-
-        jButton5.setText("Save contact");
 
         jButton6.setText("Delete");
 
@@ -466,13 +479,15 @@ public class Principal extends javax.swing.JFrame {
 
         jButton9.setText("Video Call");
 
+        jButton10.setText("Search");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(228, 228, 228)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jl_Imagen_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
@@ -483,44 +498,44 @@ public class Principal extends javax.swing.JFrame {
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextField1)
+                                .addComponent(jt_Name_Contacts)
                                 .addGap(113, 113, 113)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel20)
-                            .addComponent(jTextField2)
+                            .addComponent(jt_PhoneticName_Contacts)
                             .addComponent(jLabel25)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
+                            .addComponent(jt_Email_Contacts, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
                         .addGap(92, 92, 92))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel22)
                             .addComponent(jLabel23)
                             .addComponent(jLabel21)
-                            .addComponent(cb_Location_CreateAccount1, 0, 1, Short.MAX_VALUE)
-                            .addComponent(jTextField3)
-                            .addComponent(jt_PhoneNumber_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cb_Location_Contacts, 0, 0, Short.MAX_VALUE)
+                            .addComponent(jt_NickName_Contacts)
                             .addComponent(jLabel24)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jt_Day_CreateAccount1)
+                                .addComponent(jt_Day_Contacts)
                                 .addGap(18, 18, 18)
-                                .addComponent(cb_Month_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cb_Month_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jt_Year_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jt_Year_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jt_PhoneNumber_Contacts))
                         .addGap(60, 60, 60)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jButton4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton7))
+                                .addComponent(jButton10))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jButton8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton9)))
-                        .addContainerGap(29, Short.MAX_VALUE))))
+                        .addContainerGap(56, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -528,66 +543,148 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jl_Imagen_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jt_PhoneticName_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel19)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jt_Name_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(jLabel25))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jt_NickName_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Email_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jLabel22)
                 .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton4)
-                        .addComponent(jButton5)
                         .addComponent(jButton6)
-                        .addComponent(jButton7))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cb_Location_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton7)
+                        .addComponent(jButton10))
+                    .addComponent(cb_Location_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
                     .addComponent(jButton8)
                     .addComponent(jButton9))
                 .addGap(18, 18, 18)
-                .addComponent(jt_PhoneNumber_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jt_PhoneNumber_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jLabel24)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jt_Day_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb_Month_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jt_Year_CreateAccount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jt_Day_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_Month_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jt_Year_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56))
         );
 
         jTabbedPane1.addTab("Contacts", jPanel2);
 
+        jLabel26.setText("To");
+
+        jLabel27.setText("Subject");
+
+        jta_Subject_Inbox.setColumns(20);
+        jta_Subject_Inbox.setRows(5);
+        jScrollPane1.setViewportView(jta_Subject_Inbox);
+
+        jtable_Inbox_Inbox.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Fecha", "Destinatario", "Asunto"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jtable_Inbox_Inbox);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 694, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel26))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(cb_Recipients_Inbox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1))))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 749, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(cb_Recipients_Inbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel27)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Inbox", jPanel3);
+
+        jta_History_History.setColumns(20);
+        jta_History_History.setRows(5);
+        jScrollPane3.setViewportView(jta_History_History);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("History", jPanel4);
 
         javax.swing.GroupLayout jd_UserLayout = new javax.swing.GroupLayout(jd_User.getContentPane());
         jd_User.getContentPane().setLayout(jd_UserLayout);
@@ -723,10 +820,19 @@ public class Principal extends javax.swing.JFrame {
 
     private void jb_CreateAccount_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CreateAccount_LogInMouseClicked
         // TODO add your handling code here:
-        jd_CreateAccount.setModal(false);
-        jd_CreateAccount.pack();
-        jd_CreateAccount.setLocationRelativeTo(this);
-        jd_CreateAccount.setVisible(true);
+        for (int i = 0; i < ListaUsuarios.size(); i++) {
+            if (ListaUsuarios.get(i).getUserName().equals(jt_Username_LogIn.getText())) {
+                UsuarioIngresado = ListaUsuarios.get(i);
+            }
+        }
+
+        if (RevisarContraseña(jt_Password_LogIn.getText(), UsuarioIngresado.getContraseña())) {
+            jd_CreateAccount.setModal(false);
+            jd_CreateAccount.pack();
+            jd_CreateAccount.setLocationRelativeTo(this);
+            jd_CreateAccount.setVisible(true);
+        }
+
     }//GEN-LAST:event_jb_CreateAccount_LogInMouseClicked
 
     private void jb_microphone_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_microphone_LogInMouseClicked
@@ -765,6 +871,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jb_SignIn_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_SignIn_LogInMouseClicked
         // TODO add your handling code here:
+
         jd_User.setModal(false);
         jd_User.pack();
         jd_User.setLocationRelativeTo(this);
@@ -774,7 +881,7 @@ public class Principal extends javax.swing.JFrame {
     private void jb_CreateAccount_CreateAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CreateAccount_CreateAccountMouseClicked
         // TODO add your handling code here:
         String FirstName, LastName, UserName, Contraseña, ConfirmPassword, BirthDay, Phone, Country, Genero;
-        
+
         FirstName = jt_FirstName_CreateAccount.getText();
         LastName = jt_LastName_CreateAccount.getText();
         UserName = jt_Username_CreateAccount.getText();
@@ -784,20 +891,50 @@ public class Principal extends javax.swing.JFrame {
         Phone = jt_PhoneNumber_CreateAccount.getText();
         Country = cb_Location_CreateAccount.getSelectedItem().toString();
         Genero = cb_Gender_CreateAccount.getSelectedItem().toString();
-        
+
         Usuario NuevoUsuario = new Usuario(FirstName, LastName, UserName, Contraseña, BirthDay, Phone, Country, Genero, true);
         InsertarUsuarioEnDB(FirstName, LastName, UserName, Contraseña, BirthDay, Phone, Country, Genero);
-        
+
         JOptionPane.showMessageDialog(null, "Usuario creado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jb_CreateAccount_CreateAccountMouseClicked
 
     private void cb_Location_ProfileItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Location_ProfileItemStateChanged
         // TODO add your handling code here:
+        String CutPhoneCode = cb_Location_Profile.getSelectedItem().toString();
+        int BeginIndex = 0, EndIndex = CutPhoneCode.length();
+
+        for (int i = 0; i < CutPhoneCode.length(); i++) {
+            char Revisar = CutPhoneCode.charAt(i);
+            if (Revisar == '+') {
+                BeginIndex = i;
+            }
+            if (Revisar == '/' || Revisar == '–') {
+                EndIndex = i;
+            }
+        }
+
+        String PhoneCode = CutPhoneCode.substring(BeginIndex, EndIndex);
+        jt_PhoneNumber_Profile.setText(PhoneCode);
     }//GEN-LAST:event_cb_Location_ProfileItemStateChanged
 
-    private void cb_Location_CreateAccount1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Location_CreateAccount1ItemStateChanged
+    private void cb_Location_ContactsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Location_ContactsItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_cb_Location_CreateAccount1ItemStateChanged
+        String CutPhoneCode = cb_Location_Contacts.getSelectedItem().toString();
+        int BeginIndex = 0, EndIndex = CutPhoneCode.length();
+
+        for (int i = 0; i < CutPhoneCode.length(); i++) {
+            char Revisar = CutPhoneCode.charAt(i);
+            if (Revisar == '+') {
+                BeginIndex = i;
+            }
+            if (Revisar == '/' || Revisar == '–') {
+                EndIndex = i;
+            }
+        }
+
+        String PhoneCode = CutPhoneCode.substring(BeginIndex, EndIndex);
+        jt_PhoneNumber_Contacts.setText(PhoneCode);
+    }//GEN-LAST:event_cb_Location_ContactsItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -837,17 +974,18 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cb_Gender_CreateAccount;
     private javax.swing.JComboBox<String> cb_Gender_Profile;
+    private javax.swing.JComboBox<String> cb_Location_Contacts;
     private javax.swing.JComboBox<String> cb_Location_CreateAccount;
-    private javax.swing.JComboBox<String> cb_Location_CreateAccount1;
     private javax.swing.JComboBox<String> cb_Location_Profile;
+    private javax.swing.JComboBox<String> cb_Month_Contacts;
     private javax.swing.JComboBox<String> cb_Month_CreateAccount;
-    private javax.swing.JComboBox<String> cb_Month_CreateAccount1;
     private javax.swing.JComboBox<String> cb_Month_Profile;
+    private javax.swing.JComboBox<String> cb_Recipients_Inbox;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -861,7 +999,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -870,6 +1007,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -880,38 +1019,46 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JButton jb_CreateAccount_CreateAccount;
     private javax.swing.JButton jb_CreateAccount_LogIn;
     private javax.swing.JButton jb_SignIn_LogIn;
     private javax.swing.JButton jb_microphone_LogIn;
     private javax.swing.JDialog jd_CreateAccount;
     private javax.swing.JDialog jd_User;
+    private javax.swing.JLabel jl_Imagen_Contacts;
     private javax.swing.JPasswordField jt_ConfirmPassword_CreateAccount;
     private javax.swing.JPasswordField jt_ConfirmPassword_Profile;
+    private javax.swing.JTextField jt_Day_Contacts;
     private javax.swing.JTextField jt_Day_CreateAccount;
-    private javax.swing.JTextField jt_Day_CreateAccount1;
     private javax.swing.JTextField jt_Day_Profile;
+    private javax.swing.JTextField jt_Email_Contacts;
     private javax.swing.JTextField jt_FirstName_CreateAccount;
     private javax.swing.JTextField jt_FirstName_Profile;
     private javax.swing.JTextField jt_LastName_CreateAccount;
     private javax.swing.JTextField jt_LastName_Profile;
+    private javax.swing.JTextField jt_Name_Contacts;
+    private javax.swing.JTextField jt_NickName_Contacts;
     private javax.swing.JPasswordField jt_Password_CreateAccount;
     private javax.swing.JPasswordField jt_Password_LogIn;
     private javax.swing.JPasswordField jt_Password_Profile;
+    private javax.swing.JTextField jt_PhoneNumber_Contacts;
     private javax.swing.JTextField jt_PhoneNumber_CreateAccount;
-    private javax.swing.JTextField jt_PhoneNumber_CreateAccount1;
     private javax.swing.JTextField jt_PhoneNumber_Profile;
+    private javax.swing.JTextField jt_PhoneticName_Contacts;
     private javax.swing.JTextField jt_Username_CreateAccount;
     private javax.swing.JTextField jt_Username_LogIn;
     private javax.swing.JTextField jt_Username_Profile;
+    private javax.swing.JTextField jt_Year_Contacts;
     private javax.swing.JTextField jt_Year_CreateAccount;
-    private javax.swing.JTextField jt_Year_CreateAccount1;
     private javax.swing.JTextField jt_Year_Profile;
+    private javax.swing.JTextArea jta_History_History;
+    private javax.swing.JTextArea jta_Subject_Inbox;
+    private javax.swing.JTable jtable_Inbox_Inbox;
     // End of variables declaration//GEN-END:variables
     Recognizer recognizer;
     String gst = "";
@@ -921,8 +1068,11 @@ public class Principal extends javax.swing.JFrame {
     Connection Conect = null;
     ArrayList<Usuario> ListaUsuarios = new ArrayList();
     ArrayList<Contacto> ListaContactos = new ArrayList();
-    
-    public void InsertarUsuarioEnDB(String FirstName, String LastName, String UserName, String Contraseña, String BirthDay, String Phone, String Country, String Genero){
+    ArrayList<Mensaje> ListaMensajes = new ArrayList();
+    ArrayList<Bitacora> ListaBitacoras = new ArrayList();
+    Usuario UsuarioIngresado;
+
+    public void InsertarUsuarioEnDB(String FirstName, String LastName, String UserName, String Contraseña, String BirthDay, String Phone, String Country, String Genero) {
         CallableStatement CT = null;
         boolean Resp = true;
         try {
@@ -942,8 +1092,8 @@ public class Principal extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-    
-    public void ActualizarUsuarioEnDB(String FirstName, String LastName, String UserName, String Contraseña, String BirthDay, String Phone, String Country, String Genero){
+
+    public void ActualizarUsuarioEnDB(String FirstName, String LastName, String UserName, String Contraseña, String BirthDay, String Phone, String Country, String Genero) {
         CallableStatement CT = null;
         boolean Resp = true;
         try {
@@ -963,8 +1113,8 @@ public class Principal extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-    
-    public void EliminarUsuarioEnDB(String UserName){
+
+    public void EliminarUsuarioEnDB(String UserName) {
         CallableStatement CT = null;
         boolean Resp = true;
         try {
@@ -977,15 +1127,15 @@ public class Principal extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-    
-    public ArrayList<Usuario> ListaUsuarios(){
+
+    public ArrayList<Usuario> ListaUsuarios() {
         CallableStatement CT = null;
         ResultSet RS = null;
         try {
             CT = Conect.prepareCall("{Call ListarUsuario}");
             RS = CT.executeQuery();
             Usuario NuevoUsuario = null;
-            while(RS.next()){
+            while (RS.next()) {
                 NuevoUsuario = new Usuario();
                 NuevoUsuario.setUserName(RS.getString("UserName"));
                 NuevoUsuario.setFirstName(RS.getString("FirstName"));
@@ -1001,9 +1151,9 @@ public class Principal extends javax.swing.JFrame {
         }
         return ListaUsuarios;
     }
-    
+
     //---------------------------------------------------------------------------------------------------------
-    public void InsertarContactoEnDB(String Name, String PhoneticName, String NickName, String RutaImagen, String Phone, String PhonePlace, String BirthDay, String NombreUsuarioPertenece, String Email){
+    public void InsertarContactoEnDB(String Name, String PhoneticName, String NickName, String RutaImagen, String Phone, String PhonePlace, String BirthDay, String NombreUsuarioPertenece, String Email) {
         CallableStatement CT = null;
         boolean Resp = true;
         try {
@@ -1024,8 +1174,8 @@ public class Principal extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-    
-    public void ActualizarContactoEnDB(String Name, String PhoneticName, String NickName, String RutaImagen, String Phone, String PhonePlace, String BirthDay, String NombreUsuarioPertenece, String Email){
+
+    public void ActualizarContactoEnDB(String Name, String PhoneticName, String NickName, String RutaImagen, String Phone, String PhonePlace, String BirthDay, String NombreUsuarioPertenece, String Email) {
         CallableStatement CT = null;
         boolean Resp = true;
         try {
@@ -1046,8 +1196,8 @@ public class Principal extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-    
-    public void EliminarContactoEnDB(String Phone){
+
+    public void EliminarContactoEnDB(String Phone) {
         CallableStatement CT = null;
         boolean Resp = true;
         try {
@@ -1060,15 +1210,15 @@ public class Principal extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-    
-    public ArrayList<Usuario> ListaContactos(){
+
+    public ArrayList<Usuario> ListaContactos() {
         CallableStatement CT = null;
         ResultSet RS = null;
         try {
             CT = Conect.prepareCall("{Call ListarContacto}");
             RS = CT.executeQuery();
             Contacto NuevoContacto;
-            while(RS.next()){
+            while (RS.next()) {
                 NuevoContacto = new Contacto();
                 NuevoContacto.setName(RS.getString("Nombre"));
                 NuevoContacto.setPhoneticName(RS.getString("PhoneticName"));
@@ -1085,66 +1235,178 @@ public class Principal extends javax.swing.JFrame {
         }
         return ListaUsuarios;
     }
+
     //----------------------------------------------------------------------------------------------------------
-    
-    public boolean RevisarContraseña(String Contraseña, String Confirmar){
+    public void InsertarMensajeEnDB(String Fecha, String Asunto, String Destinatario, String NombreUsuarioPertenece) {
+        CallableStatement CT = null;
+        boolean Resp = true;
+        try {
+            Conect.setAutoCommit(false);
+            CT = Conect.prepareCall("{Call AgregarMensaje(?, ?, ?, ?)}");
+            CT.setString(1, Fecha);
+            CT.setString(2, Asunto);
+            CT.setString(3, Destinatario);
+            CT.setString(4, NombreUsuarioPertenece);
+            Resp = CT.execute();
+            Conect.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void EliminarMensajeEnDB(String Fecha) {
+        CallableStatement CT = null;
+        boolean Resp = true;
+        try {
+            Conect.setAutoCommit(false);
+            CT = Conect.prepareCall("{Call EliminarMensaje(?)}");
+            CT.setString(1, Fecha);
+            Resp = CT.execute();
+            Conect.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Mensaje> ListaMensajes() {
+        CallableStatement CT = null;
+        ResultSet RS = null;
+        try {
+            CT = Conect.prepareCall("{Call ListarMensaje}");
+            RS = CT.executeQuery();
+            Mensaje NuevoMensaje;
+            while (RS.next()) {
+                NuevoMensaje = new Mensaje();
+                NuevoMensaje.setFecha(RS.getString("Fecha"));
+                NuevoMensaje.setAsunto(RS.getString("Asunto"));
+                NuevoMensaje.setDestinatario(RS.getString("Destinatario"));
+                NuevoMensaje.setNombreUsuarioPertenece(RS.getString("NombreUsuarioPertenece"));
+                ListaMensajes.add(NuevoMensaje);
+            }
+        } catch (Exception e) {
+        }
+        return ListaMensajes;
+    }
+
+    //----------------------------------------------------------------------------------------------------------
+    public void InsertarBitacoraEnDB(String Fecha, String Accion, String NombreUsuarioPertenece) {
+        CallableStatement CT = null;
+        boolean Resp = true;
+        try {
+            Conect.setAutoCommit(false);
+            CT = Conect.prepareCall("{Call AgregarBitacora(?, ?)}");
+            CT.setString(1, Fecha);
+            CT.setString(2, Accion);
+            CT.setString(3, NombreUsuarioPertenece);
+            Resp = CT.execute();
+            Conect.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Bitacora> ListaBitacoras() {
+        CallableStatement CT = null;
+        ResultSet RS = null;
+        try {
+            CT = Conect.prepareCall("{Call ListarBitacora}");
+            RS = CT.executeQuery();
+            Bitacora NuevaBitacora;
+            while (RS.next()) {
+                NuevaBitacora = new Bitacora();
+                NuevaBitacora.setFecha(RS.getString("Fecha"));
+                NuevaBitacora.setAccion(RS.getString("accion"));
+                NuevaBitacora.setNombreUsuarioPertenece(RS.getString("NombreUsuarioPertenece"));
+                ListaBitacoras.add(NuevaBitacora);
+            }
+        } catch (Exception e) {
+        }
+        return ListaBitacoras;
+    }
+    //----------------------------------------------------------------------------------------------------------
+
+    public boolean RevisarContraseña(String Contraseña, String Confirmar) {
         if (Contraseña.equals(Confirmar)) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
-    
-    public boolean UsuarioExistente(String Username){
+
+    public boolean UsuarioExistente(String Username) {
         int NumeroRepetidos = 0;
         for (int i = 0; i < ListaUsuarios.size(); i++) {
             if (ListaUsuarios.get(i).getUserName().equals(Username)) {
                 NumeroRepetidos++;
             }
         }
-        
+
         if (NumeroRepetidos == 0) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
-    
-    public boolean TelefonoExistente(String Phone){
+
+    public boolean TelefonoExistente(String Phone) {
         int NumeroRepetidos = 0;
-        
+
         for (int i = 0; i < ListaContactos.size(); i++) {
             if (ListaContactos.get(i).getPhone().equals(Phone)) {
                 NumeroRepetidos++;
             }
         }
-        
+
         if (NumeroRepetidos == 0) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
-    
-    public boolean CamposLlenosLogIn(){
+
+    public boolean CamposLlenosLogIn() {
         if (!jt_Username_LogIn.getText().equals("") && !jt_Password_LogIn.getText().equals("")) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
-    
-    public boolean CamposLlenosCreateAccount(){
-        
-        return true;
+
+    public boolean CamposLlenosCreateAccount() {
+        if (!jt_FirstName_CreateAccount.getText().equals("") && !jt_LastName_CreateAccount.getText().equals("") && !jt_Username_CreateAccount.getText().equals("")
+                && !jt_Password_CreateAccount.getText().equals("") && !jt_ConfirmPassword_CreateAccount.getText().equals("") && !jt_PhoneNumber_CreateAccount.getText().equals("")) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    
-    public boolean CamposLlenosAddContact(){
-        
-        return true;
+
+    public boolean CamposLlenosProfile() {
+        if (!jt_FirstName_Profile.getText().equals("") && !jt_LastName_Profile.getText().equals("") && !jt_Username_Profile.getText().equals("")
+                && !jt_Password_Profile.getText().equals("") && !jt_ConfirmPassword_Profile.getText().equals("") && !jt_PhoneNumber_Profile.getText().equals("")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean CamposLlenosContact() {
+        if (!jt_Name_Contacts.getText().equals("") && !jt_NickName_Contacts.getText().equals("") && !jt_PhoneNumber_Contacts.getText().equals("")
+                && !jt_PhoneticName_Contacts.getText().equals("") && !jt_Email_Contacts.getText().equals("")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean CamposLlenosMensaje() {
+        if (!jta_Subject_Inbox.getText().equals("")) {
+            return true;
+        } else {
+            return false;
+        }
     }
     //----------------------------------------------------------------------------------------------------------
-    
 
     public void Recognizer() {
         try {
@@ -1170,6 +1432,7 @@ public class Principal extends javax.swing.JFrame {
             System.exit(0);
         }
     }
+    //---------------------------------------------------------------------------------
 
     public void ConectarDB() {
         try {

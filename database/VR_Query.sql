@@ -84,3 +84,42 @@ GO
 CREATE PROCEDURE ListarContacto
 AS
 SELECT* FROM Contacto WHERE Estado = 1
+
+--PROCEDIMIETOS DE Mensajes--------------------------------------------------------------------
+GO
+CREATE PROCEDURE AgregarMensaje(
+@Fecha varchar(50),
+@Asunto varchar(max),
+@Destinatario varchar(50),
+@NombreUsuarioPertenece varchar(50))
+AS
+INSERT INTO 
+Mensaje(Fecha, Asunto, Destinatario, NombreUsuarioPertenece)
+VALUES (@Fecha ,@Asunto, @Destinatario, @NombreUsuarioPertenece)
+
+GO 
+CREATE PROCEDURE EliminarMensaje(
+@Fecha varchar(50))
+AS
+UPDATE Mensaje SET Estado = 0 WHERE Fecha = @Fecha
+
+GO
+CREATE PROCEDURE ListarMensaje
+AS
+SELECT* FROM Mensaje WHERE Estado = 1
+
+--PROCEDIMIETOS DE Bitacora----------------------------------------------------------------------
+GO
+CREATE PROCEDURE AgregarBitacora(
+@Fecha varchar(50),
+@Accion varchar (50),
+@NombreUsuarioPertenece varchar(50))
+AS
+INSERT INTO 
+Bitacora(Fecha, Accion, NombreUsuarioPertenece)
+VALUES (@Fecha ,@Accion, @NombreUsuarioPertenece)
+
+GO
+CREATE PROCEDURE ListarBitacora
+AS
+SELECT* FROM Bitacora
