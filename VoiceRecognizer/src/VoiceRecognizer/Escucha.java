@@ -56,7 +56,7 @@ public class Escucha extends ResultAdapter {
                 recognizer.resume();
             }
         } catch (Exception ex) {
-            System.out.println("Ha ocurrido algo inesperado " + ex);
+            System.out.println("Palabra captada");
         }
     }
 

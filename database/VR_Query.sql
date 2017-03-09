@@ -3,12 +3,12 @@ GO
 CREATE PROCEDURE AgregarUsuario(
 @UserName varchar(50),
 @FirstName varchar(MAX),
+@LastName varchar(MAX),
 @Contraseña varchar(MAX),
 @BirthDay varchar(MAX),
 @Phone varchar(MAX),
 @Country varchar(MAX),
-@Genero varchar(MAX),
-@LastName varchar(MAX))
+@Genero varchar(MAX))
 AS
 INSERT INTO 
 Usuario(UserName, FirstName, LastName, Contraseña, BirthDay, Phone, Country, Genero)
@@ -123,3 +123,20 @@ GO
 CREATE PROCEDURE ListarBitacora
 AS
 SELECT* FROM Bitacora
+
+--PROCEDIMIENTOS DE COMANDOS-----------------------------------------------------------------------
+GO
+CREATE PROCEDURE AgregarComando(
+@Comandos varchar(50))
+AS
+INSERT INTO 
+Comando(Comandos)
+VALUES (@Comandos)
+
+GO
+CREATE PROCEDURE ListarComando
+AS
+SELECT* FROM Comando
+
+SELECT* FROM Usuario
+DELETE FROM Usuario

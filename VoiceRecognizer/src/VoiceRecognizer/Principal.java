@@ -7,6 +7,9 @@ package VoiceRecognizer;
 
 import java.sql.*;
 import static VoiceRecognizer.Escucha.recognizer;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.File;
 import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,6 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.speech.AudioException;
 import javax.speech.Central;
+import javax.speech.EngineException;
 import javax.speech.EngineModeDesc;
 import javax.speech.EngineStateError;
 import javax.speech.recognition.Recognizer;
@@ -25,7 +29,10 @@ import javax.speech.recognition.ResultEvent;
 import javax.speech.recognition.ResultToken;
 import javax.speech.recognition.RuleGrammar;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -45,6 +52,14 @@ public class Principal extends javax.swing.JFrame {
         ListaContactos();
         ListaMensajes();
         ListaBitacoras();
+        ListaComando();
+
+        Recognizer();
+        recognizer.pause();
+        jl_Imagen_Contacts.setText("");
+        Image Img = Toolkit.getDefaultToolkit().createImage("/Iconos/Silueta.jpg").getScaledInstance(180, 229, 0);
+        this.jl_Imagen_Contacts.setIcon(new ImageIcon(Img));
+        jl_Imagen_Contacts.setIcon(new ImageIcon("/Iconos/Silueta.jpg"));
     }
 
     /**
@@ -218,7 +233,6 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
-                    .addComponent(cb_Gender_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
                     .addComponent(jt_Username_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jd_CreateAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -241,7 +255,8 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(cb_Location_CreateAccount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jd_CreateAccountLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(jb_CreateAccount_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jb_CreateAccount_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cb_Gender_CreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(113, 113, 113))
         );
 
@@ -434,6 +449,11 @@ public class Principal extends javax.swing.JFrame {
         jl_Imagen_Contacts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_Imagen_Contacts.setText("Imagen");
         jl_Imagen_Contacts.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jl_Imagen_Contacts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_Imagen_ContactsMouseClicked(evt);
+            }
+        });
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel19.setText("Name");
@@ -706,6 +726,11 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOG IN/SIGN IN");
         setResizable(false);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                formMouseMoved(evt);
+            }
+        });
 
         jButton1.setText("Martha");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -820,33 +845,31 @@ public class Principal extends javax.swing.JFrame {
 
     private void jb_CreateAccount_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CreateAccount_LogInMouseClicked
         // TODO add your handling code here:
-        for (int i = 0; i < ListaUsuarios.size(); i++) {
-            if (ListaUsuarios.get(i).getUserName().equals(jt_Username_LogIn.getText())) {
-                UsuarioIngresado = ListaUsuarios.get(i);
-            }
-        }
-
-        if (RevisarContraseña(jt_Password_LogIn.getText(), UsuarioIngresado.getContraseña())) {
-            jd_CreateAccount.setModal(false);
-            jd_CreateAccount.pack();
-            jd_CreateAccount.setLocationRelativeTo(this);
-            jd_CreateAccount.setVisible(true);
-        }
-
+        jd_CreateAccount.setModal(false);
+        jd_CreateAccount.pack();
+        jd_CreateAccount.setLocationRelativeTo(this);
+        jd_CreateAccount.setVisible(true);
     }//GEN-LAST:event_jb_CreateAccount_LogInMouseClicked
 
     private void jb_microphone_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_microphone_LogInMouseClicked
         // TODO add your handling code here:
         if (CambiarIconoMicrofono == 0) {
             jb_microphone_LogIn.setIcon(new ImageIcon(getClass().getResource("/Iconos/stopMicrophone.png")));
+            PalabraAnterior = Palabra;
             CambiarIconoMicrofono++;
-            Recognizer();
-            System.out.println("Inicia");
+            try {
+                recognizer.resume();
+            } catch (AudioException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (EngineStateError ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println("Inicio a grabar");
         } else if (CambiarIconoMicrofono == 1) {
             jb_microphone_LogIn.setIcon(new ImageIcon(getClass().getResource("/Iconos/Microphone.png")));
             CambiarIconoMicrofono--;
-            recognizer.suspend();
-            System.out.println("Termine");
+            recognizer.pause();
+            System.out.println("Termine de grabar");
         }
     }//GEN-LAST:event_jb_microphone_LogInMouseClicked
 
@@ -872,10 +895,14 @@ public class Principal extends javax.swing.JFrame {
     private void jb_SignIn_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_SignIn_LogInMouseClicked
         // TODO add your handling code here:
 
-        jd_User.setModal(false);
-        jd_User.pack();
-        jd_User.setLocationRelativeTo(this);
-        jd_User.setVisible(true);
+        if (RevisarContraseñaYUsuario(jt_Username_LogIn.getText(), jt_Password_LogIn.getText())) {
+            jd_User.setModal(false);
+            jd_User.pack();
+            jd_User.setLocationRelativeTo(this);
+            jd_User.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectas", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jb_SignIn_LogInMouseClicked
 
     private void jb_CreateAccount_CreateAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CreateAccount_CreateAccountMouseClicked
@@ -893,7 +920,8 @@ public class Principal extends javax.swing.JFrame {
         Genero = cb_Gender_CreateAccount.getSelectedItem().toString();
 
         Usuario NuevoUsuario = new Usuario(FirstName, LastName, UserName, Contraseña, BirthDay, Phone, Country, Genero, true);
-        InsertarUsuarioEnDB(FirstName, LastName, UserName, Contraseña, BirthDay, Phone, Country, Genero);
+        InsertarUsuarioEnDB(UserName, FirstName, LastName, Contraseña, BirthDay, Phone, Country, Genero);
+        ListaUsuarios.add(NuevoUsuario);
 
         JOptionPane.showMessageDialog(null, "Usuario creado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jb_CreateAccount_CreateAccountMouseClicked
@@ -935,6 +963,41 @@ public class Principal extends javax.swing.JFrame {
         String PhoneCode = CutPhoneCode.substring(BeginIndex, EndIndex);
         jt_PhoneNumber_Contacts.setText(PhoneCode);
     }//GEN-LAST:event_cb_Location_ContactsItemStateChanged
+
+    private void jl_Imagen_ContactsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_Imagen_ContactsMouseClicked
+        // TODO add your handling code here:
+        JFileChooser fc = new JFileChooser();
+        FileFilter filtro = new FileNameExtensionFilter("Imagenes", "png", "jpg", "jpeg", "gif");
+        fc.setFileFilter(filtro);
+
+        File Archivo;
+        int op = fc.showOpenDialog(this);
+
+        if (op == JFileChooser.APPROVE_OPTION) {
+            Archivo = fc.getSelectedFile();
+            System.out.println(Archivo.getPath());
+            Image Img = Toolkit.getDefaultToolkit().createImage(Archivo.getPath()).getScaledInstance(180, 229, 0);
+            this.jl_Imagen_Contacts.setIcon(new ImageIcon(Img));
+        }
+    }//GEN-LAST:event_jl_Imagen_ContactsMouseClicked
+
+    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
+        // TODO add your handling code here:
+        Palabra = GPalabra.getGst();
+        System.out.println("Esta es palabra: " + Palabra + " y esta es palabra anterior: " + PalabraAnterior);
+        if (!"".equals(Palabra) && !Palabra.equals(PalabraAnterior)) {
+            int answer = JOptionPane.showConfirmDialog(this, "¿Quisiste decir " + Palabra + "?");
+            if (answer == JOptionPane.YES_OPTION) {
+                Palabra = "";
+                PalabraAnterior = "";
+                GPalabra.setGst("");
+            } else if (answer == JOptionPane.NO_OPTION) {
+                Palabra = "";
+                PalabraAnterior = "";
+                GPalabra.setGst("");
+            }
+        }
+    }//GEN-LAST:event_formMouseMoved
 
     /**
      * @param args the command line arguments
@@ -1062,7 +1125,7 @@ public class Principal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     Recognizer recognizer;
     String gst = "";
-    String Palabra = "";
+    String Palabra = "", PalabraAnterior = "";
     Escucha GPalabra = new Escucha(Palabra);
     int CambiarIconoMicrofono = 0;
     Connection Conect = null;
@@ -1070,22 +1133,25 @@ public class Principal extends javax.swing.JFrame {
     ArrayList<Contacto> ListaContactos = new ArrayList();
     ArrayList<Mensaje> ListaMensajes = new ArrayList();
     ArrayList<Bitacora> ListaBitacoras = new ArrayList();
-    Usuario UsuarioIngresado;
+    ArrayList<String> ListaComandos = new ArrayList();
+    Usuario UsuarioIngresado = new Usuario();
 
-    public void InsertarUsuarioEnDB(String FirstName, String LastName, String UserName, String Contraseña, String BirthDay, String Phone, String Country, String Genero) {
+    public void InsertarUsuarioEnDB(String UserName, String FirstName, String LastName, String Contraseña, String BirthDay, String Phone, String Country, String Genero) {
+        System.out.println(Contraseña + " " + Genero);
+
         CallableStatement CT = null;
         boolean Resp = true;
         try {
             Conect.setAutoCommit(false);
             CT = Conect.prepareCall("{Call AgregarUsuario(?, ?, ?, ?, ?, ?, ?, ?)}");
-            CT.setString(1, UserName);
-            CT.setString(2, FirstName);
-            CT.setString(3, LastName);
-            CT.setString(4, Contraseña);
-            CT.setString(5, BirthDay);
-            CT.setString(6, Phone);
-            CT.setString(7, Country);
-            CT.setString(8, Genero);
+            CT.setString("UserName", UserName);
+            CT.setString("FirstName", FirstName);
+            CT.setString("LastName", LastName);
+            CT.setString("Contraseña", Contraseña);
+            CT.setString("BirthDay", BirthDay);
+            CT.setString("Phone", Phone);
+            CT.setString("Country", Country);
+            CT.setString("Genero", Genero);
             Resp = CT.execute();
             Conect.commit();
         } catch (Exception e) {
@@ -1093,20 +1159,20 @@ public class Principal extends javax.swing.JFrame {
         }
     }
 
-    public void ActualizarUsuarioEnDB(String FirstName, String LastName, String UserName, String Contraseña, String BirthDay, String Phone, String Country, String Genero) {
+    public void ActualizarUsuarioEnDB(String UserName, String FirstName, String LastName, String Contraseña, String BirthDay, String Phone, String Country, String Genero) {
         CallableStatement CT = null;
         boolean Resp = true;
         try {
             Conect.setAutoCommit(false);
             CT = Conect.prepareCall("{Call ActualizarUsuario(?, ?, ?, ?, ?, ?, ?, ?)}");
-            CT.setString(1, UserName);
-            CT.setString(2, FirstName);
-            CT.setString(3, LastName);
-            CT.setString(4, Contraseña);
-            CT.setString(5, BirthDay);
-            CT.setString(6, Phone);
-            CT.setString(7, Country);
-            CT.setString(8, Genero);
+            CT.setString("UserName", UserName);
+            CT.setString("FirstName", FirstName);
+            CT.setString("LastName", LastName);
+            CT.setString("Contraseña", Contraseña);
+            CT.setString("BirthDay", BirthDay);
+            CT.setString("Phone", Phone);
+            CT.setString("Country", Country);
+            CT.setString("Genero", Genero);
             Resp = CT.execute();
             Conect.commit();
         } catch (Exception e) {
@@ -1120,7 +1186,7 @@ public class Principal extends javax.swing.JFrame {
         try {
             Conect.setAutoCommit(false);
             CT = Conect.prepareCall("{Call EliminarUsuario(?)}");
-            CT.setString(1, UserName);
+            CT.setString("UserName", UserName);
             Resp = CT.execute();
             Conect.commit();
         } catch (Exception e) {
@@ -1159,15 +1225,15 @@ public class Principal extends javax.swing.JFrame {
         try {
             Conect.setAutoCommit(false);
             CT = Conect.prepareCall("{Call AgregarContacto(?, ?, ?, ?, ?, ?, ?, ?, ?)}");
-            CT.setString(1, Name);
-            CT.setString(2, PhoneticName);
-            CT.setString(3, NickName);
-            CT.setString(4, RutaImagen);
-            CT.setString(5, Phone);
-            CT.setString(6, PhonePlace);
-            CT.setString(7, BirthDay);
-            CT.setString(8, NombreUsuarioPertenece);
-            CT.setString(9, Email);
+            CT.setString("Name", Name);
+            CT.setString("PhoneticName", PhoneticName);
+            CT.setString("NickName", NickName);
+            CT.setString("RutaImagen", RutaImagen);
+            CT.setString("Phone", Phone);
+            CT.setString("PhonePlace", PhonePlace);
+            CT.setString("BirthDay", BirthDay);
+            CT.setString("NombreUsuarioPertenece", NombreUsuarioPertenece);
+            CT.setString("Emial", Email);
             Resp = CT.execute();
             Conect.commit();
         } catch (Exception e) {
@@ -1181,15 +1247,15 @@ public class Principal extends javax.swing.JFrame {
         try {
             Conect.setAutoCommit(false);
             CT = Conect.prepareCall("{Call ActualizarContacto(?, ?, ?, ?, ?, ?, ?, ?, ?)}");
-            CT.setString(1, Name);
-            CT.setString(2, PhoneticName);
-            CT.setString(3, NickName);
-            CT.setString(4, RutaImagen);
-            CT.setString(5, Phone);
-            CT.setString(6, PhonePlace);
-            CT.setString(7, BirthDay);
-            CT.setString(8, NombreUsuarioPertenece);
-            CT.setString(9, Email);
+            CT.setString("Name", Name);
+            CT.setString("PhoneticName", PhoneticName);
+            CT.setString("NickName", NickName);
+            CT.setString("RutaImagen", RutaImagen);
+            CT.setString("Phone", Phone);
+            CT.setString("PhonePlace", PhonePlace);
+            CT.setString("BirthDay", BirthDay);
+            CT.setString("NombreUsuarioPertenece", NombreUsuarioPertenece);
+            CT.setString("Email", Email);
             Resp = CT.execute();
             Conect.commit();
         } catch (Exception e) {
@@ -1203,7 +1269,7 @@ public class Principal extends javax.swing.JFrame {
         try {
             Conect.setAutoCommit(false);
             CT = Conect.prepareCall("{Call EliminarContacto(?)}");
-            CT.setString(1, Phone);
+            CT.setString("Phone", Phone);
             Resp = CT.execute();
             Conect.commit();
         } catch (Exception e) {
@@ -1243,10 +1309,10 @@ public class Principal extends javax.swing.JFrame {
         try {
             Conect.setAutoCommit(false);
             CT = Conect.prepareCall("{Call AgregarMensaje(?, ?, ?, ?)}");
-            CT.setString(1, Fecha);
-            CT.setString(2, Asunto);
-            CT.setString(3, Destinatario);
-            CT.setString(4, NombreUsuarioPertenece);
+            CT.setString("Fecha", Fecha);
+            CT.setString("Asunto", Asunto);
+            CT.setString("Destinatario", Destinatario);
+            CT.setString("NombreUsuarioPertenece", NombreUsuarioPertenece);
             Resp = CT.execute();
             Conect.commit();
         } catch (Exception e) {
@@ -1260,7 +1326,7 @@ public class Principal extends javax.swing.JFrame {
         try {
             Conect.setAutoCommit(false);
             CT = Conect.prepareCall("{Call EliminarMensaje(?)}");
-            CT.setString(1, Fecha);
+            CT.setString("Fecha", Fecha);
             Resp = CT.execute();
             Conect.commit();
         } catch (Exception e) {
@@ -1295,9 +1361,9 @@ public class Principal extends javax.swing.JFrame {
         try {
             Conect.setAutoCommit(false);
             CT = Conect.prepareCall("{Call AgregarBitacora(?, ?)}");
-            CT.setString(1, Fecha);
-            CT.setString(2, Accion);
-            CT.setString(3, NombreUsuarioPertenece);
+            CT.setString("Fecha", Fecha);
+            CT.setString("Accion", Accion);
+            CT.setString("NombreUsuarioPertenece", NombreUsuarioPertenece);
             Resp = CT.execute();
             Conect.commit();
         } catch (Exception e) {
@@ -1323,10 +1389,49 @@ public class Principal extends javax.swing.JFrame {
         }
         return ListaBitacoras;
     }
+
+    //----------------------------------------------------------------------------------------------------------
+    public void InsertarComandoEnDB(String Comandos) {
+        CallableStatement CT = null;
+        boolean Resp = true;
+        try {
+            Conect.setAutoCommit(false);
+            CT = Conect.prepareCall("{Call AgregarComando(?)}");
+            CT.setString("Comandos", Comandos);
+            Resp = CT.execute();
+            Conect.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<String> ListaComando() {
+        CallableStatement CT = null;
+        ResultSet RS = null;
+        try {
+            CT = Conect.prepareCall("{Call ListarComando}");
+            RS = CT.executeQuery();
+            String NuevoComando;
+            while (RS.next()) {
+                NuevoComando = "";
+                NuevoComando = RS.getString("Comandos");
+                ListaComandos.add(NuevoComando);
+            }
+        } catch (Exception e) {
+        }
+        return ListaComandos;
+    }
     //----------------------------------------------------------------------------------------------------------
 
-    public boolean RevisarContraseña(String Contraseña, String Confirmar) {
-        if (Contraseña.equals(Confirmar)) {
+    public boolean RevisarContraseñaYUsuario(String Usuario, String Contraseña) {
+        int Contador = 0;
+        for (int i = 0; i < ListaUsuarios.size(); i++) {
+            if (ListaUsuarios.get(i).getUserName().equals(Usuario) && ListaUsuarios.get(i).getContraseña().equals(Contraseña)) {
+                Contador++;
+            }
+        }
+
+        if (Contador == 1) {
             return true;
         } else {
             return false;
@@ -1413,7 +1518,7 @@ public class Principal extends javax.swing.JFrame {
             recognizer = Central.createRecognizer(new EngineModeDesc(Locale.ROOT));
             recognizer.allocate();
 
-            FileReader grammar1 = new FileReader("c:/SimpleGrammarES2.txt");
+            FileReader grammar1 = new FileReader("e:/Proyectos/LP_Proyecto/Gramatica.txt");
 
             RuleGrammar rg = recognizer.loadJSGF(grammar1);
             rg.setEnabled(true);
