@@ -127,16 +127,37 @@ SELECT* FROM Bitacora
 --PROCEDIMIENTOS DE COMANDOS-----------------------------------------------------------------------
 GO
 CREATE PROCEDURE AgregarComando(
-@Comandos varchar(50))
+@Comandos varchar(50),
+@Comandos2 varchar(50))
 AS
 INSERT INTO 
-Comando(Comandos)
-VALUES (@Comandos)
+Comando(Comandos, Comandos2)
+VALUES (@Comandos, @Comandos2)
+
+GO
+CREATE PROCEDURE ActualizarComando(
+@Comandos varchar(50),
+@Comandos2 varchar(50))
+AS
+UPDATE Comando SET Comandos = @Comandos WHERE Comandos2 = @Comandos2
 
 GO
 CREATE PROCEDURE ListarComando
 AS
 SELECT* FROM Comando
 
+---------------------------------------FIN DE PROCESOS--------------------------------------------
+----------------------------------------PRUEBAS--------------------------------------------------
+--------------------------------------FIN PRUEBAS------------------------------------------------
+
 SELECT* FROM Usuario
+SELECT* FROM Bitacora
+SELECT* FROM Comando
+SELECT* FROM Mensaje
+SELECT* FROM Contacto
+
 DELETE FROM Usuario
+DELETE FROM Bitacora
+DELETE FROM Comando
+DELETE FROM Mensaje
+DELETE FROM Contacto

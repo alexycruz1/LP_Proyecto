@@ -1,21 +1,29 @@
 #JSGF V1.0;
 grammar sentence;
- 
+
 public <sentence> =
 [<dato0>]
 [<dato1>]
 [<dato2>]
 [<dato3>]
 [<dato4>]
-[<dato1><dato2><dato3><dato4>]
-[<dato5>][<dato6>][<dato7>][<dato8>];
- 
+[<dato5>]
+[<dato6>]
+[<dato7>]
+[<dato8>]
+[<dato9>]
+[<dato10>]
+[<dato11>];
+
 <dato0>=username;
 <dato1>=password;
-<dato2>=voice call;
-<dato3>=video call;
+<dato2>=voicecall;
+<dato3>=videocall;
 <dato4>=add;
 <dato5>=modify;
 <dato6>=delete;
 <dato7>=exit;
 <dato8>=search;
+<dato9>=login;
+<dato10>=alexycruz1;
+<dato11>=holaa;

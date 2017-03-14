@@ -6,11 +6,14 @@
 package VoiceRecognizer;
 
 import java.sql.*;
+import java.util.Date;
 import static VoiceRecognizer.Escucha.recognizer;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -31,6 +34,7 @@ import javax.speech.recognition.RuleGrammar;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -54,12 +58,10 @@ public class Principal extends javax.swing.JFrame {
         ListaBitacoras();
         ListaComando();
 
+        EscrbirComandosEnTexto();
+
         Recognizer();
         recognizer.pause();
-        jl_Imagen_Contacts.setText("");
-        Image Img = Toolkit.getDefaultToolkit().createImage("/Iconos/Silueta.jpg").getScaledInstance(180, 229, 0);
-        this.jl_Imagen_Contacts.setIcon(new ImageIcon(Img));
-        jl_Imagen_Contacts.setIcon(new ImageIcon("/Iconos/Silueta.jpg"));
     }
 
     /**
@@ -151,11 +153,8 @@ public class Principal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jta_History_History = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jb_microphone_LogIn = new javax.swing.JButton();
         jt_Username_LogIn = new javax.swing.JTextField();
-        jb_SignIn_LogIn = new javax.swing.JButton();
         jb_CreateAccount_LogIn = new javax.swing.JButton();
         jt_Password_LogIn = new javax.swing.JPasswordField();
 
@@ -355,6 +354,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel17.setText("Phone number");
 
         jButton3.setText("SAVE CHANGES");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -726,25 +730,6 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOG IN/SIGN IN");
         setResizable(false);
-        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                formMouseMoved(evt);
-            }
-        });
-
-        jButton1.setText("Martha");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-
-        jButton2.setText("imprimir Martha");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
 
         jb_microphone_LogIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Microphone.png"))); // NOI18N
         jb_microphone_LogIn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -756,11 +741,9 @@ public class Principal extends javax.swing.JFrame {
         jt_Username_LogIn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jt_Username_LogIn.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jt_Username_LogIn.setText("USERNAME");
-
-        jb_SignIn_LogIn.setText("SIGN IN");
-        jb_SignIn_LogIn.addMouseListener(new java.awt.event.MouseAdapter() {
+        jt_Username_LogIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_SignIn_LogInMouseClicked(evt);
+                jt_Username_LogInMouseClicked(evt);
             }
         });
 
@@ -774,6 +757,11 @@ public class Principal extends javax.swing.JFrame {
         jt_Password_LogIn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jt_Password_LogIn.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jt_Password_LogIn.setText("PASSWORD");
+        jt_Password_LogIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_Password_LogInMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -787,21 +775,10 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jb_microphone_LogIn, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jb_CreateAccount_LogIn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jButton1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jButton2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(215, 215, 215)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jt_Password_LogIn)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(50, 50, 50)
-                                        .addComponent(jb_SignIn_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jt_Username_LogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))))
+                        .addGap(215, 215, 215)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jt_Password_LogIn)
+                            .addComponent(jt_Username_LogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
                         .addGap(0, 224, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -817,15 +794,8 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jt_Username_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jt_Password_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jb_SignIn_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
-                    .addComponent(jb_CreateAccount_LogIn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                .addComponent(jb_CreateAccount_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -833,15 +803,6 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // TODO add your handling code here:
-        System.out.println("John esta aqui: " + GPalabra.getGst());
-    }//GEN-LAST:event_jButton2MouseClicked
 
     private void jb_CreateAccount_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CreateAccount_LogInMouseClicked
         // TODO add your handling code here:
@@ -892,38 +853,44 @@ public class Principal extends javax.swing.JFrame {
         jt_PhoneNumber_CreateAccount.setText(PhoneCode);
     }//GEN-LAST:event_cb_Location_CreateAccountItemStateChanged
 
-    private void jb_SignIn_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_SignIn_LogInMouseClicked
-        // TODO add your handling code here:
-
-        if (RevisarContraseñaYUsuario(jt_Username_LogIn.getText(), jt_Password_LogIn.getText())) {
-            jd_User.setModal(false);
-            jd_User.pack();
-            jd_User.setLocationRelativeTo(this);
-            jd_User.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectas", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jb_SignIn_LogInMouseClicked
-
     private void jb_CreateAccount_CreateAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CreateAccount_CreateAccountMouseClicked
         // TODO add your handling code here:
-        String FirstName, LastName, UserName, Contraseña, ConfirmPassword, BirthDay, Phone, Country, Genero;
+        if (CamposLlenosCreateAccount()) {
+            String FirstName, LastName, UserName, Contraseña, ConfirmPassword, BirthDay, Phone, Country, Genero;
 
-        FirstName = jt_FirstName_CreateAccount.getText();
-        LastName = jt_LastName_CreateAccount.getText();
-        UserName = jt_Username_CreateAccount.getText();
-        Contraseña = jt_Password_CreateAccount.getText();
-        ConfirmPassword = jt_ConfirmPassword_CreateAccount.getText();
-        BirthDay = jt_Day_CreateAccount.getText() + cb_Month_CreateAccount.getSelectedItem().toString() + jt_Year_CreateAccount.getText();
-        Phone = jt_PhoneNumber_CreateAccount.getText();
-        Country = cb_Location_CreateAccount.getSelectedItem().toString();
-        Genero = cb_Gender_CreateAccount.getSelectedItem().toString();
+            FirstName = jt_FirstName_CreateAccount.getText();
+            LastName = jt_LastName_CreateAccount.getText();
+            UserName = jt_Username_CreateAccount.getText();
+            Contraseña = jt_Password_CreateAccount.getText();
+            ConfirmPassword = jt_ConfirmPassword_CreateAccount.getText();
+            BirthDay = jt_Day_CreateAccount.getText() + cb_Month_CreateAccount.getSelectedItem().toString() + jt_Year_CreateAccount.getText();
+            Phone = jt_PhoneNumber_CreateAccount.getText();
+            Country = cb_Location_CreateAccount.getSelectedItem().toString();
+            Genero = cb_Gender_CreateAccount.getSelectedItem().toString();
 
-        Usuario NuevoUsuario = new Usuario(FirstName, LastName, UserName, Contraseña, BirthDay, Phone, Country, Genero, true);
-        InsertarUsuarioEnDB(UserName, FirstName, LastName, Contraseña, BirthDay, Phone, Country, Genero);
-        ListaUsuarios.add(NuevoUsuario);
+            if (!UsuarioExistente(UserName) && Contraseña.equals(ConfirmPassword)) {
+                Usuario NuevoUsuario = new Usuario(FirstName, LastName, UserName, Contraseña, BirthDay, Phone, Country, Genero, true);
 
-        JOptionPane.showMessageDialog(null, "Usuario creado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+                InsertarUsuarioEnDB(UserName, FirstName, LastName, Contraseña, BirthDay, Phone, Country, Genero);
+                InsertarComandoEnDB(UserName, UserName);
+                InsertarComandoEnDB(Contraseña, Contraseña);
+
+                ListaUsuarios.add(NuevoUsuario);
+                ListaComandos.add(UserName);
+
+                EscrbirComandosEnTexto();
+
+                LimpiarCamposCreateAccount();
+
+                JOptionPane.showMessageDialog(null, "Usuario creado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+            } else if (UsuarioExistente(UserName)) {
+                JOptionPane.showMessageDialog(null, "Usuario ya existente", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Contraseñas no coinciden", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Los campos no estan llenos", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jb_CreateAccount_CreateAccountMouseClicked
 
     private void cb_Location_ProfileItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Location_ProfileItemStateChanged
@@ -966,6 +933,8 @@ public class Principal extends javax.swing.JFrame {
 
     private void jl_Imagen_ContactsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_Imagen_ContactsMouseClicked
         // TODO add your handling code here:
+        jl_Imagen_Contacts.setText("");
+
         JFileChooser fc = new JFileChooser();
         FileFilter filtro = new FileNameExtensionFilter("Imagenes", "png", "jpg", "jpeg", "gif");
         fc.setFileFilter(filtro);
@@ -981,23 +950,68 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jl_Imagen_ContactsMouseClicked
 
-    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
+    private void jt_Username_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_Username_LogInMouseClicked
         // TODO add your handling code here:
-        Palabra = GPalabra.getGst();
-        System.out.println("Esta es palabra: " + Palabra + " y esta es palabra anterior: " + PalabraAnterior);
-        if (!"".equals(Palabra) && !Palabra.equals(PalabraAnterior)) {
-            int answer = JOptionPane.showConfirmDialog(this, "¿Quisiste decir " + Palabra + "?");
-            if (answer == JOptionPane.YES_OPTION) {
-                Palabra = "";
-                PalabraAnterior = "";
-                GPalabra.setGst("");
-            } else if (answer == JOptionPane.NO_OPTION) {
-                Palabra = "";
-                PalabraAnterior = "";
-                GPalabra.setGst("");
+        ReconocedorLogIn(jt_Username_LogIn);
+    }//GEN-LAST:event_jt_Username_LogInMouseClicked
+
+    private void jt_Password_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_Password_LogInMouseClicked
+        // TODO add your handling code here:
+        ReconocedorLogIn(jt_Password_LogIn);
+    }//GEN-LAST:event_jt_Password_LogInMouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        if (CamposLlenosProfile() && UsuarioIngresado.getUserName().equals(jt_Username_Profile.getText())) {
+            String FirstName, LastName, UserName, Contraseña, ConfirmPassword, BirthDay, Phone, Country, Genero;
+
+            FirstName = jt_FirstName_Profile.getText();
+            LastName = jt_LastName_Profile.getText();
+            UserName = jt_Username_Profile.getText();
+            Contraseña = jt_Password_Profile.getText();
+            ConfirmPassword = jt_ConfirmPassword_Profile.getText();
+            BirthDay = jt_Day_Profile.getText() + cb_Month_CreateAccount.getSelectedItem().toString() + jt_Year_CreateAccount.getText();
+            Phone = jt_PhoneNumber_Profile.getText();
+            Country = cb_Location_Profile.getSelectedItem().toString();
+            Genero = cb_Gender_Profile.getSelectedItem().toString();
+
+            for (int i = 0; i < ListaComandos.size(); i++) {
+                if (UsuarioIngresado.getContraseña().equals(ListaComandos.get(i))) {
+                    ListaComandos.remove(i);
+                    ListaComandos.add(UserName);
+
+                    ActualizarComandoEnDB(UserName, UsuarioIngresado.getUserName());
+                }
+
+                if (UsuarioIngresado.getUserName().equals(ListaComandos.get(i))) {
+                    ListaComandos.remove(i);
+                    ListaComandos.add(Contraseña);
+
+                    ActualizarComandoEnDB(Contraseña, UsuarioIngresado.getContraseña());
+                }
             }
+
+            for (int i = 0; i < ListaUsuarios.size(); i++) {
+                if (UsuarioIngresado.getUserName().equals(ListaUsuarios.get(i).getUserName())) {
+                    ActualizarUsuarioEnDB(UserName, FirstName, LastName, Contraseña, BirthDay, Phone, Country, Genero);
+                    ListaUsuarios.get(i).setBirthDay(BirthDay);
+                    ListaUsuarios.get(i).setContraseña(Contraseña);
+                    ListaUsuarios.get(i).setCountry(Country);
+                    ListaUsuarios.get(i).setFirstName(FirstName);
+                    ListaUsuarios.get(i).setGenero(Genero);
+                    ListaUsuarios.get(i).setLastName(LastName);
+                    ListaUsuarios.get(i).setPhone(Phone);
+                    ListaUsuarios.get(i).setUserName(UserName);
+                    UsuarioIngresado = ListaUsuarios.get(i);
+                }
+            }
+            
+            EscrbirComandosEnTexto();
+            JOptionPane.showMessageDialog(null, "Usuario actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
         }
-    }//GEN-LAST:event_formMouseMoved
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1044,9 +1058,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_Month_CreateAccount;
     private javax.swing.JComboBox<String> cb_Month_Profile;
     private javax.swing.JComboBox<String> cb_Recipients_Inbox;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
@@ -1089,7 +1101,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_CreateAccount_CreateAccount;
     private javax.swing.JButton jb_CreateAccount_LogIn;
-    private javax.swing.JButton jb_SignIn_LogIn;
     private javax.swing.JButton jb_microphone_LogIn;
     private javax.swing.JDialog jd_CreateAccount;
     private javax.swing.JDialog jd_User;
@@ -1129,11 +1140,14 @@ public class Principal extends javax.swing.JFrame {
     Escucha GPalabra = new Escucha(Palabra);
     int CambiarIconoMicrofono = 0;
     Connection Conect = null;
+
     ArrayList<Usuario> ListaUsuarios = new ArrayList();
     ArrayList<Contacto> ListaContactos = new ArrayList();
     ArrayList<Mensaje> ListaMensajes = new ArrayList();
     ArrayList<Bitacora> ListaBitacoras = new ArrayList();
     ArrayList<String> ListaComandos = new ArrayList();
+    ArrayList<JTextField> ListaJTextFields = new ArrayList();
+
     Usuario UsuarioIngresado = new Usuario();
 
     public void InsertarUsuarioEnDB(String UserName, String FirstName, String LastName, String Contraseña, String BirthDay, String Phone, String Country, String Genero) {
@@ -1391,13 +1405,29 @@ public class Principal extends javax.swing.JFrame {
     }
 
     //----------------------------------------------------------------------------------------------------------
-    public void InsertarComandoEnDB(String Comandos) {
+    public void InsertarComandoEnDB(String Comandos, String Comandos2) {
         CallableStatement CT = null;
         boolean Resp = true;
         try {
             Conect.setAutoCommit(false);
-            CT = Conect.prepareCall("{Call AgregarComando(?)}");
+            CT = Conect.prepareCall("{Call AgregarComando(?, ?)}");
             CT.setString("Comandos", Comandos);
+            CT.setString("Comandos2", Comandos2);
+            Resp = CT.execute();
+            Conect.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void ActualizarComandoEnDB(String Comando, String Comandos2) {
+        CallableStatement CT = null;
+        boolean Resp = true;
+        try {
+            Conect.setAutoCommit(false);
+            CT = Conect.prepareCall("{Call ActualizarComando(?, ?)}");
+            CT.setString("Comandos", Comando);
+            CT.setString("Comandos2", Comandos2);
             Resp = CT.execute();
             Conect.commit();
         } catch (Exception e) {
@@ -1511,6 +1541,140 @@ public class Principal extends javax.swing.JFrame {
             return false;
         }
     }
+
+    public void EscrbirComandosEnTexto() {
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        try {
+            fichero = new FileWriter("./Gramatica.txt");
+            pw = new PrintWriter(fichero);
+
+            pw.println("#JSGF V1.0;");
+            pw.println("grammar sentence;");
+            pw.println("");
+            pw.println("public <sentence> =");
+
+            for (int i = 0; i < ListaComandos.size(); i++) {
+                if (i == ListaComandos.size() - 1) {
+                    pw.print("[<dato" + i + ">];");
+                } else {
+                    pw.println("[<dato" + i + ">]");
+                }
+            }
+
+            pw.println("");
+            pw.println("");
+
+            for (int i = 0; i < ListaComandos.size(); i++) {
+                if (i == ListaComandos.size() - 1) {
+                    pw.print("<dato" + i + ">=" + ListaComandos.get(i) + ";");
+                } else {
+                    pw.println("<dato" + i + ">=" + ListaComandos.get(i) + ";");
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != fichero) {
+                    fichero.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public void ReconocedorLogIn(JTextField TextFieldActual) {
+        Palabra = GPalabra.getGst();
+        if (!"".equals(Palabra)) {
+            int answer = JOptionPane.showConfirmDialog(this, "¿Quisiste decir " + Palabra + "?");
+            if (Palabra.equals("login") && CamposLlenosLogIn()) {
+                if (RevisarContraseñaYUsuario(jt_Username_LogIn.getText(), jt_Password_LogIn.getText()) && answer == JOptionPane.YES_OPTION) {
+                    jd_User.setModal(false);
+                    jd_User.pack();
+                    jd_User.setLocationRelativeTo(this);
+                    jd_User.setVisible(true);
+
+                    for (int i = 0; i < ListaUsuarios.size(); i++) {
+                        if (jt_Username_LogIn.getText().equals(ListaUsuarios.get(i).getUserName())) {
+                            UsuarioIngresado = ListaUsuarios.get(i);
+                        }
+                    }
+
+                    LimpiarCamposLogIn();
+                    LlenarCamposProfile();
+                } else if (!RevisarContraseñaYUsuario(jt_Username_LogIn.getText(), jt_Password_LogIn.getText()) && answer == JOptionPane.YES_OPTION) {
+                    JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectas", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    LimpiarCamposLogIn();
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+                } else {
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+                }
+            } else if (Palabra.equals("exit")) {
+                if (answer == JOptionPane.YES_OPTION) {
+                    Date FechaActual = new Date();
+                    System.exit(0);
+                } else {
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+                }
+            } else if (!Palabra.equals("login") && !Palabra.equals("exit")) {
+                if (answer == JOptionPane.YES_OPTION) {
+                    TextFieldActual.setText(Palabra);
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+                } else if (answer == JOptionPane.NO_OPTION) {
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+                }
+            }
+        }
+    }
+
+    public void LimpiarCamposLogIn() {
+        jt_Username_LogIn.setText("USERNAME");
+        jt_Password_LogIn.setText("PASSWORD");
+    }
+
+    public void LimpiarCamposCreateAccount() {
+        jt_FirstName_CreateAccount.setText("First");
+        jt_LastName_CreateAccount.setText("Last");
+        jt_Username_CreateAccount.setText("");
+        jt_Password_CreateAccount.setText("");
+        jt_ConfirmPassword_CreateAccount.setText("");
+        jt_Day_CreateAccount.setText("");
+        jt_Year_CreateAccount.setText("");
+        jt_PhoneNumber_CreateAccount.setText("");
+    }
+
+    public void LlenarCamposProfile() {
+        jt_FirstName_Profile.setText(UsuarioIngresado.getFirstName());
+        jt_LastName_Profile.setText(UsuarioIngresado.getLastName());
+        jt_Username_Profile.setText(UsuarioIngresado.getUserName());
+        jt_Password_Profile.setText(UsuarioIngresado.getContraseña());
+        jt_ConfirmPassword_Profile.setText(UsuarioIngresado.getContraseña());
+        jt_PhoneNumber_Profile.setText(UsuarioIngresado.getPhone());
+    }
+
+    public void LimpiarCamposProfile() {
+        jt_FirstName_Profile.setText("First");
+        jt_LastName_Profile.setText("Last");
+        jt_Username_Profile.setText("");
+        jt_Password_Profile.setText("");
+        jt_ConfirmPassword_Profile.setText("");
+        jt_Day_Profile.setText("DAY");
+        jt_Year_Profile.setText("YEAR");
+        jt_PhoneNumber_Profile.setText("");
+    }
     //----------------------------------------------------------------------------------------------------------
 
     public void Recognizer() {
@@ -1518,7 +1682,7 @@ public class Principal extends javax.swing.JFrame {
             recognizer = Central.createRecognizer(new EngineModeDesc(Locale.ROOT));
             recognizer.allocate();
 
-            FileReader grammar1 = new FileReader("e:/Proyectos/LP_Proyecto/Gramatica.txt");
+            FileReader grammar1 = new FileReader("e:/Proyectos/LP_Proyecto/VoiceRecognizer/Gramatica.txt");
 
             RuleGrammar rg = recognizer.loadJSGF(grammar1);
             rg.setEnabled(true);
