@@ -37,6 +37,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -136,12 +137,7 @@ public class Principal extends javax.swing.JFrame {
         jt_Year_Contacts = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         jt_Email_Contacts = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         cb_Recipients_Inbox = new javax.swing.JComboBox<>();
@@ -471,8 +467,20 @@ public class Principal extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel20.setText("Phonetic name");
 
+        jt_PhoneticName_Contacts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_PhoneticName_ContactsMouseClicked(evt);
+            }
+        });
+
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel21.setText("Nickname");
+
+        jt_NickName_Contacts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_NickName_ContactsMouseClicked(evt);
+            }
+        });
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel22.setText("Location");
@@ -487,29 +495,41 @@ public class Principal extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel23.setText("Phone number");
 
+        jt_Phone_Contacts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_Phone_ContactsMouseClicked(evt);
+            }
+        });
+
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel24.setText("Birthday");
 
         jt_Day_Contacts.setText("DAY");
+        jt_Day_Contacts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_Day_ContactsMouseClicked(evt);
+            }
+        });
 
         cb_Month_Contacts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
 
         jt_Year_Contacts.setText("YEAR");
+        jt_Year_Contacts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_Year_ContactsMouseClicked(evt);
+            }
+        });
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel25.setText("Email");
 
-        jButton4.setText("Add");
-
-        jButton6.setText("Delete");
-
-        jButton7.setText("Update");
-
-        jButton8.setText("Voice Call");
+        jt_Email_Contacts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_Email_ContactsMouseClicked(evt);
+            }
+        });
 
         jButton9.setText("Video Call");
-
-        jButton10.setText("Search");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -551,21 +571,9 @@ public class Principal extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jt_Year_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jt_Phone_Contacts))
-                        .addGap(60, 60, 60)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButton4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton10))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButton8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton9)))
-                        .addContainerGap(56, Short.MAX_VALUE))))
+                        .addGap(156, 156, 156)
+                        .addComponent(jButton9)
+                        .addContainerGap(167, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -594,17 +602,10 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel22)
                 .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton4)
-                        .addComponent(jButton6)
-                        .addComponent(jButton7)
-                        .addComponent(jButton10))
-                    .addComponent(cb_Location_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addComponent(cb_Location_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(jButton8)
                     .addComponent(jButton9))
                 .addGap(18, 18, 18)
                 .addComponent(jt_Phone_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1025,6 +1026,36 @@ public class Principal extends javax.swing.JFrame {
         ReconocedorContacts(jt_Name_Contacts);
     }//GEN-LAST:event_jt_Name_ContactsMouseClicked
 
+    private void jt_NickName_ContactsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_NickName_ContactsMouseClicked
+        // TODO add your handling code here:
+        ReconocedorContacts(jt_NickName_Contacts);
+    }//GEN-LAST:event_jt_NickName_ContactsMouseClicked
+
+    private void jt_Phone_ContactsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_Phone_ContactsMouseClicked
+        // TODO add your handling code here:
+        ReconocedorContacts(jt_Phone_Contacts);
+    }//GEN-LAST:event_jt_Phone_ContactsMouseClicked
+
+    private void jt_Day_ContactsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_Day_ContactsMouseClicked
+        // TODO add your handling code here:
+        ReconocedorContacts(jt_Day_Contacts);
+    }//GEN-LAST:event_jt_Day_ContactsMouseClicked
+
+    private void jt_Year_ContactsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_Year_ContactsMouseClicked
+        // TODO add your handling code here:
+        ReconocedorContacts(jt_Year_Contacts);
+    }//GEN-LAST:event_jt_Year_ContactsMouseClicked
+
+    private void jt_PhoneticName_ContactsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_PhoneticName_ContactsMouseClicked
+        // TODO add your handling code here:
+        ReconocedorContacts(jt_PhoneticName_Contacts);
+    }//GEN-LAST:event_jt_PhoneticName_ContactsMouseClicked
+
+    private void jt_Email_ContactsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_Email_ContactsMouseClicked
+        // TODO add your handling code here:
+        ReconocedorContacts(jt_Email_Contacts);
+    }//GEN-LAST:event_jt_Email_ContactsMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1069,13 +1100,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_Month_Contacts;
     private javax.swing.JComboBox<String> cb_Month_CreateAccount;
     private javax.swing.JComboBox<String> cb_Month_Profile;
-    private javax.swing.JComboBox<String> cb_Recipients_Inbox;
-    private javax.swing.JButton jButton10;
+    private javax.swing.JComboBox<Object> cb_Recipients_Inbox;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1569,6 +1595,35 @@ public class Principal extends javax.swing.JFrame {
         }
     }
 
+    public void LlenarComboDeContactos() {
+        cb_Recipients_Inbox.removeAllItems();
+
+        for (int i = 0; i < ListaContactos.size(); i++) {
+            if (ListaContactos.get(i).getNombreUsuarioPertenece().equals(UsuarioIngresado.getUserName())) {
+                cb_Recipients_Inbox.addItem(ListaContactos.get(i));
+            }
+        }
+    }
+
+    public void LlenarInbox() {
+        DefaultTableModel ModeloTabla = (DefaultTableModel) jtable_Inbox_Inbox.getModel();
+
+        while (ModeloTabla.getRowCount() > 0) {
+            ModeloTabla.removeRow(0);
+        }
+
+        for (int i = 0; i < ListaMensajes.size(); i++) {
+            if (ListaMensajes.get(i).getNombreUsuarioPertenece().equals(UsuarioIngresado.getUserName())) {
+                String[] Row = {ListaMensajes.get(i).getFecha(), ListaMensajes.get(i).getDestinatario(), ListaMensajes.get(i).getAsunto()};
+                ModeloTabla.addRow(Row);
+            }
+        }
+        
+        jtable_Inbox_Inbox.setModel(ModeloTabla);
+
+        jtable_Inbox_Inbox.setModel(ModeloTabla);
+    }
+
     public void EscrbirComandosEnTexto() {
         FileWriter fichero = null;
         PrintWriter pw = null;
@@ -1666,6 +1721,34 @@ public class Principal extends javax.swing.JFrame {
         }
     }
 
+    public void ReconcedorMensaje(JTextField TextFieldActual) {
+        Palabra = GPalabra.getGst();
+        if (!"".equals(Palabra)) {
+            int answer = JOptionPane.showConfirmDialog(this, "¿Quisiste decir " + Palabra + "?");
+            if (answer == JOptionPane.YES_OPTION && Palabra.equals("send")) {
+                String Mensaje = jta_Subject_Inbox.getText();
+                Date FechaActual = new Date();
+                String Destinatario = ((Contacto) cb_Recipients_Inbox.getSelectedItem()).getName() + " " + ((Contacto) cb_Recipients_Inbox.getSelectedItem()).getPhone();
+
+                Mensaje NuevoMensaje = new Mensaje(FechaActual.toString(), Mensaje, Destinatario, UsuarioIngresado.getUserName(), true);
+                ListaMensajes.add(NuevoMensaje);
+                InsertarMensajeEnDB(FechaActual.toString(), Mensaje, Destinatario, UsuarioIngresado.getUserName());
+
+                jta_Subject_Inbox.setText("");
+                LlenarInbox();
+                
+                JOptionPane.showMessageDialog(null, "Mensaje enviado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+                Palabra = "";
+                PalabraAnterior = "";
+                GPalabra.setGst("");
+            } else {
+                Palabra = "";
+                PalabraAnterior = "";
+                GPalabra.setGst("");
+            }
+        }
+    }
+
     public void ReconocedorContacts(JTextField TextFieldActual) {
         Palabra = GPalabra.getGst();
         if (!"".equals(Palabra)) {
@@ -1690,6 +1773,7 @@ public class Principal extends javax.swing.JFrame {
                         InsertarContactoEnDB(Name, PhoneticName, NickName, RutaImagen, Phone, PhonePlace, BirthDay, NombreUsuarioPertenece, Email);
                         InsertarComandoEnDB(Name, Name);
 
+                        LlenarComboDeContactos();
                         LimpiarCamposContacts();
 
                         JOptionPane.showMessageDialog(null, "Contacto agregado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
@@ -1737,6 +1821,7 @@ public class Principal extends javax.swing.JFrame {
                             InsertarComandoEnDB(ListaComandos.get(i), ListaComandos.get(i));
                         }
 
+                        LlenarComboDeContactos();
                         EscrbirComandosEnTexto();
                         JOptionPane.showMessageDialog(null, "Contacto eliminado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
                     } else {
@@ -1800,6 +1885,7 @@ public class Principal extends javax.swing.JFrame {
                         ActualizarContactoEnDB(Name, PhoneticName, NickName, RutaImagen, Phone, PhonePlace, BirthDay, NombreUsuarioPertenece, Email);
                         EscrbirComandosEnTexto();
 
+                        LlenarComboDeContactos();
                         JOptionPane.showMessageDialog(null, "Contacto actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         JOptionPane.showMessageDialog(null, "Numero de telefono inexistente", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -1841,7 +1927,7 @@ public class Principal extends javax.swing.JFrame {
                         }
                     }
 
-                    JOptionPane.showMessageDialog(null, "Llamando a " + Palabra, "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Llamando a " + Palabra, "OPERACION EN CURSO", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     Palabra = "";
                     PalabraAnterior = "";
