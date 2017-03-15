@@ -61,6 +61,9 @@ public class Principal extends javax.swing.JFrame {
 
         EscrbirComandosEnTexto();
         LlenarInbox();
+        ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Inicio el programa el usuario", UsuarioIngresado.getUserName()));
+        InsertarBitacoraEnDB(FechaBitacora.toString(), "Inicio el programa el usuario", UsuarioIngresado.getUserName());
+        LlenarBitacora();
         
         Recognizer();
         recognizer.pause();
@@ -833,12 +836,16 @@ public class Principal extends javax.swing.JFrame {
             } catch (EngineStateError ex) {
                 Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
             }
-            System.out.println("Inicio a grabar");
+
+            ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Inicio a grabar", UsuarioIngresado.getUserName()));
+            InsertarBitacoraEnDB(FechaBitacora.toString(), "Inicio a grabar", UsuarioIngresado.getUserName());
+            LlenarBitacora();
         } else if (CambiarIconoMicrofono == 1) {
             jb_microphone_LogIn.setIcon(new ImageIcon(getClass().getResource("/Iconos/Microphone.png")));
             CambiarIconoMicrofono--;
             recognizer.pause();
-            System.out.println("Termine de grabar");
+            ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Se detuvo la grabacion", UsuarioIngresado.getUserName()));
+            InsertarBitacoraEnDB(FechaBitacora.toString(), "Se detuvo la grabacion", UsuarioIngresado.getUserName());
         }
     }//GEN-LAST:event_jb_microphone_LogInMouseClicked
 
@@ -891,6 +898,10 @@ public class Principal extends javax.swing.JFrame {
                 LimpiarCamposCreateAccount();
 
                 JOptionPane.showMessageDialog(null, "Usuario creado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+                
+                ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Agrego un usuario", ""));
+                InsertarBitacoraEnDB(FechaBitacora.toString(), "Agrego un usuario", "");
+                LlenarBitacora();
             } else if (UsuarioExistente(UserName)) {
                 JOptionPane.showMessageDialog(null, "Usuario ya existente", "ERROR", JOptionPane.ERROR_MESSAGE);
             } else {
@@ -1016,6 +1027,10 @@ public class Principal extends javax.swing.JFrame {
             }
 
             EscrbirComandosEnTexto();
+            ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Usuario actualizado", UsuarioIngresado.getUserName()));
+            InsertarBitacoraEnDB(FechaBitacora.toString(), "Usuario actualizado", UsuarioIngresado.getUserName());
+            LlenarBitacora();
+            
             JOptionPane.showMessageDialog(null, "Usuario actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Usuario actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
@@ -1181,6 +1196,8 @@ public class Principal extends javax.swing.JFrame {
     Connection Conect = null;
 
     String RutaImagen = "";
+    Date FechaBitacora = new Date();
+
     ArrayList<Usuario> ListaUsuarios = new ArrayList();
     ArrayList<Contacto> ListaContactos = new ArrayList();
     ArrayList<Mensaje> ListaMensajes = new ArrayList();
@@ -1619,7 +1636,7 @@ public class Principal extends javax.swing.JFrame {
                 ModeloTabla.addRow(Row);
             }
         }
-        
+
         jtable_Inbox_Inbox.setModel(ModeloTabla);
 
         jtable_Inbox_Inbox.setModel(ModeloTabla);
@@ -1669,6 +1686,17 @@ public class Principal extends javax.swing.JFrame {
         }
     }
 
+    public void LlenarBitacora() {
+        jta_History_History.setText("");
+
+        String Bitacora = "";
+        for (int i = 0; i < ListaBitacoras.size(); i++) {
+            Bitacora += ListaBitacoras.get(i).toString();
+        }
+
+        jta_History_History.setText(Bitacora);
+    }
+
     public void ReconocedorLogIn(JTextField TextFieldActual) {
         Palabra = GPalabra.getGst();
         if (!"".equals(Palabra)) {
@@ -1689,6 +1717,11 @@ public class Principal extends javax.swing.JFrame {
                     LimpiarCamposLogIn();
                     LlenarCamposProfile();
                     LlenarComboDeContactos();
+
+                    ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Inicio sesion", UsuarioIngresado.getUserName().toString()));
+                    InsertarBitacoraEnDB(FechaBitacora.toString(), "Inicio sesion", UsuarioIngresado.getUserName().toString());
+                    LlenarBitacora();
+
                 } else if (!RevisarContraseñaYUsuario(jt_Username_LogIn.getText(), jt_Password_LogIn.getText()) && answer == JOptionPane.YES_OPTION) {
                     JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectas", "ERROR", JOptionPane.ERROR_MESSAGE);
                     LimpiarCamposLogIn();
@@ -1702,6 +1735,9 @@ public class Principal extends javax.swing.JFrame {
                 }
             } else if (Palabra.equals("exit")) {
                 if (answer == JOptionPane.YES_OPTION) {
+                    ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "salio del programa", UsuarioIngresado.getUserName().toString()));
+                    InsertarBitacoraEnDB(FechaBitacora.toString(), "salio del programa", UsuarioIngresado.getUserName().toString());
+                    LlenarBitacora();
                     System.exit(0);
                 } else {
                     Palabra = "";
@@ -1738,7 +1774,11 @@ public class Principal extends javax.swing.JFrame {
 
                 jta_Subject_Inbox.setText("");
                 LlenarInbox();
-                
+
+                ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "mensaje enviado", UsuarioIngresado.getUserName().toString()));
+                InsertarBitacoraEnDB(FechaBitacora.toString(), "mensaje enviado", UsuarioIngresado.getUserName().toString());
+                LlenarBitacora();
+
                 JOptionPane.showMessageDialog(null, "Mensaje enviado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
                 Palabra = "";
                 PalabraAnterior = "";
@@ -1777,6 +1817,10 @@ public class Principal extends javax.swing.JFrame {
 
                         LlenarComboDeContactos();
                         LimpiarCamposContacts();
+
+                        ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "contacto agregado", UsuarioIngresado.getUserName().toString()));
+                        InsertarBitacoraEnDB(FechaBitacora.toString(), "contacto agregado", UsuarioIngresado.getUserName().toString());
+                        LlenarBitacora();
 
                         JOptionPane.showMessageDialog(null, "Contacto agregado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
                     } else {
@@ -1825,6 +1869,11 @@ public class Principal extends javax.swing.JFrame {
 
                         LlenarComboDeContactos();
                         EscrbirComandosEnTexto();
+
+                        ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "contacto eliminado", UsuarioIngresado.getUserName().toString()));
+                        InsertarBitacoraEnDB(FechaBitacora.toString(), "contacto eliminado", UsuarioIngresado.getUserName().toString());
+                        LlenarBitacora();
+
                         JOptionPane.showMessageDialog(null, "Contacto eliminado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         JOptionPane.showMessageDialog(null, "Llene todos los campos", "OPERACION EXITOSA", JOptionPane.ERROR_MESSAGE);
@@ -1888,6 +1937,11 @@ public class Principal extends javax.swing.JFrame {
                         EscrbirComandosEnTexto();
 
                         LlenarComboDeContactos();
+
+                        ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "contacto actualizado", UsuarioIngresado.getUserName().toString()));
+                        InsertarBitacoraEnDB(FechaBitacora.toString(), "contacto actualizado", UsuarioIngresado.getUserName().toString());
+                        LlenarBitacora();
+
                         JOptionPane.showMessageDialog(null, "Contacto actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
                     } else {
                         JOptionPane.showMessageDialog(null, "Numero de telefono inexistente", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -1910,6 +1964,10 @@ public class Principal extends javax.swing.JFrame {
                             }
                         }
                     }
+
+                    ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "usuario buscado", UsuarioIngresado.getUserName().toString()));
+                    InsertarBitacoraEnDB(FechaBitacora.toString(), "usuario buscado", UsuarioIngresado.getUserName().toString());
+                    LlenarBitacora();
                 } else {
                     Palabra = "";
                     PalabraAnterior = "";
@@ -1929,6 +1987,10 @@ public class Principal extends javax.swing.JFrame {
                         }
                     }
 
+                    ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "se hizo una llamada", UsuarioIngresado.getUserName().toString()));
+                    InsertarBitacoraEnDB(FechaBitacora.toString(), "se hizo una llamada", UsuarioIngresado.getUserName().toString());
+                    LlenarBitacora();
+
                     JOptionPane.showMessageDialog(null, "Llamando a " + Palabra, "OPERACION EN CURSO", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     Palabra = "";
@@ -1938,6 +2000,9 @@ public class Principal extends javax.swing.JFrame {
             } else if (Palabra.equals("videocall")) {
                 if (answer == JOptionPane.YES_OPTION) {
 
+                    ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "se hizo una videollamada", UsuarioIngresado.getUserName().toString()));
+                    InsertarBitacoraEnDB(FechaBitacora.toString(), "se hizo una videollamada", UsuarioIngresado.getUserName().toString());
+                    LlenarBitacora();
                 } else {
                     Palabra = "";
                     PalabraAnterior = "";
