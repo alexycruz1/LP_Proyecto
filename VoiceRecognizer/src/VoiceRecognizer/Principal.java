@@ -129,7 +129,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         cb_Location_Contacts = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
-        jt_PhoneNumber_Contacts = new javax.swing.JTextField();
+        jt_Phone_Contacts = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jt_Day_Contacts = new javax.swing.JTextField();
         cb_Month_Contacts = new javax.swing.JComboBox<>();
@@ -462,6 +462,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel19.setText("Name");
 
+        jt_Name_Contacts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_Name_ContactsMouseClicked(evt);
+            }
+        });
+
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel20.setText("Phonetic name");
 
@@ -544,7 +550,7 @@ public class Principal extends javax.swing.JFrame {
                                 .addComponent(cb_Month_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jt_Year_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jt_PhoneNumber_Contacts))
+                            .addComponent(jt_Phone_Contacts))
                         .addGap(60, 60, 60)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -601,7 +607,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jButton8)
                     .addComponent(jButton9))
                 .addGap(18, 18, 18)
-                .addComponent(jt_PhoneNumber_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jt_Phone_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jLabel24)
                 .addGap(18, 18, 18)
@@ -928,7 +934,7 @@ public class Principal extends javax.swing.JFrame {
         }
 
         String PhoneCode = CutPhoneCode.substring(BeginIndex, EndIndex);
-        jt_PhoneNumber_Contacts.setText(PhoneCode);
+        jt_Phone_Contacts.setText(PhoneCode);
     }//GEN-LAST:event_cb_Location_ContactsItemStateChanged
 
     private void jl_Imagen_ContactsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_Imagen_ContactsMouseClicked
@@ -944,6 +950,7 @@ public class Principal extends javax.swing.JFrame {
 
         if (op == JFileChooser.APPROVE_OPTION) {
             Archivo = fc.getSelectedFile();
+            RutaImagen = Archivo.getPath();
             System.out.println(Archivo.getPath());
             Image Img = Toolkit.getDefaultToolkit().createImage(Archivo.getPath()).getScaledInstance(180, 229, 0);
             this.jl_Imagen_Contacts.setIcon(new ImageIcon(Img));
@@ -1005,13 +1012,18 @@ public class Principal extends javax.swing.JFrame {
                     UsuarioIngresado = ListaUsuarios.get(i);
                 }
             }
-            
+
             EscrbirComandosEnTexto();
             JOptionPane.showMessageDialog(null, "Usuario actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Usuario actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jt_Name_ContactsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_Name_ContactsMouseClicked
+        // TODO add your handling code here:
+        ReconocedorContacts(jt_Name_Contacts);
+    }//GEN-LAST:event_jt_Name_ContactsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1120,9 +1132,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPasswordField jt_Password_CreateAccount;
     private javax.swing.JPasswordField jt_Password_LogIn;
     private javax.swing.JPasswordField jt_Password_Profile;
-    private javax.swing.JTextField jt_PhoneNumber_Contacts;
     private javax.swing.JTextField jt_PhoneNumber_CreateAccount;
     private javax.swing.JTextField jt_PhoneNumber_Profile;
+    private javax.swing.JTextField jt_Phone_Contacts;
     private javax.swing.JTextField jt_PhoneticName_Contacts;
     private javax.swing.JTextField jt_Username_CreateAccount;
     private javax.swing.JTextField jt_Username_LogIn;
@@ -1141,6 +1153,7 @@ public class Principal extends javax.swing.JFrame {
     int CambiarIconoMicrofono = 0;
     Connection Conect = null;
 
+    String RutaImagen = "";
     ArrayList<Usuario> ListaUsuarios = new ArrayList();
     ArrayList<Contacto> ListaContactos = new ArrayList();
     ArrayList<Mensaje> ListaMensajes = new ArrayList();
@@ -1435,6 +1448,19 @@ public class Principal extends javax.swing.JFrame {
         }
     }
 
+    public void EliminarComando() {
+        CallableStatement CT = null;
+        boolean Resp = true;
+        try {
+            Conect.setAutoCommit(false);
+            CT = Conect.prepareCall("{Call EliminarComando()}");
+            Resp = CT.execute();
+            Conect.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public ArrayList<String> ListaComando() {
         CallableStatement CT = null;
         ResultSet RS = null;
@@ -1526,8 +1552,9 @@ public class Principal extends javax.swing.JFrame {
     }
 
     public boolean CamposLlenosContact() {
-        if (!jt_Name_Contacts.getText().equals("") && !jt_NickName_Contacts.getText().equals("") && !jt_PhoneNumber_Contacts.getText().equals("")
-                && !jt_PhoneticName_Contacts.getText().equals("") && !jt_Email_Contacts.getText().equals("")) {
+        if (!jt_Name_Contacts.getText().equals("") && !jt_NickName_Contacts.getText().equals("") && !jt_Phone_Contacts.getText().equals("")
+                && !jt_PhoneticName_Contacts.getText().equals("") && !jt_Email_Contacts.getText().equals("")
+                && !"".equals(RutaImagen)) {
             return true;
         } else {
             return false;
@@ -1618,7 +1645,6 @@ public class Principal extends javax.swing.JFrame {
                 }
             } else if (Palabra.equals("exit")) {
                 if (answer == JOptionPane.YES_OPTION) {
-                    Date FechaActual = new Date();
                     System.exit(0);
                 } else {
                     Palabra = "";
@@ -1626,6 +1652,210 @@ public class Principal extends javax.swing.JFrame {
                     GPalabra.setGst("");
                 }
             } else if (!Palabra.equals("login") && !Palabra.equals("exit")) {
+                if (answer == JOptionPane.YES_OPTION) {
+                    TextFieldActual.setText(Palabra);
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+                } else if (answer == JOptionPane.NO_OPTION) {
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+                }
+            }
+        }
+    }
+
+    public void ReconocedorContacts(JTextField TextFieldActual) {
+        Palabra = GPalabra.getGst();
+        if (!"".equals(Palabra)) {
+            int answer = JOptionPane.showConfirmDialog(this, "¿Quisiste decir " + Palabra + "?");
+            if (Palabra.equals("add")) {
+                if (answer == JOptionPane.YES_OPTION) {
+                    String Name, PhoneticName, NickName, Phone, PhonePlace, Email, BirthDay, NombreUsuarioPertenece;
+                    Name = jt_Name_Contacts.getText();
+                    PhoneticName = jt_PhoneticName_Contacts.getText();
+                    NickName = jt_NickName_Contacts.getText();
+                    Phone = jt_Phone_Contacts.getText();
+                    BirthDay = jt_Day_Contacts.getText() + cb_Month_Contacts.getSelectedItem().toString() + jt_Year_Contacts.getText();
+                    NombreUsuarioPertenece = UsuarioIngresado.getUserName();
+                    PhonePlace = cb_Location_Contacts.getSelectedItem().toString();
+                    Email = jt_Email_Contacts.getText();
+                    if (CamposLlenosContact()) {
+                        Contacto NuevoContacto = new Contacto(Name, PhoneticName, NickName, RutaImagen, Phone, PhonePlace, Email, BirthDay, NombreUsuarioPertenece, true);
+                        ListaContactos.add(NuevoContacto);
+                        ListaComandos.add(Name);
+                        EscrbirComandosEnTexto();
+
+                        InsertarContactoEnDB(Name, PhoneticName, NickName, RutaImagen, Phone, PhonePlace, BirthDay, NombreUsuarioPertenece, Email);
+                        InsertarComandoEnDB(Name, Name);
+
+                        LimpiarCamposContacts();
+
+                        JOptionPane.showMessageDialog(null, "Contacto agregado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Llene todos los campos", "OPERACION EXITOSA", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+                }
+            } else if (Palabra.equals("exit")) {
+                if (answer == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                } else {
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+                }
+            } else if (Palabra.equals("delete")) {
+                if (answer == JOptionPane.YES_OPTION) {
+                    if (CamposLlenosContact()) {
+                        String Phone, Name;
+                        Phone = jt_Phone_Contacts.getText();
+                        Name = jt_Name_Contacts.getText();
+                        int Borrado = 0;
+
+                        for (int i = 0; i < ListaContactos.size(); i++) {
+                            if (ListaContactos.get(i).getPhone().endsWith(Phone)) {
+                                ListaContactos.remove(i);
+                            }
+                        }
+
+                        for (int i = 0; i < ListaComandos.size(); i++) {
+                            if (ListaComandos.get(i).equals(Name) && Borrado == 0) {
+                                ListaComandos.remove(i);
+                                Borrado++;
+                            }
+                        }
+
+                        EliminarContactoEnDB(Phone);
+                        EliminarComando();
+
+                        for (int i = 0; i < ListaComandos.size(); i++) {
+                            InsertarComandoEnDB(ListaComandos.get(i), ListaComandos.get(i));
+                        }
+
+                        EscrbirComandosEnTexto();
+                        JOptionPane.showMessageDialog(null, "Contacto eliminado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Llene todos los campos", "OPERACION EXITOSA", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+                }
+            } else if (Palabra.equals("update") || Palabra.equals("modify")) {
+                if (answer == JOptionPane.YES_OPTION) {
+                    String Name, PhoneticName, NickName, Phone, PhonePlace, Email, BirthDay, NombreUsuarioPertenece;
+                    Name = jt_Name_Contacts.getText();
+                    PhoneticName = jt_PhoneticName_Contacts.getText();
+                    NickName = jt_NickName_Contacts.getText();
+                    Phone = jt_Phone_Contacts.getText();
+                    BirthDay = jt_Day_Contacts.getText() + cb_Month_Contacts.getSelectedItem().toString() + jt_Year_Contacts.getText();
+                    NombreUsuarioPertenece = UsuarioIngresado.getUserName();
+                    PhonePlace = cb_Location_Contacts.getSelectedItem().toString();
+                    Email = jt_Email_Contacts.getText();
+
+                    int Existe = 0;
+                    int Indice = 0;
+
+                    for (int i = 0; i < ListaContactos.size(); i++) {
+                        if (ListaContactos.get(i).getPhone().equals(Phone)) {
+                            Existe++;
+                            Indice = i;
+                        }
+                    }
+
+                    if (Existe > 0) {
+                        int Borrado = 0;
+                        for (int i = 0; i < ListaComandos.size(); i++) {
+                            if (ListaComandos.get(i).equals(ListaContactos.get(Indice).getName()) && Borrado == 0) {
+                                ListaComandos.remove(i);
+                                Borrado++;
+                            }
+                        }
+
+                        EliminarComando();
+
+                        for (int i = 0; i < ListaContactos.size(); i++) {
+                            if (ListaContactos.get(i).getPhone().equals(Phone)) {
+                                ListaContactos.get(i).setBirthDay(BirthDay);
+                                ListaContactos.get(i).setEmail(Email);
+                                ListaContactos.get(i).setName(Name);
+                                ListaContactos.get(i).setNickName(NickName);
+                                ListaContactos.get(i).setPhonePlace(PhonePlace);
+                                ListaContactos.get(i).setPhoneticName(PhoneticName);
+                                ListaContactos.get(i).setRutaImagen(RutaImagen);
+                            }
+                        }
+
+                        ListaComandos.add(Name);
+                        for (int i = 0; i < ListaComandos.size(); i++) {
+                            InsertarComandoEnDB(ListaComandos.get(i), ListaComandos.get(i));
+                        }
+
+                        ActualizarContactoEnDB(Name, PhoneticName, NickName, RutaImagen, Phone, PhonePlace, BirthDay, NombreUsuarioPertenece, Email);
+                        EscrbirComandosEnTexto();
+
+                        JOptionPane.showMessageDialog(null, "Contacto actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Numero de telefono inexistente", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else {
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+                }
+            } else if (Palabra.equals("search")) {
+                if (answer == JOptionPane.YES_OPTION) {
+                    JOptionPane.showMessageDialog(null, "Mencione el nombre del contacto", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+
+                    Palabra = GPalabra.getGst();
+
+                    for (int i = 0; i < ListaContactos.size(); i++) {
+                        if (ListaContactos.get(i).getNombreUsuarioPertenece().equals(UsuarioIngresado.getUserName())) {
+                            if (ListaContactos.get(i).getName().equals(Palabra)) {
+                                LlenarCamposContacts(ListaContactos.get(i));
+                            }
+                        }
+                    }
+                } else {
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+                }
+            } else if (Palabra.equals("voicecall")) {
+                if (answer == JOptionPane.YES_OPTION) {
+                    JOptionPane.showMessageDialog(null, "Mencione el nombre del contacto", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+
+                    Palabra = GPalabra.getGst();
+
+                    for (int i = 0; i < ListaContactos.size(); i++) {
+                        if (ListaContactos.get(i).getNombreUsuarioPertenece().equals(UsuarioIngresado.getUserName())) {
+                            if (ListaContactos.get(i).getName().equals(Palabra)) {
+                                LlenarCamposContacts(ListaContactos.get(i));
+                            }
+                        }
+                    }
+
+                    JOptionPane.showMessageDialog(null, "Llamando a " + Palabra, "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+                }
+            } else if (Palabra.equals("videocall")) {
+                if (answer == JOptionPane.YES_OPTION) {
+
+                } else {
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+                }
+            } else {
                 if (answer == JOptionPane.YES_OPTION) {
                     TextFieldActual.setText(Palabra);
                     Palabra = "";
@@ -1665,6 +1895,20 @@ public class Principal extends javax.swing.JFrame {
         jt_PhoneNumber_Profile.setText(UsuarioIngresado.getPhone());
     }
 
+    public void LlenarCamposContacts(Contacto ContactoActual) {
+        jt_Name_Contacts.setText(ContactoActual.getName());
+        jt_PhoneticName_Contacts.setText(ContactoActual.getPhoneticName());
+        jt_NickName_Contacts.setText(ContactoActual.getNickName());
+        jt_Phone_Contacts.setText(ContactoActual.getPhone());
+        jt_Day_Contacts.setText("");
+        jt_Year_Contacts.setText("");
+        jt_Email_Contacts.setText(ContactoActual.getEmail());
+
+        File Archivo = new File(RutaImagen);
+        Image Img = Toolkit.getDefaultToolkit().createImage(Archivo.getPath()).getScaledInstance(180, 229, 0);
+        jl_Imagen_Contacts.setIcon(new ImageIcon(Img));
+    }
+
     public void LimpiarCamposProfile() {
         jt_FirstName_Profile.setText("First");
         jt_LastName_Profile.setText("Last");
@@ -1674,6 +1918,21 @@ public class Principal extends javax.swing.JFrame {
         jt_Day_Profile.setText("DAY");
         jt_Year_Profile.setText("YEAR");
         jt_PhoneNumber_Profile.setText("");
+    }
+
+    public void LimpiarCamposContacts() {
+        jt_Name_Contacts.setText("");
+        jt_PhoneticName_Contacts.setText("");
+        jt_NickName_Contacts.setText("");
+        jt_Phone_Contacts.setText("");
+        jt_Day_Contacts.setText("DAY");
+        jt_Year_Contacts.setText("YEAR");
+        jt_Email_Contacts.setText("");
+        RutaImagen = "";
+    }
+
+    public void LimpiarMensaje() {
+        jta_Subject_Inbox.setText("");
     }
     //----------------------------------------------------------------------------------------------------------
 

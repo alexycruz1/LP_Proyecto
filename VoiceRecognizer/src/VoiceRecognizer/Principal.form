@@ -751,7 +751,7 @@
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jt_Year_Contacts" min="-2" pref="91" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jt_PhoneNumber_Contacts" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jt_Phone_Contacts" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -824,7 +824,7 @@
                               <Component id="jButton9" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jt_PhoneNumber_Contacts" min="-2" max="-2" attributes="0"/>
+                          <Component id="jt_Phone_Contacts" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -865,6 +865,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jt_Name_Contacts">
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jt_Name_ContactsMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel20">
                   <Properties>
@@ -981,7 +984,7 @@
                     <Property name="text" type="java.lang.String" value="Phone number"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jt_PhoneNumber_Contacts">
+                <Component class="javax.swing.JTextField" name="jt_Phone_Contacts">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel24">
                   <Properties>

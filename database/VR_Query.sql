@@ -142,6 +142,11 @@ AS
 UPDATE Comando SET Comandos = @Comandos WHERE Comandos2 = @Comandos2
 
 GO
+CREATE PROCEDURE EliminarComando
+AS
+DELETE FROM Comando
+
+GO
 CREATE PROCEDURE ListarComando
 AS
 SELECT* FROM Comando
