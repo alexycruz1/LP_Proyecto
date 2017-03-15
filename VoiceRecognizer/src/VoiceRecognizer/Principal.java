@@ -60,7 +60,8 @@ public class Principal extends javax.swing.JFrame {
         ListaComando();
 
         EscrbirComandosEnTexto();
-
+        LlenarInbox();
+        
         Recognizer();
         recognizer.pause();
     }
@@ -1687,6 +1688,7 @@ public class Principal extends javax.swing.JFrame {
 
                     LimpiarCamposLogIn();
                     LlenarCamposProfile();
+                    LlenarComboDeContactos();
                 } else if (!RevisarContraseñaYUsuario(jt_Username_LogIn.getText(), jt_Password_LogIn.getText()) && answer == JOptionPane.YES_OPTION) {
                     JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectas", "ERROR", JOptionPane.ERROR_MESSAGE);
                     LimpiarCamposLogIn();
