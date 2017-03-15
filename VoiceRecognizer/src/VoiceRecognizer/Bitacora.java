@@ -49,6 +49,6 @@ public class Bitacora {
 
     @Override
     public String toString() {
-        return "Bitacora{" + "Fecha=" + Fecha + '}';
+        return Fecha + " " + Accion + " por el usuario " + NombreUsuarioPertenece + "\n";
     }
 }
