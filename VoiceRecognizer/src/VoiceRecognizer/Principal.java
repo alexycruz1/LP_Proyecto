@@ -38,6 +38,9 @@ import javax.swing.JTextField;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.WebcamPanel;
+import javax.swing.JFrame;
 
 /**
  *
@@ -64,7 +67,7 @@ public class Principal extends javax.swing.JFrame {
         ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Inicio el programa el usuario", UsuarioIngresado.getUserName()));
         InsertarBitacoraEnDB(FechaBitacora.toString(), "Inicio el programa el usuario", UsuarioIngresado.getUserName());
         LlenarBitacora();
-        
+
         Recognizer();
         recognizer.pause();
     }
@@ -898,7 +901,7 @@ public class Principal extends javax.swing.JFrame {
                 LimpiarCamposCreateAccount();
 
                 JOptionPane.showMessageDialog(null, "Usuario creado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
-                
+
                 ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Agrego un usuario", ""));
                 InsertarBitacoraEnDB(FechaBitacora.toString(), "Agrego un usuario", "");
                 LlenarBitacora();
@@ -1030,7 +1033,7 @@ public class Principal extends javax.swing.JFrame {
             ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Usuario actualizado", UsuarioIngresado.getUserName()));
             InsertarBitacoraEnDB(FechaBitacora.toString(), "Usuario actualizado", UsuarioIngresado.getUserName());
             LlenarBitacora();
-            
+
             JOptionPane.showMessageDialog(null, "Usuario actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Usuario actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
@@ -1431,7 +1434,7 @@ public class Principal extends javax.swing.JFrame {
         boolean Resp = true;
         try {
             Conect.setAutoCommit(false);
-            CT = Conect.prepareCall("{Call AgregarBitacora(?, ?)}");
+            CT = Conect.prepareCall("{Call AgregarBitacora(?, ?, ?)}");
             CT.setString("Fecha", Fecha);
             CT.setString("Accion", Accion);
             CT.setString("NombreUsuarioPertenece", NombreUsuarioPertenece);
@@ -1999,9 +2002,10 @@ public class Principal extends javax.swing.JFrame {
                 }
             } else if (Palabra.equals("videocall")) {
                 if (answer == JOptionPane.YES_OPTION) {
-
-                    ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "se hizo una videollamada", UsuarioIngresado.getUserName().toString()));
-                    InsertarBitacoraEnDB(FechaBitacora.toString(), "se hizo una videollamada", UsuarioIngresado.getUserName().toString());
+                    
+                    VideoLlamada();
+                    ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "se hizo una videollamada", UsuarioIngresado.getUserName()));
+                    InsertarBitacoraEnDB(FechaBitacora.toString(), "se hizo una videollamada", UsuarioIngresado.getUserName());
                     LlenarBitacora();
                 } else {
                     Palabra = "";
@@ -2021,6 +2025,23 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         }
+    }
+
+    public void VideoLlamada() {
+        Webcam webcam = Webcam.getDefault();
+
+        WebcamPanel panel = new WebcamPanel(webcam);
+        panel.setFPSDisplayed(true);
+
+        JFrame window = new JFrame("VIDEO CALL");
+        window.setTitle("Haciendo videollamada con " + jt_Name_Contacts.getText());
+
+        window.setExtendedState(MAXIMIZED_BOTH);
+        panel.setFillArea(true);
+
+        window.add(panel);
+        window.pack();
+        window.setVisible(true);
     }
 
     public void LimpiarCamposLogIn() {
