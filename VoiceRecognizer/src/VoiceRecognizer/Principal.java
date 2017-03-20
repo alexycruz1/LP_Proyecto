@@ -66,10 +66,16 @@ public class Principal extends javax.swing.JFrame {
         ListaComando();
 
         EscrbirComandosEnTexto();
+
         LlenarInbox();
+
         ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Inicio el programa el usuario", UsuarioIngresado.getUserName()));
         InsertarBitacoraEnDB(FechaBitacora.toString(), "Inicio el programa el usuario", UsuarioIngresado.getUserName());
         LlenarBitacora();
+
+        Botones.add(jb_microphone_Contacts);
+        Botones.add(jb_microphone_Inbox);
+        Botones.add(jb_microphone_LogIn);
 
         Recognizer();
         recognizer.pause();
@@ -147,6 +153,7 @@ public class Principal extends javax.swing.JFrame {
         jt_Year_Contacts = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         jt_Email_Contacts = new javax.swing.JTextField();
+        jb_microphone_Contacts = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         cb_Recipients_Inbox = new javax.swing.JComboBox<>();
@@ -155,6 +162,7 @@ public class Principal extends javax.swing.JFrame {
         jta_Subject_Inbox = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtable_Inbox_Inbox = new javax.swing.JTable();
+        jb_microphone_Inbox = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jta_History_History = new javax.swing.JTextArea();
@@ -375,22 +383,6 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jt_Day_Profile)
-                                .addGap(18, 18, 18)
-                                .addComponent(cb_Month_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jt_Year_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jt_FirstName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jt_LastName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addGap(55, 55, 55))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
                             .addComponent(jLabel12)
@@ -403,11 +395,28 @@ public class Principal extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jt_ConfirmPassword_Profile, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jt_Password_Profile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jt_PhoneNumber_Profile, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cb_Location_Profile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jt_PhoneNumber_Profile, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cb_Location_Profile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
+                                .addComponent(jButton3))
                             .addComponent(cb_Gender_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jt_Day_Profile)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_Month_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jt_Year_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jt_FirstName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jt_LastName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -418,9 +427,8 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jt_FirstName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jt_LastName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
-                .addGap(22, 22, 22)
+                    .addComponent(jt_LastName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
                 .addComponent(jLabel11)
                 .addGap(18, 18, 18)
                 .addComponent(jt_Username_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -439,7 +447,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jt_Day_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cb_Month_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jt_Year_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(44, 44, 44)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cb_Gender_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -450,8 +458,10 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
-                .addComponent(jt_PhoneNumber_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jt_PhoneNumber_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Profile", jPanel1);
@@ -540,6 +550,13 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jb_microphone_Contacts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Microphone.png"))); // NOI18N
+        jb_microphone_Contacts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_microphone_ContactsMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -580,7 +597,9 @@ public class Principal extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jt_Year_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jt_Phone_Contacts))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jb_microphone_Contacts)
+                        .addGap(154, 154, 154))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -589,7 +608,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jl_Imagen_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jt_PhoneticName_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -608,9 +627,14 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jt_Email_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jLabel22)
-                .addGap(20, 20, 20)
-                .addComponent(cb_Location_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(cb_Location_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jb_microphone_Contacts)))
+                .addGap(40, 40, 40)
                 .addComponent(jLabel23)
                 .addGap(18, 18, 18)
                 .addComponent(jt_Phone_Contacts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -632,6 +656,11 @@ public class Principal extends javax.swing.JFrame {
 
         jta_Subject_Inbox.setColumns(20);
         jta_Subject_Inbox.setRows(5);
+        jta_Subject_Inbox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jta_Subject_InboxMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jta_Subject_Inbox);
 
         jtable_Inbox_Inbox.setModel(new javax.swing.table.DefaultTableModel(
@@ -659,6 +688,13 @@ public class Principal extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jtable_Inbox_Inbox);
 
+        jb_microphone_Inbox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Microphone.png"))); // NOI18N
+        jb_microphone_Inbox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_microphone_InboxMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -673,25 +709,32 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jLabel26))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(cb_Recipients_Inbox, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jb_microphone_Inbox)
+                                .addGap(8, 8, 8)))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(cb_Recipients_Inbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel26)
+                            .addComponent(cb_Recipients_Inbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jb_microphone_Inbox)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel27)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -716,7 +759,7 @@ public class Principal extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 741, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -826,28 +869,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jb_microphone_LogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_microphone_LogInMouseClicked
         // TODO add your handling code here:
-        if (CambiarIconoMicrofono == 0) {
-            jb_microphone_LogIn.setIcon(new ImageIcon(getClass().getResource("/Iconos/stopMicrophone.png")));
-            PalabraAnterior = Palabra;
-            CambiarIconoMicrofono++;
-            try {
-                recognizer.resume();
-            } catch (AudioException ex) {
-                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (EngineStateError ex) {
-                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Inicio a grabar", UsuarioIngresado.getUserName()));
-            InsertarBitacoraEnDB(FechaBitacora.toString(), "Inicio a grabar", UsuarioIngresado.getUserName());
-            LlenarBitacora();
-        } else if (CambiarIconoMicrofono == 1) {
-            jb_microphone_LogIn.setIcon(new ImageIcon(getClass().getResource("/Iconos/Microphone.png")));
-            CambiarIconoMicrofono--;
-            recognizer.pause();
-            ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Se detuvo la grabacion", UsuarioIngresado.getUserName()));
-            InsertarBitacoraEnDB(FechaBitacora.toString(), "Se detuvo la grabacion", UsuarioIngresado.getUserName());
-        }
+        EstadoMicrofono();
     }//GEN-LAST:event_jb_microphone_LogInMouseClicked
 
     private void cb_Location_CreateAccountItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Location_CreateAccountItemStateChanged
@@ -1073,6 +1095,21 @@ public class Principal extends javax.swing.JFrame {
         ReconocedorContacts(jt_Email_Contacts);
     }//GEN-LAST:event_jt_Email_ContactsMouseClicked
 
+    private void jb_microphone_ContactsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_microphone_ContactsMouseClicked
+        // TODO add your handling code here:
+        EstadoMicrofono();
+    }//GEN-LAST:event_jb_microphone_ContactsMouseClicked
+
+    private void jta_Subject_InboxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jta_Subject_InboxMouseClicked
+        // TODO add your handling code here:
+        ReconocedorMensaje(jta_Subject_Inbox);
+    }//GEN-LAST:event_jta_Subject_InboxMouseClicked
+
+    private void jb_microphone_InboxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_microphone_InboxMouseClicked
+        // TODO add your handling code here:
+        EstadoMicrofono();
+    }//GEN-LAST:event_jb_microphone_InboxMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1156,6 +1193,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_CreateAccount_CreateAccount;
     private javax.swing.JButton jb_CreateAccount_LogIn;
+    private javax.swing.JButton jb_microphone_Contacts;
+    private javax.swing.JButton jb_microphone_Inbox;
     private javax.swing.JButton jb_microphone_LogIn;
     private javax.swing.JDialog jd_CreateAccount;
     private javax.swing.JDialog jd_User;
@@ -1205,6 +1244,7 @@ public class Principal extends javax.swing.JFrame {
     ArrayList<Bitacora> ListaBitacoras = new ArrayList();
     ArrayList<String> ListaComandos = new ArrayList();
     ArrayList<JTextField> ListaJTextFields = new ArrayList();
+    ArrayList<JButton> Botones = new ArrayList();
 
     Usuario UsuarioIngresado = new Usuario();
 
@@ -1431,7 +1471,6 @@ public class Principal extends javax.swing.JFrame {
         CallableStatement CT = null;
         boolean Resp = true;
         try {
-            Conect.setAutoCommit(false);
             CT = Conect.prepareCall("{Call AgregarBitacora(?, ?, ?)}");
             CT.setString("Fecha", Fecha);
             CT.setString("Accion", Accion);
@@ -1643,6 +1682,39 @@ public class Principal extends javax.swing.JFrame {
         jtable_Inbox_Inbox.setModel(ModeloTabla);
     }
 
+    public void EstadoMicrofono() {
+        if (CambiarIconoMicrofono == 0) {
+            for (int i = 0; i < Botones.size(); i++) {
+                Botones.get(i).setIcon(new ImageIcon(getClass().getResource("/Iconos/stopMicrophone.png")));
+            }
+            
+            PalabraAnterior = Palabra;
+            CambiarIconoMicrofono++;
+            try {
+                recognizer.resume();
+            } catch (AudioException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (EngineStateError ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Inicio a grabar", UsuarioIngresado.getUserName()));
+            InsertarBitacoraEnDB(FechaBitacora.toString(), "Inicio a grabar", UsuarioIngresado.getUserName());
+            LlenarBitacora();
+        } else if (CambiarIconoMicrofono == 1) {
+            for (int i = 0; i < Botones.size(); i++) {
+                Botones.get(i).setIcon(new ImageIcon(getClass().getResource("/Iconos/stopMicrophone.png")));
+            }
+            
+            CambiarIconoMicrofono--;
+            recognizer.pause();
+
+            ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Se detuvo la grabacion", UsuarioIngresado.getUserName()));
+            InsertarBitacoraEnDB(FechaBitacora.toString(), "Se detuvo la grabacion", UsuarioIngresado.getUserName());
+            LlenarBitacora();
+        }
+    }
+
     public void EscrbirComandosEnTexto() {
         FileWriter fichero = null;
         PrintWriter pw = null;
@@ -1760,12 +1832,12 @@ public class Principal extends javax.swing.JFrame {
         }
     }
 
-    public void ReconcedorMensaje(JTextField TextFieldActual) {
+    public void ReconocedorMensaje(JTextArea TextAreaActual) {
         Palabra = GPalabra.getGst();
         if (!"".equals(Palabra)) {
             int answer = JOptionPane.showConfirmDialog(this, "¿Quisiste decir " + Palabra + "?");
             if (answer == JOptionPane.YES_OPTION && Palabra.equals("send")) {
-                String Mensaje = jta_Subject_Inbox.getText();
+                String Mensaje = TextAreaActual.getText();
                 Date FechaActual = new Date();
                 String Destinatario = ((Contacto) cb_Recipients_Inbox.getSelectedItem()).getName() + " " + ((Contacto) cb_Recipients_Inbox.getSelectedItem()).getPhone();
 
@@ -1773,7 +1845,7 @@ public class Principal extends javax.swing.JFrame {
                 ListaMensajes.add(NuevoMensaje);
                 InsertarMensajeEnDB(FechaActual.toString(), Mensaje, Destinatario, UsuarioIngresado.getUserName());
 
-                jta_Subject_Inbox.setText("");
+                TextAreaActual.setText("");
                 LlenarInbox();
 
                 ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "mensaje enviado", UsuarioIngresado.getUserName().toString()));
@@ -2000,7 +2072,7 @@ public class Principal extends javax.swing.JFrame {
                 }
             } else if (Palabra.equals("videocall")) {
                 if (answer == JOptionPane.YES_OPTION) {
-                    
+
                     VideoLlamada();
                     ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "se hizo una videollamada", UsuarioIngresado.getUserName()));
                     InsertarBitacoraEnDB(FechaBitacora.toString(), "se hizo una videollamada", UsuarioIngresado.getUserName());
