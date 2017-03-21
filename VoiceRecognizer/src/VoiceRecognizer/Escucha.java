@@ -5,11 +5,13 @@
  */
 package VoiceRecognizer;
 
+import java.io.FileReader;
 import javax.speech.recognition.Recognizer;
 import javax.speech.recognition.Result;
 import javax.speech.recognition.ResultAdapter;
 import javax.speech.recognition.ResultEvent;
 import javax.speech.recognition.ResultToken;
+import javax.speech.recognition.RuleGrammar;
 
 /**
  *
@@ -55,6 +57,11 @@ public class Escucha extends ResultAdapter {
                 recognizer.suspend();
                 recognizer.resume();
             }
+           
+            FileReader grammar1 = new FileReader("e:/Proyectos/LP_Proyecto/VoiceRecognizer/Gramatica.txt");
+            RuleGrammar rg = recognizer.loadJSGF(grammar1);
+            rg.setEnabled(true);
+        
         } catch (Exception ex) {
             System.out.println("Palabra captada");
         }

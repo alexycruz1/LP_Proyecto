@@ -43,6 +43,7 @@ import com.github.sarxos.webcam.WebcamPanel;
 import javax.swing.JFrame;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import javax.swing.*;
 
@@ -58,6 +59,7 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(this);
+
         ConectarDB();
 
         ListaUsuarios();
@@ -167,6 +169,10 @@ public class Principal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jta_History_History = new javax.swing.JTextArea();
+        jd_VoiceCall = new javax.swing.JDialog();
+        jl_Imagen_VoiceCall = new javax.swing.JLabel();
+        jl_TiempoLlamada = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
         jb_microphone_LogIn = new javax.swing.JButton();
         jt_Username_LogIn = new javax.swing.JTextField();
         jb_CreateAccount_LogIn = new javax.swing.JButton();
@@ -384,6 +390,12 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jt_PhoneNumber_Profile, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_Location_Profile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
+                        .addComponent(jButton3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
                             .addComponent(jLabel12)
@@ -396,29 +408,22 @@ public class Principal extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jt_ConfirmPassword_Profile, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jt_Password_Profile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jt_PhoneNumber_Profile, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cb_Location_Profile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
-                                .addComponent(jButton3))
                             .addComponent(cb_Gender_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jt_Day_Profile)
-                                .addGap(18, 18, 18)
-                                .addComponent(cb_Month_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jt_Year_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jt_FirstName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jt_LastName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel11)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jt_Day_Profile)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(cb_Month_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jt_Year_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(17, 17, 17))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jt_FirstName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jt_LastName_Profile, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -783,6 +788,52 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jd_VoiceCall.setTitle("VOICE CALL");
+
+        jl_Imagen_VoiceCall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_Imagen_VoiceCall.setText("Imagen");
+
+        jl_TiempoLlamada.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jl_TiempoLlamada.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jl_TiempoLlamada.setText("0:0:0");
+
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/HangUp.png"))); // NOI18N
+        jLabel29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel29MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_VoiceCallLayout = new javax.swing.GroupLayout(jd_VoiceCall.getContentPane());
+        jd_VoiceCall.getContentPane().setLayout(jd_VoiceCallLayout);
+        jd_VoiceCallLayout.setHorizontalGroup(
+            jd_VoiceCallLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_VoiceCallLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel29)
+                .addGap(94, 94, 94))
+            .addGroup(jd_VoiceCallLayout.createSequentialGroup()
+                .addGroup(jd_VoiceCallLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_VoiceCallLayout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jl_Imagen_VoiceCall, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_VoiceCallLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jl_TiempoLlamada, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(75, Short.MAX_VALUE))
+        );
+        jd_VoiceCallLayout.setVerticalGroup(
+            jd_VoiceCallLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_VoiceCallLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jl_Imagen_VoiceCall, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jl_TiempoLlamada)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOG IN/SIGN IN");
         setResizable(false);
@@ -827,15 +878,16 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jb_microphone_LogIn, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jb_CreateAccount_LogIn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jb_CreateAccount_LogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(215, 215, 215)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jt_Password_LogIn)
                             .addComponent(jt_Username_LogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE))
-                        .addGap(0, 224, Short.MAX_VALUE)))
+                        .addGap(0, 224, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jb_microphone_LogIn)))
                 .addContainerGap())
         );
 
@@ -921,19 +973,19 @@ public class Principal extends javax.swing.JFrame {
 
                 LimpiarCamposCreateAccount();
 
-                JOptionPane.showMessageDialog(null, "Usuario creado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(jd_CreateAccount, "Usuario creado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
 
                 ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Creo un usuario", UsuarioIngresado.getUserName()));
                 InsertarBitacoraEnDB(FechaBitacora.toString(), "Creo un usuario", UsuarioIngresado.getUserName());
                 LlenarBitacora();
 
             } else if (UsuarioExistente(UserName)) {
-                JOptionPane.showMessageDialog(null, "Usuario ya existente", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(jd_CreateAccount, "Usuario ya existente", "ERROR", JOptionPane.ERROR_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "Contraseñas no coinciden", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(jd_CreateAccount, "Contraseñas no coinciden", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Los campos no estan llenos", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(jd_CreateAccount, "Los campos no estan llenos", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jb_CreateAccount_CreateAccountMouseClicked
 
@@ -1057,9 +1109,9 @@ public class Principal extends javax.swing.JFrame {
             InsertarBitacoraEnDB(FechaBitacora.toString(), "actualizo un usuario", UsuarioIngresado.getUserName());
             LlenarBitacora();
 
-            JOptionPane.showMessageDialog(null, "Usuario actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(jd_User, "Usuario actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Usuario actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(jd_User, "Usuario actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButton3MouseClicked
 
@@ -1112,6 +1164,11 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         EstadoMicrofono();
     }//GEN-LAST:event_jb_microphone_InboxMouseClicked
+
+    private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
+        // TODO add your handling code here:
+        jd_VoiceCall.dispose();
+    }//GEN-LAST:event_jLabel29MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1179,6 +1236,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1201,7 +1259,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jb_microphone_LogIn;
     private javax.swing.JDialog jd_CreateAccount;
     private javax.swing.JDialog jd_User;
+    private javax.swing.JDialog jd_VoiceCall;
     private javax.swing.JLabel jl_Imagen_Contacts;
+    private javax.swing.JLabel jl_Imagen_VoiceCall;
+    private javax.swing.JLabel jl_TiempoLlamada;
     private javax.swing.JPasswordField jt_ConfirmPassword_CreateAccount;
     private javax.swing.JPasswordField jt_ConfirmPassword_Profile;
     private javax.swing.JTextField jt_Day_Contacts;
@@ -1410,7 +1471,7 @@ public class Principal extends javax.swing.JFrame {
                 NuevoContacto.setBirthDay(RS.getString("BirthDay"));
                 NuevoContacto.setNombreUsuarioPertenece(RS.getString("NombreUsuarioPertenece"));
                 NuevoContacto.setEmail(RS.getString("Email"));
-                
+
                 ListaContactos.add(NuevoContacto);
             }
         } catch (Exception e) {
@@ -1708,7 +1769,7 @@ public class Principal extends javax.swing.JFrame {
 
         } else if (CambiarIconoMicrofono == 1) {
             for (int i = 0; i < Botones.size(); i++) {
-                Botones.get(i).setIcon(new ImageIcon(getClass().getResource("/Iconos/stopMicrophone.png")));
+                Botones.get(i).setIcon(new ImageIcon(getClass().getResource("/Iconos/Microphone.png")));
             }
 
             CambiarIconoMicrofono--;
@@ -1779,7 +1840,7 @@ public class Principal extends javax.swing.JFrame {
     public void ReconocedorLogIn(JTextField TextFieldActual) {
         Palabra = GPalabra.getGst();
         if (!"".equals(Palabra)) {
-            int answer = JOptionPane.showConfirmDialog(this, "¿Quisiste decir " + Palabra + "?");
+            int answer = JOptionPane.showConfirmDialog(jd_User, "¿Quisiste decir " + Palabra + "?");
             if (Palabra.equals("login") && CamposLlenosLogIn()) {
                 if (RevisarContraseñaYUsuario(jt_Username_LogIn.getText(), jt_Password_LogIn.getText()) && answer == JOptionPane.YES_OPTION) {
                     jd_User.setModal(false);
@@ -1801,8 +1862,12 @@ public class Principal extends javax.swing.JFrame {
                     InsertarBitacoraEnDB(FechaBitacora.toString(), "Usuario inicio sesion", UsuarioIngresado.getUserName());
                     LlenarBitacora();
 
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
+
                 } else if (!RevisarContraseñaYUsuario(jt_Username_LogIn.getText(), jt_Password_LogIn.getText()) && answer == JOptionPane.YES_OPTION) {
-                    JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectas", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectas", "ERROR", JOptionPane.ERROR_MESSAGE);
                     LimpiarCamposLogIn();
                     Palabra = "";
                     PalabraAnterior = "";
@@ -1842,7 +1907,7 @@ public class Principal extends javax.swing.JFrame {
     public void ReconocedorMensaje(JTextArea TextAreaActual) {
         Palabra = GPalabra.getGst();
         if (!"".equals(Palabra)) {
-            int answer = JOptionPane.showConfirmDialog(this, "¿Quisiste decir " + Palabra + "?");
+            int answer = JOptionPane.showConfirmDialog(jd_User, "¿Quisiste decir " + Palabra + "?");
             if (answer == JOptionPane.YES_OPTION && Palabra.equals("send")) {
                 String Mensaje = TextAreaActual.getText();
                 Date FechaActual = new Date();
@@ -1859,7 +1924,7 @@ public class Principal extends javax.swing.JFrame {
                 InsertarBitacoraEnDB(FechaBitacora.toString(), "Envio un mensaje", UsuarioIngresado.getUserName());
                 LlenarBitacora();
 
-                JOptionPane.showMessageDialog(null, "Mensaje enviado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(jd_User, "Mensaje enviado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
                 Palabra = "";
                 PalabraAnterior = "";
                 GPalabra.setGst("");
@@ -1874,7 +1939,7 @@ public class Principal extends javax.swing.JFrame {
     public void ReconocedorContacts(JTextField TextFieldActual) {
         Palabra = GPalabra.getGst();
         if (!"".equals(Palabra)) {
-            int answer = JOptionPane.showConfirmDialog(this, "¿Quisiste decir " + Palabra + "?");
+            int answer = JOptionPane.showConfirmDialog(jd_User, "¿Quisiste decir " + Palabra + "?");
             if (Palabra.equals("add")) {
                 if (answer == JOptionPane.YES_OPTION) {
                     String Name, PhoneticName, NickName, Phone, PhonePlace, Email, BirthDay, NombreUsuarioPertenece;
@@ -1902,9 +1967,17 @@ public class Principal extends javax.swing.JFrame {
                         InsertarBitacoraEnDB(FechaBitacora.toString(), "Agrego un contacto", UsuarioIngresado.getUserName());
                         LlenarBitacora();
 
-                        JOptionPane.showMessageDialog(null, "Contacto agregado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(jd_User, "Contacto agregado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+
+                        Palabra = "";
+                        PalabraAnterior = "";
+                        GPalabra.setGst("");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Llene todos los campos", "OPERACION EXITOSA", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jd_User, "Llene todos los campos", "OPERACION EXITOSA", JOptionPane.ERROR_MESSAGE);
+
+                        Palabra = "";
+                        PalabraAnterior = "";
+                        GPalabra.setGst("");
                     }
                 } else {
                     Palabra = "";
@@ -1954,9 +2027,17 @@ public class Principal extends javax.swing.JFrame {
                         InsertarBitacoraEnDB(FechaBitacora.toString(), "Elimino un contacto", UsuarioIngresado.getUserName());
                         LlenarBitacora();
 
-                        JOptionPane.showMessageDialog(null, "Contacto eliminado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(jd_User, "Contacto eliminado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+
+                        Palabra = "";
+                        PalabraAnterior = "";
+                        GPalabra.setGst("");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Llene todos los campos", "OPERACION EXITOSA", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jd_User, "Llene todos los campos", "OPERACION EXITOSA", JOptionPane.ERROR_MESSAGE);
+
+                        Palabra = "";
+                        PalabraAnterior = "";
+                        GPalabra.setGst("");
                     }
                 } else {
                     Palabra = "";
@@ -2022,9 +2103,17 @@ public class Principal extends javax.swing.JFrame {
                         InsertarBitacoraEnDB(FechaBitacora.toString(), "Actualizo un contacto", UsuarioIngresado.getUserName());
                         LlenarBitacora();
 
-                        JOptionPane.showMessageDialog(null, "Contacto actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(jd_User, "Contacto actualizado exitosamente", "OPERACION EXITOSA", JOptionPane.INFORMATION_MESSAGE);
+
+                        Palabra = "";
+                        PalabraAnterior = "";
+                        GPalabra.setGst("");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Numero de telefono inexistente", "ERROR", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(jd_User, "Numero de telefono inexistente", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+                        Palabra = "";
+                        PalabraAnterior = "";
+                        GPalabra.setGst("");
                     }
                 } else {
                     Palabra = "";
@@ -2039,6 +2128,10 @@ public class Principal extends javax.swing.JFrame {
                     ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "Se busco un contacto", UsuarioIngresado.getUserName()));
                     InsertarBitacoraEnDB(FechaBitacora.toString(), "Se busco un contacto", UsuarioIngresado.getUserName());
                     LlenarBitacora();
+
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
                 } else {
                     Palabra = "";
                     PalabraAnterior = "";
@@ -2053,7 +2146,18 @@ public class Principal extends javax.swing.JFrame {
                     InsertarBitacoraEnDB(FechaBitacora.toString(), "hizo una llamada", UsuarioIngresado.getUserName());
                     LlenarBitacora();
 
-                    JOptionPane.showMessageDialog(null, "Llamando a " + Palabra, "OPERACION EN CURSO", JOptionPane.INFORMATION_MESSAGE);
+                    Hilo secs = new Hilo(jl_TiempoLlamada);
+                    Thread proceso = new Thread(secs);
+                    proceso.start();
+
+                    jd_VoiceCall.setModal(false);
+                    jd_VoiceCall.pack();
+                    jd_VoiceCall.setLocationRelativeTo(this);
+                    jd_VoiceCall.setVisible(true);
+
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
                 } else {
                     Palabra = "";
                     PalabraAnterior = "";
@@ -2067,6 +2171,10 @@ public class Principal extends javax.swing.JFrame {
                     ListaBitacoras.add(new Bitacora(FechaBitacora.toString(), "se hizo una videollamada", UsuarioIngresado.getUserName()));
                     InsertarBitacoraEnDB(FechaBitacora.toString(), "se hizo una videollamada", UsuarioIngresado.getUserName());
                     LlenarBitacora();
+
+                    Palabra = "";
+                    PalabraAnterior = "";
+                    GPalabra.setGst("");
                 } else {
                     Palabra = "";
                     PalabraAnterior = "";
@@ -2090,13 +2198,23 @@ public class Principal extends javax.swing.JFrame {
     public void ReconocedorSearch(JTextField TextFieldActual) {
         Palabra = TextFieldActual.getText();
         if (!"".equals(Palabra)) {
-            int answer = JOptionPane.showConfirmDialog(this, "¿Quieres buscar a " + Palabra + "?");
-            
+            int answer = JOptionPane.showConfirmDialog(jd_User, "¿Quieres buscar a " + Palabra + "?");
+
             for (int i = 0; i < ListaContactos.size(); i++) {
                 if (ListaContactos.get(i).getName().equals(Palabra) && answer == JOptionPane.YES_OPTION) {
                     LlenarCamposContacts(ListaContactos.get(i));
+                    
+                    jl_Imagen_VoiceCall.setText("");
+                    
+                    File Archivo = new File(ListaContactos.get(i).getRutaImagen());
+                    Image Img = Toolkit.getDefaultToolkit().createImage(Archivo.getPath()).getScaledInstance(180, 229, 0);
+                    jl_Imagen_VoiceCall.setIcon(new ImageIcon(Img));
                 }
             }
+
+            Palabra = "";
+            PalabraAnterior = "";
+            GPalabra.setGst("");
         } else {
             Palabra = "";
             PalabraAnterior = "";
@@ -2185,6 +2303,16 @@ public class Principal extends javax.swing.JFrame {
 
     public void LimpiarMensaje() {
         jta_Subject_Inbox.setText("");
+    }
+
+    public void RecargarGramatica() {
+        try {
+            FileReader grammar1 = new FileReader("e:/Proyectos/LP_Proyecto/VoiceRecognizer/Gramatica.txt");
+            RuleGrammar rg = recognizer.loadJSGF(grammar1);
+            rg.setEnabled(true);
+
+        } catch (Exception e) {
+        }
     }
     //----------------------------------------------------------------------------------------------------------
 
