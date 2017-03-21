@@ -17,9 +17,7 @@ public <sentence> =
 [<dato12>]
 [<dato13>]
 [<dato14>]
-[<dato15>]
-[<dato16>]
-[<dato17>];
+[<dato15>];
 
 <dato0>=username;
 <dato1>=password;
@@ -36,6 +34,4 @@ public <sentence> =
 <dato12>=update;
 <dato13>=send;
 <dato14>=logout;
-<dato15>=juan;
-<dato16>=Juan;
-<dato17>=Juan;
+<dato15>=Juan;

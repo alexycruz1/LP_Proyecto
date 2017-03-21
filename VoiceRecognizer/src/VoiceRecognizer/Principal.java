@@ -43,6 +43,7 @@ import com.github.sarxos.webcam.WebcamPanel;
 import javax.swing.JFrame;
 import java.awt.*;
 import java.awt.event.*;
+import java.net.URL;
 import javax.swing.*;
 
 /**
@@ -1391,13 +1392,13 @@ public class Principal extends javax.swing.JFrame {
         }
     }
 
-    public ArrayList<Usuario> ListaContactos() {
+    public ArrayList<Contacto> ListaContactos() {
         CallableStatement CT = null;
         ResultSet RS = null;
         try {
             CT = Conect.prepareCall("{Call ListarContacto}");
             RS = CT.executeQuery();
-            Contacto NuevoContacto;
+            Contacto NuevoContacto = null;
             while (RS.next()) {
                 NuevoContacto = new Contacto();
                 NuevoContacto.setName(RS.getString("Nombre"));
@@ -1406,14 +1407,15 @@ public class Principal extends javax.swing.JFrame {
                 NuevoContacto.setRutaImagen(RS.getString("RutaImagen"));
                 NuevoContacto.setPhone(RS.getString("Phone"));
                 NuevoContacto.setPhonePlace(RS.getString("PhonePlace"));
-                NuevoContacto.setBirthDay(RS.getString("BithDay"));
+                NuevoContacto.setBirthDay(RS.getString("BirthDay"));
                 NuevoContacto.setNombreUsuarioPertenece(RS.getString("NombreUsuarioPertenece"));
                 NuevoContacto.setEmail(RS.getString("Email"));
+                
                 ListaContactos.add(NuevoContacto);
             }
         } catch (Exception e) {
         }
-        return ListaUsuarios;
+        return ListaContactos;
     }
 
     //----------------------------------------------------------------------------------------------------------
@@ -2089,7 +2091,7 @@ public class Principal extends javax.swing.JFrame {
         Palabra = TextFieldActual.getText();
         if (!"".equals(Palabra)) {
             int answer = JOptionPane.showConfirmDialog(this, "¿Quieres buscar a " + Palabra + "?");
-
+            
             for (int i = 0; i < ListaContactos.size(); i++) {
                 if (ListaContactos.get(i).getName().equals(Palabra) && answer == JOptionPane.YES_OPTION) {
                     LlenarCamposContacts(ListaContactos.get(i));
@@ -2152,8 +2154,9 @@ public class Principal extends javax.swing.JFrame {
         jt_Day_Contacts.setText("");
         jt_Year_Contacts.setText("");
         jt_Email_Contacts.setText(ContactoActual.getEmail());
+        jl_Imagen_Contacts.setText("");
 
-        File Archivo = new File(RutaImagen);
+        File Archivo = new File(ContactoActual.getRutaImagen());
         Image Img = Toolkit.getDefaultToolkit().createImage(Archivo.getPath()).getScaledInstance(180, 229, 0);
         jl_Imagen_Contacts.setIcon(new ImageIcon(Img));
     }
