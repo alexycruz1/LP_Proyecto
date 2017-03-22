@@ -1602,7 +1602,7 @@ public class Principal extends javax.swing.JFrame {
         boolean Resp = true;
         try {
             Conect.setAutoCommit(false);
-            CT = Conect.prepareCall("{Call EliminarComando()}");
+            CT = Conect.prepareCall("{Call EliminarComando}");
             Resp = CT.execute();
             Conect.commit();
         } catch (Exception e) {
@@ -2209,6 +2209,7 @@ public class Principal extends javax.swing.JFrame {
                     File Archivo = new File(ListaContactos.get(i).getRutaImagen());
                     Image Img = Toolkit.getDefaultToolkit().createImage(Archivo.getPath()).getScaledInstance(180, 229, 0);
                     jl_Imagen_VoiceCall.setIcon(new ImageIcon(Img));
+                    jl_Imagen_Contacts.setIcon(new ImageIcon(Img));
                 }
             }
 

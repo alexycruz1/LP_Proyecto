@@ -1365,10 +1365,6 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jb_CreateAccount_LogIn" min="-2" pref="158" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1379,7 +1375,10 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jb_microphone_LogIn" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jb_CreateAccount_LogIn" alignment="1" min="-2" pref="158" max="-2" attributes="0"/>
+                          <Component id="jb_microphone_LogIn" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
